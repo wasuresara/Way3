@@ -1,0 +1,114 @@
+:root {
+  color-scheme: light dark;
+  max-width: 400px;
+  place-self: center;
+  background-color: #f2f2f2;
+
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+
+  font-family: "Space Grotesk", sans-serif;
+
+}
+
+body {
+  font-family: "Space Grotesk", "Arial", sans-serif;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'June';
+  src: url('./assets/fonts/june-expt-curious.otf');
+  letter-spacing: 2px;
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Eck';
+  src: url('./assets/fonts/Eckmannpsych-Small.ttf');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'MF';
+  src: url('./assets/fonts/mollen-fancyla.otf');
+}
+
+a,
+button {}
+
+button {}
+
+button:hover {}
+
+a:hover,
+button:hover {}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+  padding: 0px 16px 0px 16px;
+
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+h1:hover {}
+
+h2:hover {}
+
+p {}
+
+input {}
+
+input:focus {}
+
+input:hover {}
+
+li {
+  list-style: none;
+  padding: 0;
+}
+
+ul {
+  padding: 0;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  :root {
+    max-width: 800px;
+  }
+
+  body {
+    border-color: black;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+}
+
+@media (prefers-color-scheme: dark) {
+
+  :root {
+    background-color: #141414;
+  }
+
+  body {}
+
+  .LanguageSwitcher {
+    color: aliceblue;
+  }
+
+}

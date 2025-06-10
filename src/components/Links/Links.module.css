@@ -1,0 +1,38 @@
+.linksWrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 18px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.linkButton {
+    /* color: lightseagreen; */
+    color: green;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.linkButton:hover {
+    color: darkgreen;
+    text-decoration: underline;
+    text-decoration-color: darkgreen;
+}
+
+@media (prefers-color-scheme: dark) {
+    .linkButton {
+        color: rgb(116, 173, 182);
+    }
+
+    .linkButton:hover {}
+}
+
+@media screen and (min-width: 768px) {
+    .linkButton {
+        font-size: 20px;
+    }
+}

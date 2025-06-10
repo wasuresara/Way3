@@ -1,0 +1,11 @@
+.text {
+    text-align: left;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+}
+
+@media (prefers-color-scheme: light) {
+    .text {
+        color: black
+    }
+}

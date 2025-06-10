@@ -1,0 +1,94 @@
+div {
+    margin-bottom: 8px;
+}
+
+.formm {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    align-items: center;
+}
+
+.buttonMain {
+    font-family: "Space Grotesk", serif;
+    padding: 2px 18px 2px 18px;
+    border-radius: 16px;
+    font-size: 16px;
+    background: none;
+    border: none;
+    box-shadow: inset 1px 1px 4px 0 rgba(0, 0, 0, 0.25), 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    place-self: center;
+    transition: all 0.2s ease-in-out;
+    margin-bottom: 16px;
+    margin-left: 4px;
+}
+
+.buttonMain:hover {
+    cursor: pointer;
+    background-color: #e6e6e6;
+}
+
+.Forms {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.label1 {
+    font-size: 18px;
+    color: rgb(50, 0, 0);
+}
+
+.text {
+    margin-bottom: 8px;
+    font-size: 20px;
+    margin-top: 0px;
+}
+
+input {
+    width: 175px;
+    font-size: 16px;
+    font-family: "Space Grotesk", serif;
+    padding: 2px 18px 2px 18px;
+    border-radius: 16px;
+    border: 2px solid lightgray;
+    background: none;
+
+    transition: all 0.2s ease-in-out;
+}
+
+input:hover {
+    cursor: pointer;
+    border-color: rgb(22, 83, 13);
+}
+
+input:focus {
+    outline: none;
+    border-color: gray;
+}
+
+@media screen and (min-width: 768px) {
+    .buttonMain {
+        font-size: 18px;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .label1 {
+        color: #f2f2f2;
+    }
+
+    .buttonMain {
+        background-color: lightgray;
+        color: black;
+    }
+
+    .buttonMain:hover {
+        background-color: #1c1711;
+        color: #f2f2f2;
+        outline: #f2f2f2 solid 1px;
+        box-shadow: inset 1px 1px 4px 0 rgba(255, 255, 255, 0.25), 0 4px 4px 0 rgba(255, 255, 255, 0.25);
+    }
+}

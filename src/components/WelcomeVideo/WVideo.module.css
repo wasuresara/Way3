@@ -1,0 +1,22 @@
+.videoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 14px;
+}
+
+.responsiveGif {
+    width: 325px;
+    height: auto;
+    border-radius: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+@media (min-width: 768px) {
+    .responsiveGif {
+        width: 525px;
+    }
+}
+
+@media (prefers-color-scheme: dark) {}
