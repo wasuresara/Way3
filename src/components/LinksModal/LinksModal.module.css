@@ -76,7 +76,10 @@ div {
 }
 
 .Forms {
-    width: 200px;
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+    min-width: 150px;
 }
 
 .text {
@@ -134,10 +137,27 @@ input:focus {
         inset 0 0 0 2px rgba(255, 255, 255, 0.5);
 }
 
-@media screen and (min-width: 768px) {}
+@media screen and (min-width: 768px) {
+    .buttonMain {
+        font-size: 20px;
+    }
+
+    .label1 {
+        font-size: 22px;
+        margin-bottom: 2px;
+    }
+
+    input {
+        font-size: 18px;
+    }
+}
 
 @media (prefers-color-scheme: dark) {
     .label1 {
+        color: #f2f2f2;
+    }
+
+    input {
         color: #f2f2f2;
     }
 

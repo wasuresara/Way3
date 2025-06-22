@@ -185,7 +185,6 @@ p {
 
   .nameText {
     margin: 0;
-
   }
 
   .tags {
@@ -206,7 +205,7 @@ p {
   }
 
   .button {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .sectionOverview {
