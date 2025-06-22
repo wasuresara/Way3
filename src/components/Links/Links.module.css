@@ -11,28 +11,30 @@
 }
 
 .linkButton {
-    /* color: lightseagreen; */
-    color: green;
-    text-decoration: none;
-    transition: all 0.3s ease-in-out;
+    width: 100px;
+    height: 30px;
+    border-radius: 210px;
+    opacity: 1;
+
+    background: rgba(216, 216, 216, 0.3);
+
+    border: 1px solid;
+    border-image: linear-gradient(180deg, #FFFFFF 5%, #888888 100%) 1;
+
+    backdrop-filter: blur(2px);
+    box-shadow: inset 0px 0px 7px 0px rgba(255, 255, 255, 0.3);
+
+    stroke: none;
 }
 
-.linkButton:hover {
-    color: darkgreen;
-    text-decoration: underline;
-    text-decoration-color: darkgreen;
-}
+.linkButton:hover {}
 
 @media (prefers-color-scheme: dark) {
-    .linkButton {
-        color: rgb(116, 173, 182);
-    }
+    .linkButton {}
 
     .linkButton:hover {}
 }
 
 @media screen and (min-width: 768px) {
-    .linkButton {
-        font-size: 20px;
-    }
+    .linkButton {}
 }

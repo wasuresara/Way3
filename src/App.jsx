@@ -20,13 +20,11 @@ import { Toaster } from "react-hot-toast";
 import { useState } from "react";
 import MayerUmarov from "./components/MayerUmarov/MayerUmarov";
 import MayerUmarovEN from "./components/MayerUmarov/MayerUmarovEN";
-import WVideo from "./components/WelcomeVideo/WVideo";
 
 function Willkommen() {
   return (
     <div className="Wrapper">
       <About />
-      <WVideo />
       <Links />
       <PricesHaar />
       <PricesMani />
@@ -45,7 +43,6 @@ function Welcome() {
   return (
     <div className="Wrapper">
       <AboutEN />
-      <WVideo />
       <Links />
       <PricesHaarEN />
       <PricesManiEN />
