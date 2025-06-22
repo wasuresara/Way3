@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import s from "./MayerUmarov.module.css"; // Імпортуємо стилі як модулі
+import s from "../Prices/Prices.module.css"; // Імпортуємо стилі як модулі
 
 function MayerUmarov() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -12,9 +12,9 @@ function MayerUmarov() {
   };
 
   return (
-    <div className={s.fullBox}>
+    <div className={s.my}>
       {!isModalOpen && (
-        <>
+        <div>
           <h2 className={s.sectionTitle}>MAYER. UMAROV</h2>
           <p className={s.sectionOverview}>
             Upcycelte Kleidung. <br /> Wir geben Produkten ein neues Leben - wir
@@ -23,9 +23,9 @@ function MayerUmarov() {
             Jedes Ding ist ein Unikat.
           </p>
           <button onClick={openModal} className={s.button}>
-            mehr erfahren
+            Mehr Erfahren
           </button>
-        </>
+        </div>
       )}
       {isModalOpen && (
         <div>

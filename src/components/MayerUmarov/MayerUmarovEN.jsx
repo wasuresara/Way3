@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import s from "./MayerUmarov.module.css"; // Import styles as modules
+import s from "../Prices/Prices.module.css";
 
 function MayerUmarovEN() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -12,7 +12,7 @@ function MayerUmarovEN() {
   };
 
   return (
-    <div className={s.fullBox}>
+    <div className={s.my}>
       {!isModalOpen && (
         <>
           <h2 className={s.sectionTitle}>MAYER. UMAROV</h2>
@@ -22,7 +22,7 @@ function MayerUmarovEN() {
             into one unique item. <br /> Each thing is a single copy.
           </p>
           <button onClick={openModal} className={s.button}>
-            learn more
+            Learn More
           </button>
         </>
       )}

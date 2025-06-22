@@ -2,6 +2,70 @@ div {
     margin-bottom: 8px;
 }
 
+.buttonMain {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px) saturate(180%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 18px;
+    text-decoration: none;
+    padding: 3px 7px;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    color: #252525;
+    font-size: 18px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
+        0 1px 3px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.buttonMain::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.3),
+            transparent);
+    transform: skewX(-20deg);
+    transition: left 0.6s ease;
+}
+
+.buttonMain:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15),
+        0 2px 5px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.buttonMain:hover::before {
+    left: 100%;
+}
+
+.buttonMain:active {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08),
+        0 1px 2px rgba(0, 0, 0, 0.05),
+        inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+}
+
+.buttonMain span {
+    position: relative;
+    z-index: 2;
+}
+
 .formm {
     display: flex;
     flex-direction: column;
@@ -11,34 +75,11 @@ div {
     align-items: center;
 }
 
-.buttonMain {
-    font-family: "Space Grotesk", serif;
-    padding: 2px 18px 2px 18px;
-    border-radius: 16px;
-    font-size: 16px;
-    background: none;
-    border: none;
-    box-shadow: inset 1px 1px 4px 0 rgba(0, 0, 0, 0.25), 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-    place-self: center;
-    transition: all 0.2s ease-in-out;
-    margin-bottom: 16px;
-    margin-left: 4px;
-}
-
-.buttonMain:hover {
-    cursor: pointer;
-    background-color: #e6e6e6;
-}
-
 .Forms {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-}
-
-.label1 {
-    font-size: 18px;
-    color: rgb(50, 0, 0);
+    width: 200px;
 }
 
 .text {
@@ -47,33 +88,49 @@ div {
     margin-top: 0px;
 }
 
+/* --- Liquid Glass Input Styles --- */
+
+.label1 {
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 18px;
+    margin-bottom: 8px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    font-family: "SansNormal", Arial, Helvetica, sans-serif;
+}
+
 input {
-    width: 175px;
+
+    padding: 8px 14px;
     font-size: 16px;
-    font-family: "Space Grotesk", serif;
-    padding: 2px 18px 2px 18px;
-    border-radius: 16px;
-    border: 2px solid lightgray;
-    background: none;
-
-    transition: all 0.2s ease-in-out;
-}
-
-input:hover {
-    cursor: pointer;
-    border-color: rgb(22, 83, 13);
-}
-
-input:focus {
+    font-family: 'SansNormal', sans-serif;
+    color: #212121;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
     outline: none;
-    border-color: gray;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1),
+        inset 0 1px 2px rgba(0, 0, 0, 0.05),
+        inset 0 0 0 0px rgba(255, 255, 255, 0);
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-@media screen and (min-width: 768px) {
-    .buttonMain {
-        font-size: 18px;
-    }
+/* Placeholder styling */
+input::placeholder {
+    color: rgb(0, 0, 0);
 }
+
+/* Focus state */
+input:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15),
+        inset 0 1px 2px rgba(0, 0, 0, 0.1),
+        inset 0 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+@media screen and (min-width: 768px) {}
 
 @media (prefers-color-scheme: dark) {
     .label1 {

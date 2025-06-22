@@ -7,58 +7,20 @@
   display: flex;
   justify-content: center;
   margin: 0 auto;
-
-  font-family: "Space Grotesk", sans-serif;
-
 }
 
 body {
-  font-family: "Space Grotesk", "Arial", sans-serif;
-  font-weight: 400;
+  font-family: "SansNormal", "Arial", sans-serif;
 }
 
 @font-face {
-  font-family: 'June';
-  src: url('./assets/fonts/june-expt-curious.otf');
-  letter-spacing: 2px;
+  font-family: 'SansNormal';
+  src: url('./assets/ProductSans-Regular.ttf');
   font-style: normal;
   font-weight: normal;
 }
 
-@font-face {
-  font-family: 'Eck';
-  src: url('./assets/fonts/Eckmannpsych-Small.ttf');
-  font-style: normal;
-  font-weight: normal;
-}
-
-@font-face {
-  font-family: 'MF';
-  src: url('./assets/fonts/mollen-fancyla.otf');
-}
-
-a,
 button {}
-
-button {
-  width: 100px;
-  height: 30px;
-  border-radius: 21px;
-  opacity: 1;
-
-  background: rgba(216, 216, 216, 0.3);
-
-  border: 1px solid;
-  border-image: linear-gradient(180deg, #FFFFFF 5%, #888888 100%) 1;
-
-  backdrop-filter: blur(2px);
-  box-shadow: inset 0px 0px 7px 0px rgba(255, 255, 255, 0.3);
-}
-
-button:hover {}
-
-a:hover,
-button:hover {}
 
 body {
   margin: 0;
@@ -72,17 +34,9 @@ body {
   margin: 0 auto;
 }
 
-h1:hover {}
-
-h2:hover {}
-
-p {}
-
-input {}
-
-input:focus {}
-
-input:hover {}
+p {
+  font-size: 18px;
+}
 
 li {
   list-style: none;
@@ -107,7 +61,7 @@ ul {
   }
 
   p {
-    font-size: 18px;
+    font-size: 20px;
   }
 
 }

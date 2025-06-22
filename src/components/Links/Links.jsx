@@ -6,7 +6,7 @@ const Links = () => {
       <a
         href="https://www.instagram.com/theway.berlin/"
         target="_blank"
-        className={s.linkButton}
+        class={s.lgb}
       >
         Instagram
       </a>
@@ -16,11 +16,11 @@ const Links = () => {
       </a> */}
 
       <a
-        href="https://maps.app.goo.gl/HUtTRPK7wKwGSPEC6"
-        className={s.linkButton}
+        href="https://maps.app.goo.gl/rhiztmrSESHvT2rU6"
+        class={s.lgb}
         target="_blank"
       >
-        Maps
+        Google Maps
       </a>
 
       {/* <a href="" className={s.linkButton} target="_blank">
@@ -29,11 +29,19 @@ const Links = () => {
 
       <a
         href="https://buchung.treatwell.de/ort/476314/menue/"
-        className={s.linkButton}
+        class={s.lgb}
         target="_blank"
       >
         Treatwell
       </a>
+      {/* 
+      <button
+        class={s.lgb}
+        href="https://www.instagram.com/theway.berlin/"
+        target="_blank"
+      >
+        Instagram
+      </button> */}
     </div>
   );
 };

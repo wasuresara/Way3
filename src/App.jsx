@@ -95,7 +95,6 @@ function App() {
           >
             Deutsch
           </button>
-          <p className="mText">Der Salon wird am 15. Mai eröffnet.</p>
         </div>
         {content}
       </div>
