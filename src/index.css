@@ -20,6 +20,11 @@ body {
   font-weight: normal;
 }
 
+@font-face {
+  font-family: 'SansBold';
+  src: url('./assets/ProductSans-Medium.ttf');
+}
+
 button {}
 
 body {

@@ -15,6 +15,7 @@ const About = () => {
       </svg>
 
       <h2 className={s.subtitle}>what about you</h2>
+      <p className={s.text1}>Friseursalon | Nagelstudio | Bekleidung</p>
       <p className={s.text}>
         Jeder von uns geht seinen ganz eigenen Weg – seinen persönlichen Way.
         Wir, das Team des Salons theWAY, haben uns dazu entschlossen, diesen Weg

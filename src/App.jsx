@@ -95,6 +95,7 @@ function App() {
           >
             Deutsch
           </button>
+          <p className="mText">Mo-Sa 10:00-19:00 Uhr</p>
         </div>
         {content}
       </div>
