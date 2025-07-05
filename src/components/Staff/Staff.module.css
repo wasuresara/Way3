@@ -127,9 +127,10 @@ ul {
 }
 
 img {
-  margin-top: 8px;
+
   width: 300px;
-  border-radius: 16px;
+  border-radius: 12px;
+  border: 2px #252525 solid;
 }
 
 .about {

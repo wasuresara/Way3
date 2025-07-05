@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import s from "./Staff.module.css";
-import SvitlanaPhoto from "./Svitlana.png";
-import AnnaPhoto from "./Anna.png";
-import JuliePhoto from "./Julie.png";
-import MichelinePhoto from "./Micheline.png";
-import AlinaPhoto from "./Alina.png";
+import SvitlanaPhoto from "./Svitlana.jpeg";
+import AnnaPhoto from "./Anna.jpeg";
+import JuliePhoto from "./Julie.jpeg";
+import MichelinePhoto from "./Michaline.jpeg";
+import AlinaPhoto from "./Alina.jpeg";
 
 function StaffEN() {
   const [isModalOpen, setIsModalOpen] = useState(false);
