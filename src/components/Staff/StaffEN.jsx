@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import s from "./Staff.module.css";
 import SvitlanaPhoto from "./Svitlana.jpeg";
-import AnnaPhoto from "./Anna.jpeg";
 import JuliePhoto from "./Julie.jpeg";
 import MichelinePhoto from "./Michaline.jpeg";
 import AlinaPhoto from "./Alina.jpeg";
@@ -57,24 +56,6 @@ function StaffEN() {
                   haircuts, and various coloring techniques – everything to
                   highlight your uniqueness. Trust me, and together we will find
                   your perfect look!
-                </p>
-              </div>
-            </div>
-            <div className={s.personBox}>
-              <img src={AnnaPhoto} alt="Anna Photo" />
-              <div className={s.textSection}>
-                <h2 className={s.nameText}>Anna</h2>
-                <ul>
-                  <li className={s.tags}>She/Her</li>
-                  <li className={s.tags}>Manicure</li>
-                  <li className={s.tags}>Pedicure</li>
-                </ul>
-                <p className={s.about}>
-                  Hi! I'm Anna – a nail artist with 9 years of experience. For
-                  me, nail care is an art, not just beauty. My true passion is
-                  nail design. The more intricate, the better! No standard
-                  patterns – just unique creations. Want eye-catching nails?
-                  I'll bring your ideas to life!
                 </p>
               </div>
             </div>

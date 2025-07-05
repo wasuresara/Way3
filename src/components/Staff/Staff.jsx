@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import s from "./Staff.module.css";
 import SvitlanaPhoto from "./Svitlana.jpeg";
-import AnnaPhoto from "./Anna.jpeg";
 import JuliePhoto from "./Julie.jpeg";
 import MichelinePhoto from "./Michaline.jpeg";
 import AlinaPhoto from "./Alina.jpeg";
@@ -57,25 +56,6 @@ function Staff() {
                   Damenhaarschnitte und verschiedene Färbetechniken – alles, um
                   Ihre Einzigartigkeit zu betonen. Vertrauen Sie mir, und
                   gemeinsam finden wir Ihren perfekten Look!
-                </p>
-              </div>
-            </div>
-            <div className={s.personBox}>
-              <img src={AnnaPhoto} alt="Anna Photo" />
-              <div className={s.textSection}>
-                <h2 className={s.nameText}>Anna</h2>
-                <ul>
-                  <li className={s.tags}>She/Her</li>
-                  <li className={s.tags}>Manikur</li>
-                  <li className={s.tags}>Pedikur</li>
-                </ul>
-                <p className={s.about}>
-                  Hallo! Ich bin Anna – eine Nageldesignerin mit 9 Jahren
-                  Erfahrung. Für mich ist Maniküre Kunst, nicht nur Pflege.
-                  Meine größte Leidenschaft sind Designs. Je komplizierter,
-                  desto spannender! Keine Standardmotive – nur individuelle
-                  Kreationen. Willst du einzigartige Nägel, die auffallen? Ich
-                  setze deine Ideen um!
                 </p>
               </div>
             </div>
