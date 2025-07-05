@@ -1,0 +1,10 @@
+{
+  "editor.fontSize": 12,
+  "files.autoSave": "onFocusChange",
+  "debug.console.fontSize": 12,
+  "scm.inputFontSize": 13,
+  "terminal.integrated.fontSize": 12,
+  "editor.tabSize": 1,
+  "cursor.composer.textSizeScale": 1,
+  "editor.inlayHints.fontSize": 0
+}

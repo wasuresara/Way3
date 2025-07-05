@@ -1,10 +1,10 @@
-#root {}
+#root {
+}
 
 .Wrapper {
   display: flex;
   flex-direction: column;
 }
-
 
 .buttonBox {
   display: flex;
@@ -31,7 +31,8 @@
   font-size: 16px;
 }
 
-.LanguageSwitcher:hover {}
+.LanguageSwitcher:hover {
+}
 
 .mText {
   margin-left: auto;
@@ -45,7 +46,6 @@
   font-size: 16px;
   cursor: default;
 }
-
 
 @media (prefers-color-scheme: dark) {
   .mText {

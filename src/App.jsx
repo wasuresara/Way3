@@ -21,38 +21,23 @@ import { useState } from "react";
 import MayerUmarov from "./components/MayerUmarov/MayerUmarov";
 import MayerUmarovEN from "./components/MayerUmarov/MayerUmarovEN";
 
-function Willkommen() {
-  return (
-    <div className="Wrapper">
-      <About />
-      <Links />
-      <PricesHaar />
-      <PricesMani />
-      <MayerUmarov />
-      <Staff />
-      <About2 />
-      <Links />
-      <LinksModal />
-      <Toaster position="bottom-center" reverseOrder={false} />
-      <Footer />
-    </div>
-  );
-}
+// New component to handle language-specific content rendering
+function LanguageSpecificContent({ language }) {
+  const isEnglish = language === "en";
 
-function Welcome() {
   return (
     <div className="Wrapper">
-      <AboutEN />
+      {isEnglish ? <AboutEN /> : <About />}
       <Links />
-      <PricesHaarEN />
-      <PricesManiEN />
-      <MayerUmarovEN />
-      <StaffEN />
-      <About2EN />
+      {isEnglish ? <PricesHaarEN /> : <PricesHaar />}
+      {isEnglish ? <PricesManiEN /> : <PricesMani />}
+      {isEnglish ? <MayerUmarovEN /> : <MayerUmarov />}
+      {isEnglish ? <StaffEN /> : <Staff />}
+      {isEnglish ? <About2EN /> : <About2 />}
       <Links />
-      <LinksModalEN />
+      {isEnglish ? <LinksModalEN /> : <LinksModal />}
       <Toaster position="bottom-center" reverseOrder={false} />
-      <FooterEN />
+      {isEnglish ? <FooterEN /> : <Footer />}
     </div>
   );
 }
@@ -68,16 +53,6 @@ function App() {
     localStorage.setItem("language", lang);
   };
 
-  let content;
-  switch (language) {
-    case "en":
-      content = <Welcome />;
-      break;
-    case "de":
-      content = <Willkommen />;
-      break;
-  }
-
   return (
     <div>
       <Analytics />
@@ -87,7 +62,7 @@ function App() {
             onClick={() => handleLanguageChange("en")}
             className={`LanguageSwitcher ${language === "en" ? "active" : ""}`}
           >
-            English
+            English (United States)
           </button>
           <button
             onClick={() => handleLanguageChange("de")}
@@ -97,7 +72,8 @@ function App() {
           </button>
           <p className="mText">Mo-Sa 10:00-19:00 Uhr</p>
         </div>
-        {content}
+        {/* Render content based on selected language */}
+        <LanguageSpecificContent language={language} />
       </div>
     </div>
   );

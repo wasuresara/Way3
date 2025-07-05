@@ -14,18 +14,19 @@ body {
 }
 
 @font-face {
-  font-family: 'SansNormal';
-  src: url('./assets/ProductSans-Regular.ttf');
+  font-family: "SansNormal";
+  src: url("./assets/ProductSans-Regular.ttf");
   font-style: normal;
   font-weight: normal;
 }
 
 @font-face {
-  font-family: 'SansBold';
-  src: url('./assets/ProductSans-Medium.ttf');
+  font-family: "SansBold";
+  src: url("./assets/ProductSans-Medium.ttf");
 }
 
-button {}
+button {
+}
 
 body {
   margin: 0;
@@ -68,19 +69,17 @@ ul {
   p {
     font-size: 20px;
   }
-
 }
 
 @media (prefers-color-scheme: dark) {
-
   :root {
     background-color: #141414;
   }
 
-  body {}
+  body {
+  }
 
   .LanguageSwitcher {
     color: aliceblue;
   }
-
 }

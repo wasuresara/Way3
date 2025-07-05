@@ -1,102 +1,111 @@
 .linksWrapper {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    gap: 8px;
-    list-style: none;
-    padding: 0;
-    margin-bottom: 18px;
-    align-items: center;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 18px;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-.linkButton {}
+.linkButton {
+}
 
-.linkButton:hover {}
-
-
+.linkButton:hover {
+}
 
 .lgb {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(15px) saturate(180%);
-    -webkit-backdrop-filter: blur(15px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 18px;
-    text-decoration: none;
-    padding: 3px 7px;
-    cursor: pointer;
-    outline: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    color: #252525;
-    font-size: 18px;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
-        0 1px 3px rgba(0, 0, 0, 0.08),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px) saturate(180%);
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 18px;
+  text-decoration: none;
+  padding: 3px 7px;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  color: #252525;
+  font-size: 18px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.2s ease;
 }
 
 .lgb::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg,
-            transparent,
-            rgba(255, 255, 255, 0.3),
-            transparent);
-    transform: skewX(-20deg);
-    transition: left 0.6s ease;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
 }
 
 .lgb:hover {
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15),
-        0 2px 5px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 6px 10px rgba(0, 0, 0, 0.15),
+    0 2px 5px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
 }
 
 .lgb:hover::before {
-    left: 100%;
+  left: 100%;
 }
 
 .lgb:active {
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08),
-        0 1px 2px rgba(0, 0, 0, 0.05),
-        inset 0 1px 2px rgba(0, 0, 0, 0.1);
-    transform: translateY(0);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.08),
+    0 1px 2px rgba(0, 0, 0, 0.05),
+    inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  transform: translateY(0);
 }
 
 .lgb span {
-    position: relative;
-    z-index: 2;
+  position: relative;
+  z-index: 2;
 }
 
 @media (prefers-color-scheme: dark) {
+  .lgb {
+    background-color: lightgray;
+    color: black;
+  }
 
-    .lgb {
-        background-color: lightgray;
-        color: black;
-    }
-
-    .lgb:hover {
-        background-color: #1c1711;
-        color: #f2f2f2;
-        outline: #f2f2f2 solid 1px;
-        box-shadow: inset 1px 1px 4px 0 rgba(255, 255, 255, 0.25), 0 4px 4px 0 rgba(255, 255, 255, 0.25);
-    }
+  .lgb:hover {
+    background-color: #1c1711;
+    color: #f2f2f2;
+    outline: #f2f2f2 solid 1px;
+    box-shadow:
+      inset 1px 1px 4px 0 rgba(255, 255, 255, 0.25),
+      0 4px 4px 0 rgba(255, 255, 255, 0.25);
+  }
 }
 
 @media screen and (min-width: 768px) {
-    .lgb {
-        font-size: 20px;
-    }
+  .lgb {
+    font-size: 20px;
+  }
 }
