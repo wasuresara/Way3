@@ -1,7 +1,7 @@
 import s from "./About.module.css";
 const AboutEN = () => {
   return (
-    <div className={s.container}>
+    <div id="home" className={s.container}>
       <svg
         className={s.logo}
         width="602"
@@ -15,10 +15,9 @@ const AboutEN = () => {
       <h2 className={s.subtitle}>what about you</h2>
       <p className={s.text1}>Hair Salon | Nail Studio | Clothing</p>
       <p className={s.text}>
-        Each of us goes our own way - our own personal way. We, the team at
-        theWAY salon, have decided not only to follow this path for ourselves,
-        but also to give others a piece of happiness on their journey through
-        life.
+        Each of us walks our own unique path – our personal Way. We, the team at
+        theWAY salon, have decided not only to walk this path for ourselves, but
+        also to give others a piece of happiness on their life's journey.
       </p>
     </div>
   );

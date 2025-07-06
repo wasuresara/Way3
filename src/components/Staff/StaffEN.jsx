@@ -16,7 +16,7 @@ function StaffEN() {
   };
 
   return (
-    <div className={s.staffBox}>
+    <div id="team" className={s.staffBox}>
       {!isModalOpen && (
         <>
           <h2 className={s.sectionTitle}>Our Team</h2>

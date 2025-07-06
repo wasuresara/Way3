@@ -2,7 +2,7 @@ import s from "./About.module.css";
 
 const About = () => {
   return (
-    <div className={s.container}>
+    <div id="home" className={s.container}>
       <svg
         className={s.logo}
         width="602"

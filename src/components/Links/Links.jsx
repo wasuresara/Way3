@@ -1,12 +1,14 @@
 import React from "react";
 import s from "./Links.module.css";
+
 const Links = () => {
   return (
     <div className={s.linksWrapper}>
       <a
         href="https://www.instagram.com/theway.berlin/"
         target="_blank"
-        class={s.lgb}
+        rel="noopener noreferrer"
+        className={s.lgb}
       >
         Instagram
       </a>
@@ -17,8 +19,9 @@ const Links = () => {
 
       <a
         href="https://maps.app.goo.gl/rhiztmrSESHvT2rU6"
-        class={s.lgb}
+        className={s.lgb}
         target="_blank"
+        rel="noopener noreferrer"
       >
         Google Maps
       </a>
@@ -29,8 +32,9 @@ const Links = () => {
 
       <a
         href="https://buchung.treatwell.de/ort/476314/menue/"
-        class={s.lgb}
+        className={s.lgb}
         target="_blank"
+        rel="noopener noreferrer"
       >
         Treatwell
       </a>

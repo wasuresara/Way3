@@ -12,33 +12,32 @@ function MayerUmarovEN() {
   };
 
   return (
-    <div className={s.my}>
+    <div id="clothing" className={s.my}>
       {!isModalOpen && (
-        <>
+        <div>
           <h2 className={s.sectionTitle}>MAYER. UMAROV</h2>
           <p className={s.sectionOverview}>
-            Upcycled clothes. <br />
-            We give products a new life – we reconstruct secondary materials
-            into one unique item. <br /> Each thing is a single copy.
+            Upcycled clothing. <br /> We give products a new life - we
+            reconstruct secondary materials into a unique object. <br />
+            Each thing is unique.
           </p>
           <button onClick={openModal} className={s.button}>
             Learn More
           </button>
-        </>
+        </div>
       )}
       {isModalOpen && (
         <div>
           <h2 className={s.sectionTitle}>MAYER. UMAROV</h2>
           <p className={s.sectionOverview}>
-            Upcycled clothes. <br />
-            We give products a new life – we reconstruct secondary materials
-            into one unique item. <br /> Each thing is a single copy.
+            Upcycled clothing. <br /> We give products a new life - we
+            reconstruct secondary materials into a unique object. <br />
+            Each thing is unique.
           </p>
           <button onClick={closeModal} className={s.button}>
             Close
           </button>
-          <div>
-            {" "}
+          <div className={s.contentSection}>
             <a
               href="https://www.instagram.com/mayer.umarov/"
               target="_blank"

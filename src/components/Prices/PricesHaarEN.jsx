@@ -12,14 +12,13 @@ function PricesHaarEN() {
   };
 
   return (
-    <div className={s.fullBox}>
+    <div id="prices" className={s.fullBox}>
       {!isModalOpen && (
         <>
-          <h2 className={s.sectionTitle}>Hairdressing Services</h2>
+          <h2 className={s.sectionTitle}>Hair Services</h2>
           <p className={s.sectionOverview}>
-            Our masters are professionals with many years of experience who will
-            help you find a haircut that emphasizes your individuality and
-            beauty.
+            Our masters are professionals with years of experience who will help
+            you find a haircut that emphasizes your individuality and beauty.
           </p>
           <button onClick={openModal} className={s.button}>
             Price Overview
@@ -28,18 +27,19 @@ function PricesHaarEN() {
       )}
       {isModalOpen && (
         <div>
-          <h2 className={s.sectionTitle}>Hairdressing Services</h2>
+          <h2 className={s.sectionTitle}>Hair Services</h2>
           <p className={s.sectionOverview}>
-            Our masters are professionals with many years of experience who will
-            help you find a haircut that emphasizes your individuality and
-            beauty.
+            Our masters are professionals with years of experience who will help
+            you find a haircut that emphasizes your individuality and beauty.
           </p>
           <button onClick={closeModal} className={s.button}>
             Close
           </button>
           <div className={s.tableContainer}>
             <label>Price</label>
-          
+            <table>
+
+            </table>
           </div>
         </div>
       )}

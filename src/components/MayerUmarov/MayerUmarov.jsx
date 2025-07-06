@@ -12,7 +12,7 @@ function MayerUmarov() {
   };
 
   return (
-    <div className={s.my}>
+    <div id="clothing" className={s.my}>
       {!isModalOpen && (
         <div>
           <h2 className={s.sectionTitle}>MAYER. UMAROV</h2>

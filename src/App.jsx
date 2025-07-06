@@ -21,7 +21,7 @@ import { useState } from "react";
 import MayerUmarov from "./components/MayerUmarov/MayerUmarov";
 import MayerUmarovEN from "./components/MayerUmarov/MayerUmarovEN";
 
-// New component to handle language-specific content rendering
+
 function LanguageSpecificContent({ language }) {
   const isEnglish = language === "en";
 
@@ -48,9 +48,21 @@ function App() {
     return localStorage.getItem("language") || "de";
   });
 
+  const isEnglish = language === "en";
+
   const handleLanguageChange = (lang) => {
     setLanguage(lang);
     localStorage.setItem("language", lang);
+  };
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
   };
 
   return (
@@ -58,21 +70,48 @@ function App() {
       <Analytics />
       <div>
         <div className="buttonBox">
-          <button
-            onClick={() => handleLanguageChange("en")}
-            className={`LanguageSwitcher ${language === "en" ? "active" : ""}`}
-          >
-            English
-          </button>
-          <button
-            onClick={() => handleLanguageChange("de")}
-            className={`LanguageSwitcher ${language === "de" ? "active" : ""}`}
-          >
-            Deutsch
-          </button>
-          <p className="mText">Mo-Sa 10:00-19:00 Uhr</p>
+          <nav>
+            <button 
+              className="LanguageSwitcher"
+              onClick={() => scrollToSection('home')}
+            >
+              {isEnglish ? 'Home' : 'Hauptseite'}
+            </button>
+            <button 
+              className="LanguageSwitcher"
+              onClick={() => scrollToSection('prices')}
+            >
+              {isEnglish ? 'Prices' : 'Preise'}
+            </button>
+            <button 
+              className="LanguageSwitcher"
+              onClick={() => scrollToSection('team')}
+            >
+              {isEnglish ? 'Team' : 'Team'}
+            </button>
+            <button 
+              className="LanguageSwitcher"
+              onClick={() => scrollToSection('clothing')}
+            >
+              {isEnglish ? 'Clothing' : 'Bekleidung'}
+            </button>
+          </nav>
+          <nav>
+            <button
+              onClick={() => handleLanguageChange("en")}
+              className={`LanguageSwitcher ${language === "en" ? "active" : ""}`}
+            >
+              EN
+            </button>
+            <button
+              onClick={() => handleLanguageChange("de")}
+              className={`LanguageSwitcher ${language === "de" ? "active" : ""}`}
+            >
+              DE
+            </button>
+          </nav>
         </div>
-        {/* Render content based on selected language */}
+
         <LanguageSpecificContent language={language} />
       </div>
     </div>

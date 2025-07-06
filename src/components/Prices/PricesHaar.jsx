@@ -12,7 +12,7 @@ function PricesHaar() {
   };
 
   return (
-    <div className={s.fullBox}>
+    <div id="prices" className={s.fullBox}>
       {!isModalOpen && (
         <>
           <h2 className={s.sectionTitle}>Friseurdienstleistungen</h2>
@@ -38,7 +38,10 @@ function PricesHaar() {
             Schließen
           </button>
           <div className={s.tableContainer}>
-            <label>Pries</label>
+            <label>Preis</label>
+            <table>
+
+            </table>
           </div>
         </div>
       )}
