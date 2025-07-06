@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import s from "./Prices.module.css";
 import { hairServices } from "./pricesData";
+import HaarGif from "../About/gif1.gif";
 
 function PricesHaar({ scrollToSection }) {
   const [expandedItems, setExpandedItems] = useState(new Set());
@@ -26,6 +27,7 @@ function PricesHaar({ scrollToSection }) {
             helfen werden, einen Haarschnitt zu finden, der Ihre Individualität
             und Schönheit unterstreicht.
         </p> */}
+              <img src={HaarGif} alt="HaarGif" className={s.PricesGif}/>
           <div className={s.priceList}>
             {hairServices.map((service) => (
               <div 

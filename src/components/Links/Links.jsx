@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./Links.module.css";
 
-const Links = () => {
+const Links = ({ isEnglish, scrollToSection }) => {
   return (
     <div className={s.linksWrapper}>
       <a
@@ -37,6 +37,9 @@ const Links = () => {
         rel="noopener noreferrer"
       >
         Treatwell
+      </a>
+      <a className={s.lgb} onClick={() => scrollToSection("linksModal")}>
+        {isEnglish ? "Book now" : "Jetzt buchen"}
       </a>
     </div>
   );

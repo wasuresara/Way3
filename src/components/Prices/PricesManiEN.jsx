@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import s from "./Prices.module.css";
 import { nailServices } from "./pricesData";
+import ManiGif from "../About/gif1.gif";
 
 function PricesManiEN({ scrollToSection }) {
   const [expandedItems, setExpandedItems] = useState(new Set());
@@ -25,6 +26,7 @@ function PricesManiEN({ scrollToSection }) {
           Professional manicure and pedicure to keep your nails healthy and
           beautiful.
         </p> */}
+        <img src={ManiGif} alt="ManiGif" className={s.PricesGif}/>
         <div className={s.priceList}>
           {nailServices.map((service) => (
             <div 

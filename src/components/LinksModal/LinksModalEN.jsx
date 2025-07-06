@@ -2,15 +2,6 @@ import React, { useState } from "react";
 import s from "./LinksModal.module.css"; // Імпортуємо CSS
 import { toast } from "react-hot-toast";
 function LinksModal() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -40,21 +31,12 @@ function LinksModal() {
           color: "lightseagreen",
         },
       });
-      setIsModalOpen(false);
     }
   };
 
   return (
     <div id="linksModal">
-      {!isModalOpen && (
-        <>
-          <p className={s.text}>or</p>
-          <button onClick={openModal} className={s.buttonMain}>
-            Sign up now!
-          </button>
-        </>
-      )}
-      {isModalOpen && (
+
         <div className={s.modalOverlayy}>
           <div className="modal">
             <form onSubmit={onSubmit}>
@@ -76,12 +58,8 @@ function LinksModal() {
                 </button>
               </div>
             </form>
-            <button onClick={closeModal} className={s.buttonMain}>
-              close?
-            </button>
           </div>
         </div>
-      )}
     </div>
   );
 }

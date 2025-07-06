@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import s from "./Prices.module.css";
 import { hairServices } from "./pricesData";
+import HaarGif from "../About/gif1.gif";
 
 function PricesHaarEN({ scrollToSection }) {
   const [expandedItems, setExpandedItems] = useState(new Set());
@@ -21,7 +22,7 @@ function PricesHaarEN({ scrollToSection }) {
     <div id="prices" className={s.container}>
       <>
         <h2 className={s.sectionTitle}>Hair Services</h2>
-        
+        <img src={HaarGif} alt="HaarGif" className={s.PricesGif}/>
         <div className={s.priceList}>
           {hairServices.map((service) => (
             <div 

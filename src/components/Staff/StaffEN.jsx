@@ -4,6 +4,7 @@ import SvitlanaPhoto from "./Svitlana.jpeg";
 import JuliePhoto from "./Julie.jpeg";
 import MichelinePhoto from "./Michaline.jpeg";
 import AlinaPhoto from "./Alina.jpeg";
+import TeamGif from "../About/gif1.gif";
 
 function StaffEN() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -16,10 +17,11 @@ function StaffEN() {
   };
 
   return (
-    <div id="team" className={s.staffBox}>
+    <div id="team">
       {!isModalOpen && (
         <>
           <h2 className={s.sectionTitle}>Our Team</h2>
+          <img src={TeamGif} alt="TeamGif" className={s.PricesGif}/>
           <p className={s.sectionOverview}>staff overview en</p>
           <button onClick={openModal} className={s.button}>
             Our Team
@@ -29,13 +31,14 @@ function StaffEN() {
       {isModalOpen && (
         <div>
           <h2 className={s.sectionTitle}>Our Team</h2>
+          <img src={TeamGif} alt="TeamGif" className={s.PricesGif}/>
           <p className={s.sectionOverview}>staff overview en</p>
           <button onClick={closeModal} className={s.button}>
             Close
           </button>
           <div className={s.TableContainer}>
             <div className={s.personBox}>
-              <img src={SvitlanaPhoto} alt="Svitlana Photo" />
+              <img src={SvitlanaPhoto} alt="Svitlana Photo" className={s.teamMemberImage} />
               <div className={s.textSection}>
                 <h2 className={s.nameText}>Svitlana</h2>
                 <ul>
@@ -60,7 +63,7 @@ function StaffEN() {
               </div>
             </div>
             <div className={s.personBox}>
-              <img src={JuliePhoto} alt="Julie Photo" />
+              <img src={JuliePhoto} alt="Julie Photo" className={s.teamMemberImage} />
               <div className={s.textSection}>
                 <h2 className={s.nameText}>Julie</h2>
                 <ul>
@@ -87,7 +90,7 @@ function StaffEN() {
               </div>
             </div>
             <div className={s.personBox}>
-              <img src={MichelinePhoto} alt="Micheline Photo" />
+              <img src={MichelinePhoto} alt="Micheline Photo" className={s.teamMemberImage} />
               <div className={s.textSection}>
                 <h2 className={s.nameText}>Micheline</h2>
                 <ul>
@@ -109,7 +112,7 @@ function StaffEN() {
               </div>
             </div>
             <div className={s.personBox}>
-              <img src={AlinaPhoto} alt="Alina Photo" />
+              <img src={AlinaPhoto} alt="Alina Photo" className={s.teamMemberImage} />
               <div className={s.textSection}>
                 <h2 className={s.nameText}>Alina</h2>
                 <ul>

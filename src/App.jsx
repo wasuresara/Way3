@@ -28,13 +28,13 @@ function LanguageSpecificContent({ language, scrollToSection }) {
   return (
     <div className="Wrapper">
       {isEnglish ? <AboutEN /> : <About />}
-      <Links />
+      <Links isEnglish={isEnglish} scrollToSection={scrollToSection} /> 
       {isEnglish ? <PricesHaarEN scrollToSection={scrollToSection} /> : <PricesHaar scrollToSection={scrollToSection} />}
       {isEnglish ? <PricesManiEN scrollToSection={scrollToSection} /> : <PricesMani scrollToSection={scrollToSection} />}
       {isEnglish ? <MayerUmarovEN /> : <MayerUmarov />}
       {isEnglish ? <StaffEN /> : <Staff />}
       {isEnglish ? <About2EN /> : <About2 />}
-      <Links />
+      <Links isEnglish={isEnglish} scrollToSection={scrollToSection} />
       {isEnglish ? <LinksModalEN /> : <LinksModal />}
       <Toaster position="bottom-center" reverseOrder={false} />
       {isEnglish ? <FooterEN /> : <Footer />}
