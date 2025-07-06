@@ -45,12 +45,12 @@ function LinksModal() {
   };
 
   return (
-    <div>
+    <div id="linksModal">
       {!isModalOpen && (
         <>
-          <p className={s.text}>Or</p>
+          <p className={s.text}>or</p>
           <button onClick={openModal} className={s.buttonMain}>
-            Contact us now!
+            Sign up now!
           </button>
         </>
       )}
@@ -68,11 +68,11 @@ function LinksModal() {
                   <input type="email" name="email" />
                 </div>
                 <div className={s.Forms}>
-                  <label className={s.label1}>Phone</label>
+                  <label className={s.label1}>Phone number</label>
                   <input type="phone" name="message" required />
                 </div>
                 <button className={s.buttonMain} type="submit">
-                  submit!
+                  Send now!
                 </button>
               </div>
             </form>

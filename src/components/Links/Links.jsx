@@ -13,9 +13,9 @@ const Links = () => {
         Instagram
       </a>
 
-      {/* <a href="google.com" target="_blank" className={s.linkButton}>
+      <a href="" target="_blank" className={s.lgb}>
         Telegram
-      </a> */}
+      </a> 
 
       <a
         href="https://maps.app.goo.gl/rhiztmrSESHvT2rU6"
@@ -26,9 +26,9 @@ const Links = () => {
         Google Maps
       </a>
 
-      {/* <a href="" className={s.linkButton} target="_blank">
+      <a href="" className={s.lgb} target="_blank">
         Whatsapp
-      </a> */}
+      </a>
 
       <a
         href="https://buchung.treatwell.de/ort/476314/menue/"
@@ -38,14 +38,6 @@ const Links = () => {
       >
         Treatwell
       </a>
-      {/* 
-      <button
-        class={s.lgb}
-        href="https://www.instagram.com/theway.berlin/"
-        target="_blank"
-      >
-        Instagram
-      </button> */}
     </div>
   );
 };

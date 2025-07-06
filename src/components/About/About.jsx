@@ -1,4 +1,5 @@
 import s from "./About.module.css";
+import Gif from "./gif1.gif";
 
 const About = () => {
   return (
@@ -22,6 +23,8 @@ const About = () => {
         nicht nur für uns zu gehen, sondern auch für andere ein Stück Glück auf
         ihrem Lebensweg zu schenken.
       </p>
+      <img src={Gif} alt="Gif" className={s.WelcomeGif}/>
+      <p className={s.text2}>Mo-Sa 10:00-19:00 Uhr</p>
     </div>
   );
 };

@@ -22,15 +22,15 @@ import MayerUmarov from "./components/MayerUmarov/MayerUmarov";
 import MayerUmarovEN from "./components/MayerUmarov/MayerUmarovEN";
 
 
-function LanguageSpecificContent({ language }) {
+function LanguageSpecificContent({ language, scrollToSection }) {
   const isEnglish = language === "en";
 
   return (
     <div className="Wrapper">
       {isEnglish ? <AboutEN /> : <About />}
       <Links />
-      {isEnglish ? <PricesHaarEN /> : <PricesHaar />}
-      {isEnglish ? <PricesManiEN /> : <PricesMani />}
+      {isEnglish ? <PricesHaarEN scrollToSection={scrollToSection} /> : <PricesHaar scrollToSection={scrollToSection} />}
+      {isEnglish ? <PricesManiEN scrollToSection={scrollToSection} /> : <PricesMani scrollToSection={scrollToSection} />}
       {isEnglish ? <MayerUmarovEN /> : <MayerUmarov />}
       {isEnglish ? <StaffEN /> : <Staff />}
       {isEnglish ? <About2EN /> : <About2 />}
@@ -107,21 +107,21 @@ function App() {
           </nav>
           <nav>
             <button
-              onClick={() => handleLanguageChange("en")}
-              className={`LanguageSwitcher ${language === "en" ? "active" : ""}`}
-            >
-              EN
-            </button>
-            <button
               onClick={() => handleLanguageChange("de")}
               className={`LanguageSwitcher ${language === "de" ? "active" : ""}`}
             >
               DE
             </button>
+            <button
+              onClick={() => handleLanguageChange("en")}
+              className={`LanguageSwitcher ${language === "en" ? "active" : ""}`}
+            >
+              EN
+            </button>
           </nav>
         </div>
 
-        <LanguageSpecificContent language={language} />
+        <LanguageSpecificContent language={language} scrollToSection={scrollToSection} />
       </div>
     </div>
   );

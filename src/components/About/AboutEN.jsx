@@ -1,4 +1,6 @@
 import s from "./About.module.css";
+import Gif from "./gif1.gif";
+
 const AboutEN = () => {
   return (
     <div id="home" className={s.container}>
@@ -19,6 +21,7 @@ const AboutEN = () => {
         theWAY salon, have decided not only to walk this path for ourselves, but
         also to give others a piece of happiness on their life's journey.
       </p>
+      <img src={Gif} alt="Gif" className={s.WelcomeGif}/>
     </div>
   );
 };

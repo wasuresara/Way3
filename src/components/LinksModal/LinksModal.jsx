@@ -45,7 +45,7 @@ function LinksModal() {
   };
 
   return (
-    <div>
+    <div id="linksModal">
       {!isModalOpen && (
         <>
           <p className={s.text}>oder</p>
