@@ -137,12 +137,6 @@ ul {
   justify-content: left;
 }
 
-img {
-  width: 300px;
-  border-radius: 12px;
-  border: 2px #252525 solid;
-}
-
 .about {
   max-width: 400px;
   margin-top: 4px;
@@ -260,9 +254,5 @@ p {
   .staffBox {
     background-color: rgb(11, 56, 49);
     border: rgb(30, 124, 139) 2px solid;
-  }
-
-  img {
-    border: 2px rgb(30, 124, 139) solid;
   }
 }

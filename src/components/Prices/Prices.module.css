@@ -39,7 +39,7 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 16px 20px;
+  padding: 4px 16px;
   min-height: 70px;
 }
 
@@ -47,11 +47,6 @@
   flex-shrink: 0;
   width: 60px;
   height: 60px;
-  border-radius: 8px;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .serviceImage img {
@@ -103,7 +98,7 @@
 .priceItem.expanded .serviceDescription {
   opacity: 1;
   max-height: 200px;
-  padding: 12px 20px;
+  padding: 4px 12px;
 }
 
 .serviceDescription p {
@@ -140,6 +135,9 @@
     background 0.3s ease,
     box-shadow 0.3s ease,
     transform 0.2s ease;
+
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 
 .button::before {
@@ -183,6 +181,7 @@
 
 .sectionTitle {
   margin: 0px;
+  margin-bottom: 8px;
 }
 
 @media (min-width: 768px) {
@@ -255,7 +254,7 @@
   }
 
   .servicePrice {
-    color: rgb(30, 124, 139);
+    color: #f2f2f2;
   }
 
   .serviceDescription {
