@@ -58,9 +58,18 @@ function App() {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
+      const headerHeight = 60; // Approximate height of the sticky header
+      const elementRect = element.getBoundingClientRect();
+      const elementTop = elementRect.top + window.pageYOffset;
+      const elementHeight = elementRect.height;
+      const windowHeight = window.innerHeight;
+      
+      // Calculate position to center the section in the viewport
+      const scrollPosition = elementTop - headerHeight - (windowHeight - elementHeight) / 2;
+      
+      window.scrollTo({
+        top: Math.max(0, scrollPosition),
+        behavior: 'smooth'
       });
     }
   };
@@ -85,15 +94,15 @@ function App() {
             </button>
             <button 
               className="LanguageSwitcher"
-              onClick={() => scrollToSection('team')}
-            >
-              {isEnglish ? 'Team' : 'Team'}
-            </button>
-            <button 
-              className="LanguageSwitcher"
               onClick={() => scrollToSection('clothing')}
             >
               {isEnglish ? 'Clothing' : 'Bekleidung'}
+            </button>
+            <button 
+              className="LanguageSwitcher"
+              onClick={() => scrollToSection('team')}
+            >
+              {isEnglish ? 'Team' : 'Team'}
             </button>
           </nav>
           <nav>
