@@ -62,7 +62,7 @@ function App() {
             onClick={() => handleLanguageChange("en")}
             className={`LanguageSwitcher ${language === "en" ? "active" : ""}`}
           >
-            English (United States)
+            English
           </button>
           <button
             onClick={() => handleLanguageChange("de")}
