@@ -30,8 +30,11 @@ function LanguageSpecificContent({ language, scrollToSection }) {
       {isEnglish ? <AboutEN /> : <About />}
       <Links isEnglish={isEnglish} scrollToSection={scrollToSection} /> 
       {isEnglish ? <PricesHaarEN scrollToSection={scrollToSection} /> : <PricesHaar scrollToSection={scrollToSection} />}
+      <section className="SpaceSection"></section>
       {isEnglish ? <PricesManiEN scrollToSection={scrollToSection} /> : <PricesMani scrollToSection={scrollToSection} />}
+      <section className="SpaceSection"></section>
       {isEnglish ? <MayerUmarovEN /> : <MayerUmarov />}
+      <section className="SpaceSection"></section>
       {isEnglish ? <StaffEN /> : <Staff />}
       {isEnglish ? <About2EN /> : <About2 />}
       <Links isEnglish={isEnglish} scrollToSection={scrollToSection} />
@@ -65,7 +68,7 @@ function App() {
       const windowHeight = window.innerHeight;
       
       // Calculate position to center the section in the viewport
-      const scrollPosition = elementTop - headerHeight - (windowHeight - elementHeight) / 2;
+      const scrollPosition = elementTop - headerHeight - (windowHeight - elementHeight) / 5;
       
       window.scrollTo({
         top: Math.max(0, scrollPosition),
