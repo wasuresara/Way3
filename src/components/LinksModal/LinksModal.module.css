@@ -107,6 +107,7 @@ div {
 }
 
 input {
+  max-height: 18px;
   padding: 8px 14px;
   font-size: 16px;
   width: 200px;
@@ -193,10 +194,11 @@ input:focus {
 .input-select {
   padding: 8px 38px 8px 14px;
   font-size: 16px;
-  width: 200px;
+  width: 225px;
+
   font-family: "SansNormal", sans-serif;
   color: #212121;
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px) saturate(180%);
   -webkit-backdrop-filter: blur(10px) saturate(180%);
   border: 1px solid rgba(55, 55, 55, 0.119);
@@ -238,10 +240,8 @@ input:focus {
 @media (prefers-color-scheme: dark) {
   .input-select {
     color: #f2f2f2;
-    background: rgba(30, 30, 30, 0.28);
-    border: 1px solid rgba(200, 200, 200, 0.13);
-    background-image: url('data:image/svg+xml;utf8,<svg fill="%23f2f2f2" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
   }
+
   .input-select:focus {
     border-color: #f2f2f2;
   }
