@@ -56,7 +56,8 @@ function LinksModal() {
             fontWeight: "bold",
             fontSize: "0.98em",
             boxShadow: "0 2px 8px rgba(0,0,0,0.12)",
-            padding: "10px 16px"
+            padding: "10px 16px",
+            color: "#00c853"
           },
           duration: 3500
         }
