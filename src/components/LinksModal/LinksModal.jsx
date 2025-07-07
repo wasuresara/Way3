@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import s from "./LinksModal.module.css"; // Імпортуємо CSS
 import { toast } from "react-hot-toast";
 import { hairServices, nailServices } from "../Prices/pricesData";
@@ -12,6 +12,17 @@ function LinksModal() {
   const onSubmit = async (event) => {
     event.preventDefault();
     const form = event.target;
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const phone = form.message.value.trim();
+    if (!name) {
+      toast.error("Bitte geben Sie Ihren Namen ein.");
+      return;
+    }
+    if (!email && !phone) {
+      toast.error("Bitte geben Sie entweder eine E-Mail oder eine Telefonnummer ein.");
+      return;
+    }
     const formData = new FormData(form);
     formData.append("access_key", "7467df4d-1736-4541-850b-004e9fb97eae");
     const object = Object.fromEntries(formData);
@@ -25,17 +36,46 @@ function LinksModal() {
       body: json,
     }).then((res) => res.json());
     if (res.success) {
-      toast.success("Erfolgreich gesendet!", {
-        icon: "👏",
-        style: {
-          borderRadius: "14px",
-          background: "black",
-          color: "lightseagreen",
-        },
-      });
+      // Haptic feedback if supported
+      if (window.navigator && window.navigator.vibrate) {
+        window.navigator.vibrate(100);
+      }
+      // Detect theme
+      const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      toast.success(
+        <span style={{ fontSize: '1em', display: 'flex', alignItems: 'center' }}>
+          <span role="img" aria-label="check" style={{ fontSize: '1.2em', marginRight: 6, color: '#00c853' }}>✔️</span>
+          <span>Erfolgreich gesendet!</span>
+        </span>,
+        {
+          icon: false,
+          style: {
+            borderRadius: "12px",
+            background: isDark ? "#2a2a2a" : "#fff",
+            color: isDark ? "#fff" : "#d32f2f",
+            fontWeight: "bold",
+            fontSize: "0.98em",
+            boxShadow: "0 2px 8px rgba(0,0,0,0.12)",
+            padding: "10px 16px"
+          },
+          duration: 3500
+        }
+      );
       form.reset();
     } else {
-      toast.error("Fehler beim Senden.");
+      toast.error("Fehler beim Senden.", {
+        style: {
+          borderRadius: "12px",
+          background: window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? "#2a2a2a" : "#fff",
+          color: window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? "#fff" : "#d32f2f",
+          fontWeight: "bold",
+          fontSize: "0.98em",
+          boxShadow: "0 2px 8px rgba(0,0,0,0.12)",
+          border: "1.5px solid #d32f2f",
+          padding: "10px 16px"
+        },
+        duration: 3500
+      });
     }
   };
 
