@@ -1,5 +1,3 @@
-
-
 export const hairServices = [
   {
     id: 1,
