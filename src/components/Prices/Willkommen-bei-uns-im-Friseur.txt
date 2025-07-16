@@ -1,0 +1,29 @@
+Willkommen bei uns im Friseur- und Nagelstudio
+
+Wir bieten euch folgende Dienstleistungen an:
+
+Friseurdienstleistungen:
+     Haarschnitte						ab 55 €
+			Kinderhaarschnitt						45 €
+			Barbering (Bart, Gesichtswaxing, Rasur)		ab 15€
+			Glossing							ab 70 €
+			Haarfärbung						ab 100€
+			Strähnen Oberkopf					ab 160 €
+			Strähnen ganzer Kopf					ab 195€
+			Balayage							ab 210 €
+			AirTouch							ab 280€
+			Keratin-Glättung						ab 200€
+			Laminat-Treatment					ab 75 €
+			Hochsteckfrisuren						ab 110 €
+
+Nageldienstleistungen:
+		Maniküre							ab 40 €
+     Brasilianische Maniküre					ab 45€
+		Japanische Maniküre					50 €
+	Pediküre							ab 60 €
+	Nageldesing							ab 10 €
+	3D Nageldesing						ab 30 €
+	Nagelverlängerung					ab 70 €
+	Gel-X								ab 75€
+
+Für weitere Infos - komm einfach vorbei, wir freuen uns auf deinen Besuch!
