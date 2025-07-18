@@ -1,12 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import s from "./Prices.module.css";
 import { nailServices } from "./pricesData";
 import ManiGif from "../About/gif1.gif";
 
 function PricesMani({ scrollToSection }) {
   const [expandedItems, setExpandedItems] = useState(new Set());
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (isDesktop) {
+      // On desktop, expand all items
+      setExpandedItems(new Set(nailServices.map(service => service.id)));
+    } else {
+      // On mobile, collapse all by default
+      setExpandedItems(new Set());
+    }
+  }, [isDesktop]);
 
   const toggleDescription = (serviceId) => {
+    if (isDesktop) return; // No toggle on desktop
     setExpandedItems(prev => {
       const newSet = new Set(prev);
       if (newSet.has(serviceId)) {
@@ -35,9 +55,9 @@ function PricesMani({ scrollToSection }) {
                 onClick={() => toggleDescription(service.id)}
               >
                 <div className={s.priceItemContent}>
-                  <div className={s.serviceImage}>
+                  {/* <div className={s.serviceImage}>
                     <img src={service.picture} alt={service.service} />
-                  </div>
+                  </div> */}
                   <div className={s.serviceInfo}>
                     <h3 className={s.serviceName}>{service.service}</h3>
                     <p className={s.servicePrice}>{service.price}</p>

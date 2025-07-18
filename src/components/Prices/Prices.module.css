@@ -197,6 +197,10 @@
 @media (min-width: 768px) {
   .priceList {
     gap: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 16px;
   }
 
   .PricesGif {
@@ -207,6 +211,7 @@
   }
   .priceItem {
     border-radius: 12px;
+    max-width: 350px;
   }
 
   .priceItemContent {
@@ -235,6 +240,7 @@
 
   .priceItem.expanded .serviceDescription {
     padding: 2px 8px;
+    margin-top: -12px;
   }
 
   .button {
