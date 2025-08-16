@@ -14,7 +14,7 @@ function LinksModal() {
     const form = event.target;
     const name = form.name.value.trim();
     const email = form.email.value.trim();
-    const phone = form.message.value.trim();
+    const phone = form.phone.value.trim();
     if (!name) {
       toast.error("Bitte geben Sie Ihren Namen ein.");
       return;
@@ -96,7 +96,7 @@ function LinksModal() {
               </div>
               <div className={s.Forms}>
                 <label className={s.label1}>Telefonnummer</label>
-                <input type="phone" name="message" />
+                <input type="phone" name="phone" />
               </div>
               <div className={s.Forms}>
                 <label className={s.label1}>Bevorzugtes Datum</label>
