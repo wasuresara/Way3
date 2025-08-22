@@ -34,6 +34,8 @@ import { Toaster } from "react-hot-toast";
 import { useState } from "react";
 import MayerUmarov from "./components/MayerUmarov/MayerUmarov";
 import MayerUmarovEN from "./components/MayerUmarov/MayerUmarovEN";
+import MayerUmarovFR from "./components/MayerUmarov/MayerUmarovFR";
+import MayerUmarovES from "./components/MayerUmarov/MayerUmarovES";
 
 function LanguageSpecificContent({ language, scrollToSection }) {
   const isGerman = language === "de";
@@ -72,7 +74,15 @@ function LanguageSpecificContent({ language, scrollToSection }) {
         <PricesManiEN scrollToSection={scrollToSection} />
       )}
       <section className="SpaceSection"></section>
-      {isGerman ? <MayerUmarov /> : <MayerUmarovEN />}
+      {isGerman ? (
+        <MayerUmarov />
+      ) : isFrench ? (
+        <MayerUmarovFR />
+      ) : isSpanish ? (
+        <MayerUmarovES />
+      ) : (
+        <MayerUmarovEN />
+      )}
       <section className="SpaceSection"></section>
       {isGerman ? (
         <Staff />
