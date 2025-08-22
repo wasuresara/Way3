@@ -31,7 +31,7 @@ import PricesHaarEN from "./components/Prices/PricesHaarEN";
 import PricesHaarFR from "./components/Prices/PricesHaarFR";
 import PricesHaarES from "./components/Prices/PricesHaarES";
 import { Toaster } from "react-hot-toast";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import MayerUmarov from "./components/MayerUmarov/MayerUmarov";
 import MayerUmarovEN from "./components/MayerUmarov/MayerUmarovEN";
 import MayerUmarovFR from "./components/MayerUmarov/MayerUmarovFR";
@@ -131,6 +131,8 @@ function App() {
     // Get saved language preference or default to 'de'
     return localStorage.getItem("language") || "de";
   });
+  const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   const isGerman = language === "de";
   const isFrench = language === "fr";
@@ -139,7 +141,36 @@ function App() {
   const handleLanguageChange = (lang) => {
     setLanguage(lang);
     localStorage.setItem("language", lang);
+    setIsLanguageMenuOpen(false); // Close menu after selection
   };
+
+  const toggleLanguageMenu = () => {
+    setIsLanguageMenuOpen(!isLanguageMenuOpen);
+  };
+const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+useEffect(() => {
+  const handleResize = () => setIsMobile(window.innerWidth < 768);
+  window.addEventListener("resize", handleResize);
+  return () => window.removeEventListener("resize", handleResize);
+}, []);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsLanguageMenuOpen(false);
+      }
+    };
+
+    if (isLanguageMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isLanguageMenuOpen]);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -216,7 +247,23 @@ function App() {
                     : "Team"}
             </button>
           </nav>
-          <nav>
+        <nav className="language-nav">
+  <div className="language-dropdown" ref={dropdownRef}>
+    {isMobile ? (
+      <>
+        <button
+          className="LanguageSwitcher language-toggle"
+          onClick={toggleLanguageMenu}
+        >
+          {language.toUpperCase()}
+          <span
+            className={`dropdown-arrow ${isLanguageMenuOpen ? "open" : ""}`}
+          >
+            ▼
+          </span>
+        </button>
+        {isLanguageMenuOpen && (
+          <div className="language-dropdown-menu">
             <button
               onClick={() => handleLanguageChange("de")}
               className={`LanguageSwitcher ${language === "de" ? "active" : ""}`}
@@ -241,7 +288,40 @@ function App() {
             >
               ES
             </button>
-          </nav>
+          </div>
+        )}
+      </>
+    ) : (
+      <>
+        <button
+          onClick={() => handleLanguageChange("de")}
+          className={`LanguageSwitcher ${language === "de" ? "active" : ""}`}
+        >
+          DE
+        </button>
+        <button
+          onClick={() => handleLanguageChange("en")}
+          className={`LanguageSwitcher ${language === "en" ? "active" : ""}`}
+        >
+          EN
+        </button>
+        <button
+          onClick={() => handleLanguageChange("fr")}
+          className={`LanguageSwitcher ${language === "fr" ? "active" : ""}`}
+        >
+          FR
+        </button>
+        <button
+          onClick={() => handleLanguageChange("es")}
+          className={`LanguageSwitcher ${language === "es" ? "active" : ""}`}
+        >
+          ES
+        </button>
+      </>
+    )}
+  </div>
+</nav>
+
         </div>
 
         <LanguageSpecificContent

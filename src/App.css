@@ -45,6 +45,88 @@ nav {
   flex-direction: row;
   gap: 0px;
 }
+
+.language-nav {
+  position: relative;
+}
+
+.language-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.language-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+.dropdown-arrow {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+.language-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: rgba(242, 242, 242, 0.95);
+  backdrop-filter: blur(8px) saturate(200%);
+  -webkit-backdrop-filter: blur(8px) saturate(200%);
+  border: 1px solid #1c1711;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  min-width: 120px;
+  animation: slideDown 0.3s ease;
+}
+
+.language-dropdown-menu .LanguageSwitcher {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 8px 12px;
+  border: none;
+  background: none;
+  border-radius: 0;
+  transition: all 0.3s ease;
+}
+
+.language-dropdown-menu .LanguageSwitcher:first-child {
+  border-radius: 4px 4px 0 0;
+}
+
+.language-dropdown-menu .LanguageSwitcher:last-child {
+  border-radius: 0 0 4px 4px;
+}
+
+.language-dropdown-menu .LanguageSwitcher:hover {
+  background: #1c1711;
+  color: #f2f2f2;
+}
+
+.language-dropdown-menu .LanguageSwitcher.active {
+  background: #1c1711;
+  color: #f2f2f2;
+  font-weight: bold;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .mText {
   margin-left: auto;
   margin-bottom: 0;
@@ -73,6 +155,21 @@ nav {
   .LanguageSwitcher {
     color: #f2f2f2;
     background: none;
+  }
+
+  .language-dropdown-menu {
+    background: rgba(28, 23, 17, 0.95);
+    border: 1px solid #f2f2f2;
+  }
+
+  .language-dropdown-menu .LanguageSwitcher:hover {
+    background: #f2f2f2;
+    color: #1c1711;
+  }
+
+  .language-dropdown-menu .LanguageSwitcher.active {
+    background: #f2f2f2;
+    color: #1c1711;
   }
 }
 .SpaceSection {
