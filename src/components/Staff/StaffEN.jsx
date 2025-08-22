@@ -141,16 +141,17 @@ function StaffEN() {
                   <li className={s.tags}>Manicure</li>
                   <li className={s.tags}>Creative Designs</li>
                   <li className={s.tags}>Hair Styling</li>
+                  <li className={s.tags}>Haircut</li>
                   <li className={s.tags}>Spanish</li>
                   <li className={s.tags}>English</li>
                 </ul>
                 <p className={s.about}>
-                  Hello! My name is Juliana and I'm from Colombia. For 6 years
-                  I've been passionately dedicated to manicure and have
-                  specialized in alternative and creative designs that reflect
-                  each person's personality and unique style. I love
-                  experimenting with shapes, colors, and textures to turn every
-                  nail set into a small work of art.
+                  I have 6 years of experience in nail design and 4 years in
+                  hair styling. My specialization focuses on alternative haircuts
+                  and styles, with the goal of emphasizing each person's
+                  individuality. Additionally, I love to apply my creativity in
+                  nail art and makeup, offering a comprehensive service that
+                  combines technique, style, and a personal touch.
                 </p>
               </div>
             </div>

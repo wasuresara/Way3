@@ -1,11 +1,26 @@
 import React from "react";
 import s from "./Links.module.css";
 
-const Links = ({ isEnglish, scrollToSection }) => {
+const Links = ({ language, scrollToSection }) => {
+  const getBookNowText = () => {
+    switch (language) {
+      case "de":
+        return "Jetzt buchen";
+      case "en":
+        return "Book now";
+      case "fr":
+        return "Réserver maintenant";
+      case "es":
+        return "Reservar ahora";
+      default:
+        return "Book now";
+    }
+  };
+
   return (
     <div className={s.linksWrapper}>
       <a className={s.lgb} onClick={() => scrollToSection("linksModal")}>
-        {isEnglish ? "Book now" : "Jetzt buchen"}
+        {getBookNowText()}
       </a>
       <a
         href="https://www.instagram.com/theway.berlin/"
@@ -28,7 +43,7 @@ const Links = ({ isEnglish, scrollToSection }) => {
       >
         Google Maps
       </a>
-{/* 
+      {/* 
       <a href="" className={s.lgb} target="_blank">
         Whatsapp
       </a> */}

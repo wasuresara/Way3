@@ -142,16 +142,17 @@ function Staff() {
                   <li className={s.tags}>Maniküre</li>
                   <li className={s.tags}>Kreative Designs</li>
                   <li className={s.tags}>Hair Styling</li>
+                  <li className={s.tags}>Haarschnitt</li>
                   <li className={s.tags}>Spanisch</li>
                   <li className={s.tags}>Englisch</li>
                 </ul>
                 <p className={s.about}>
-                  Hallo! Mein Name ist Juliana und ich komme aus Kolumbien.
-                  Seit 6 Jahren widme ich mich leidenschaftlich der Maniküre
-                  und habe mich auf alternative und kreative Designs spezialisiert,
-                  die die Persönlichkeit und den einzigartigen Stil jeder Person
-                  widerspiegeln. Es begeistert mich, mit Formen, Farben und Texturen
-                  zu experimentieren und so jedes Nagelset in ein kleines Kunstwerk zu verwandeln.
+                  Ich habe 6 Jahre Erfahrung im Nageldesign und 4 Jahre im Bereich
+                  Haarstyling. Meine Spezialisierung liegt auf alternativen
+                  Haarschnitten und Styles, mit dem Ziel, die Individualität
+                  jedes Menschen zu betonen. Außerdem setze ich meine Kreativität
+                  gerne in Nail Art und Make-up ein und biete so einen umfassenden
+                  Service, der Technik, Stil und eine persönliche Note vereint.
                 </p>
               </div>
             </div>
