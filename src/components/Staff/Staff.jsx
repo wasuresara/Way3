@@ -4,7 +4,7 @@ import SvitlanaPhoto from "./Svitlana.jpeg";
 import JuliePhoto from "./Julie.jpeg";
 import MichelinePhoto from "./Michaline.jpeg";
 import AlinaPhoto from "./Alina.jpeg";
-import TeamGif from "../About/gif1.gif";
+import TeamGif from "../Staff/IMG_3225.jpg";
 
 function Staff() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -130,6 +130,28 @@ function Staff() {
                   klassischer French, gepflegter Naturnagel-Look oder
                   Nagelverlängerung. Bei mir bekommst du genau das, was dir
                   gefällt: stilvoll, haltbar und professionell.
+                </p>
+              </div>
+            </div>
+            <div className={s.personBox}>
+              <img  alt="Juliana Photo" className={s.teamMemberImage} />
+              <div className={s.textSection}>
+                <h2 className={s.nameText}>Juliana</h2>
+                <ul>
+                  <li className={s.tags}>She/Her</li>
+                  <li className={s.tags}>Maniküre</li>
+                  <li className={s.tags}>Kreative Designs</li>
+                  <li className={s.tags}>Hair Styling</li>
+                  <li className={s.tags}>Spanisch</li>
+                  <li className={s.tags}>Englisch</li>
+                </ul>
+                <p className={s.about}>
+                  Hallo! Mein Name ist Juliana und ich komme aus Kolumbien.
+                  Seit 6 Jahren widme ich mich leidenschaftlich der Maniküre
+                  und habe mich auf alternative und kreative Designs spezialisiert,
+                  die die Persönlichkeit und den einzigartigen Stil jeder Person
+                  widerspiegeln. Es begeistert mich, mit Formen, Farben und Texturen
+                  zu experimentieren und so jedes Nagelset in ein kleines Kunstwerk zu verwandeln.
                 </p>
               </div>
             </div>

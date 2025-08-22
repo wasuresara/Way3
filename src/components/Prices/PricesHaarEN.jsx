@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import s from "./Prices.module.css";
 import { hairServices } from "./pricesData";
-import HaarGif from "../About/gif1.gif";
+import HaarGif from "../Prices/PricesImages/IMG_0439.jpg";
 
 function PricesHaarEN({ scrollToSection }) {
   const [expandedItems, setExpandedItems] = useState(new Set());

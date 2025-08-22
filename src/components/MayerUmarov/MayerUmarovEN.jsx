@@ -7,7 +7,7 @@ function MayerUmarovEN() {
     <div id="clothing" className={s.container}>
       <div>
         <h2 className={s.sectionTitle}>MAYER. UMAROV</h2>
-        <img src={MayerUmarovGif} alt="MayerUmarovGif" className={s.PricesGif}/>
+        <img src={MayerUmarovGif} alt="MayerUmarovGif" className={s.PricesGif2}/>
         <p className={s.sectionOverview}>
           Upcycled clothing. <br /> We give products a new life - we
           reconstruct secondary materials into a unique object. <br />

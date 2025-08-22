@@ -4,7 +4,7 @@ import SvitlanaPhoto from "./Svitlana.jpeg";
 import JuliePhoto from "./Julie.jpeg";
 import MichelinePhoto from "./Michaline.jpeg";
 import AlinaPhoto from "./Alina.jpeg";
-import TeamGif from "../About/gif1.gif";
+import TeamGif from "../Staff/IMG_3225.jpg";
 
 function StaffEN() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -22,7 +22,7 @@ function StaffEN() {
         <>
           <h2 className={s.sectionTitle}>Our Team</h2>
           <img src={TeamGif} alt="TeamGif" className={s.PricesGif}/>
-          <p className={s.sectionOverview}>staff overview en</p>
+          <p className={s.sectionOverview}>staff overview</p>
           <button onClick={openModal} className={s.button}>
             Our Team
           </button>
@@ -32,7 +32,7 @@ function StaffEN() {
         <div>
           <h2 className={s.sectionTitle}>Our Team</h2>
           <img src={TeamGif} alt="TeamGif" className={s.PricesGif}/>
-          <p className={s.sectionOverview}>staff overview en</p>
+          <p className={s.sectionOverview}>staff overview</p>
           <button onClick={closeModal} className={s.button}>
             Close
           </button>
@@ -52,12 +52,12 @@ function StaffEN() {
                   <li className={s.tags}>Ukrainian</li>
                 </ul>
                 <p className={s.about}>
-                  I am Svitlana, a hairdressing expert with over 20 years of
-                  experience. For me, this is not just a job – it's my path. At
-                  The Way salon, I create style and comfort for every client.
-                  Men's haircuts, beard shaping, facial depilation, women's
-                  haircuts, and various coloring techniques – everything to
-                  highlight your uniqueness. Trust me, and together we will find
+                  I am Svitlana, a master hairdresser with over 20 years of
+                  experience. For me, this is not just a profession — it's my
+                  path. At The Way salon, I create style and comfort for every
+                  client. Men's haircuts, beard care, facial depilation,
+                  women's haircuts, and various coloring techniques — all to
+                  emphasize your uniqueness. Trust me, and together we'll find
                   your perfect look!
                 </p>
               </div>
@@ -78,14 +78,14 @@ function StaffEN() {
                   <li className={s.tags}>German</li>
                 </ul>
                 <p className={s.about}>
-                  I'm Julie and I've loved my work as a master hairdresser for
-                  over twenty years. At The Way, everything revolves around your
-                  perfect hair! As an experienced master hairdresser, I offer
-                  you personalized consultation, precise cuts, and trendy
-                  styling – all according to your wishes. Whether classic
-                  elegance, modern color techniques, or a new look for special
-                  occasions – I take time for you and your hair. I look forward
-                  to your visit!
+                  I'm Julie and I have loved my work as a master hairdresser
+                  for over twenty years. At The Way, everything revolves around
+                  your perfect hair! As an experienced master hairdresser, I
+                  offer personalized consultations, precise cuts, and
+                  trend-conscious styling — exactly as you wish. Whether
+                  classic elegance, modern color techniques, or a new look for
+                  special occasions — I take time for you and your hair. I look
+                  forward to your visit!
                 </p>
               </div>
             </div>
@@ -129,6 +129,28 @@ function StaffEN() {
                   classic French, a well-groomed natural nail look, or nail
                   extensions. With me, you get exactly what you like: stylish,
                   durable, and professional.
+                </p>
+              </div>
+            </div>
+            <div className={s.personBox}>
+              <img  alt="Juliana Photo" className={s.teamMemberImage} />
+              <div className={s.textSection}>
+                <h2 className={s.nameText}>Juliana</h2>
+                <ul>
+                  <li className={s.tags}>She/Her</li>
+                  <li className={s.tags}>Manicure</li>
+                  <li className={s.tags}>Creative Designs</li>
+                  <li className={s.tags}>Hair Styling</li>
+                  <li className={s.tags}>Spanish</li>
+                  <li className={s.tags}>English</li>
+                </ul>
+                <p className={s.about}>
+                  Hello! My name is Juliana and I'm from Colombia. For 6 years
+                  I've been passionately dedicated to manicure and have
+                  specialized in alternative and creative designs that reflect
+                  each person's personality and unique style. I love
+                  experimenting with shapes, colors, and textures to turn every
+                  nail set into a small work of art.
                 </p>
               </div>
             </div>
