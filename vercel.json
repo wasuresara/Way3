@@ -1,10 +1,14 @@
 {
   "rewrites": [
+    { "source": "/dsgvo", "destination": "/" },
     { "source": "/en", "destination": "/" },
+    { "source": "/en/dsgvo", "destination": "/" },
     { "source": "/en/:path*", "destination": "/" },
     { "source": "/fr", "destination": "/" },
+    { "source": "/fr/dsgvo", "destination": "/" },
     { "source": "/fr/:path*", "destination": "/" },
     { "source": "/es", "destination": "/" },
+    { "source": "/es/dsgvo", "destination": "/" },
     { "source": "/es/:path*", "destination": "/" },
     { "source": "/:path*", "destination": "/" }
   ]

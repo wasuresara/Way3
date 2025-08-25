@@ -14,9 +14,9 @@ const FooterFR = () => {
       Handelsregister: GsR 2830 B <br />
         Umsatzsteuer-ID: DE454849959 <br />
         <br />
-        
-        FRv1.02
-</p>
+       <span>FRv1.01</span> 
+      </p>
+      <a href="/privacy-policy" className={pricesStyles.button}>Politique de confidentialité</a>
     </div>
   );
 };

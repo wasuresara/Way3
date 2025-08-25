@@ -1,5 +1,8 @@
 import s from "./Footer.module.css";
+import pricesStyles from "../Prices/Prices.module.css";
+
 const Footer = () => {
+
   return (
     <div>
       <p className={s.text}>
@@ -12,9 +15,10 @@ const Footer = () => {
 <br />
       Geschäftsführer: Svitlana Karpiuk <br />
       Handelsregister: GsR 2830 B <br />
-      Umsatzsteuer-ID: DE454849959 <br />
-<br /> DEv1.02
+        Umsatzsteuer-ID: DE454849959
+        <span>DEv1.02</span>
       </p>
+      <a href="/dsgvo" className={pricesStyles.button}>Datenschutzerklärung</a>
     </div>
   );
 };

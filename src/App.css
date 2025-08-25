@@ -66,6 +66,7 @@ nav {
 .dropdown-arrow {
   font-size: 12px;
   transition: transform 0.3s ease;
+  color: #1c1711;
 }
 
 .dropdown-arrow.open {

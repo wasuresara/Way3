@@ -4,9 +4,15 @@
   color: rgb(255, 255, 255);
   font-size: 14px;
 }
-
+span {
+  font-size: 6px;
+  color: black;
+}
 @media (prefers-color-scheme: light) {
   .text {
     color: black;
+  }
+  span {
+    color: white;
   }
 }
