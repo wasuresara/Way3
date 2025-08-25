@@ -3,7 +3,6 @@ import s from "./Staff.module.css";
 import SvitlanaPhoto from "./Svitlana.jpeg";
 import JuliePhoto from "./Julie.jpeg";
 import MichelinePhoto from "./Michaline.jpeg";
-import AlinaPhoto from "./Alina.jpeg";
 import JuliannaPhoto from "./Julianna1.jpg";  
 import TeamGif from "../Staff/IMG_3225.jpg";
 
@@ -23,7 +22,7 @@ function StaffEN() {
         <>
           <h2 className={s.sectionTitle}>Our Team</h2>
           <img src={TeamGif} alt="TeamGif" className={s.PricesGif}/>
-          <p className={s.sectionOverview}>staff overview</p>
+          <p className={s.sectionOverview}>At The Way, our skilled team delivers personalized, high-quality services to enhance your style and individuality. Here's a snapshot of our talented professionals:</p>
           <button onClick={openModal} className={s.button}>
             Our Team
           </button>
@@ -33,7 +32,7 @@ function StaffEN() {
         <div>
           <h2 className={s.sectionTitle}>Our Team</h2>
           <img src={TeamGif} alt="TeamGif" className={s.PricesGif}/>
-          <p className={s.sectionOverview}>staff overview</p>
+          <p className={s.sectionOverview}>At The Way, our skilled team delivers personalized, high-quality services to enhance your style and individuality. Here's a snapshot of our talented professionals:</p>
           <button onClick={closeModal} className={s.button}>
             Close
           </button>
@@ -109,27 +108,6 @@ function StaffEN() {
                   extreme lengths with bold, artistic shapes, just as much as I
                   love making short, classic, natural nail shapes that reflect
                   French elegance.
-                </p>
-              </div>
-            </div>
-            <div className={s.personBox}>
-              <img src={AlinaPhoto} alt="Alina Photo" className={s.teamMemberImage} />
-              <div className={s.textSection}>
-                <h2 className={s.nameText}>Alina</h2>
-                <ul>
-                  <li className={s.tags}>She/Her</li>
-                  <li className={s.tags}>Manicure</li>
-                  <li className={s.tags}>Pedicure</li>
-                  <li className={s.tags}>Nail Extension</li>
-                  <li className={s.tags}>Ukrainian</li>
-                  <li className={s.tags}>English</li>
-                </ul>
-                <p className={s.about}>
-                  Hello! I'm Alina – a nail stylist with 6 years of experience.
-                  I love delivering beautiful and clean results – whether it's a
-                  classic French, a well-groomed natural nail look, or nail
-                  extensions. With me, you get exactly what you like: stylish,
-                  durable, and professional.
                 </p>
               </div>
             </div>

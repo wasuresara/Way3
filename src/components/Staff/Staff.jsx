@@ -3,7 +3,6 @@ import s from "./Staff.module.css";
 import SvitlanaPhoto from "./Svitlana.jpeg";
 import JuliePhoto from "./Julie.jpeg";
 import MichelinePhoto from "./Michaline.jpeg";
-import AlinaPhoto from "./Alina.jpeg";
 import JuliannaPhoto from "./Julianna1.jpg";
 import TeamGif from "../Staff/IMG_3225.jpg";
 
@@ -23,7 +22,7 @@ function Staff() {
         <>
           <h2 className={s.sectionTitle}>Unser Team</h2>
           <img src={TeamGif} alt="TeamGif" className={s.PricesGif}/>
-          <p className={s.sectionOverview}>staff overview</p>
+          <p className={s.sectionOverview}>Bei The Way bietet unser erfahrenes Team maßgeschneiderte, hochwertige Dienstleistungen, um Ihren Stil und Ihre Individualität zu unterstreichen. Hier ist ein Überblick über unsere talentierten Fachkräfte:</p>
           <button onClick={openModal} className={s.button}>
             Unser Team
           </button>
@@ -33,7 +32,7 @@ function Staff() {
         <div>
           <h2 className={s.sectionTitle}>Unser Team</h2>
           <img src={TeamGif} alt="TeamGif" className={s.PricesGif}/>
-          <p className={s.sectionOverview}>staff overview</p>
+          <p className={s.sectionOverview}>Bei The Way bietet unser erfahrenes Team maßgeschneiderte, hochwertige Dienstleistungen, um Ihren Stil und Ihre Individualität zu unterstreichen. Hier ist ein Überblick über unsere talentierten Fachkräfte:</p>
           <button onClick={closeModal} className={s.button}>
             Schließen
           </button>
@@ -110,27 +109,6 @@ function Staff() {
                   gewagten, künstlerischen Formen zu sublimieren, genauso wie
                   ich es liebe, kurze, klassische, natürliche Nagelformen zu
                   machen, die französische Eleganz widerspiegeln.
-                </p>
-              </div>
-            </div>
-            <div className={s.personBox}>
-              <img src={AlinaPhoto} alt="Alina Photo" className={s.teamMemberImage} />
-              <div className={s.textSection}>
-                <h2 className={s.nameText}>Alina</h2>
-                <ul>
-                  <li className={s.tags}>She/Her</li>
-                  <li className={s.tags}>Maniküre</li>
-                  <li className={s.tags}>Pediküre</li>
-                  <li className={s.tags}>Nagelverlängerung</li>
-                  <li className={s.tags}>Ukrainisch</li>
-                  <li className={s.tags}>Englisch</li>
-                </ul>
-                <p className={s.about}>
-                  Hallo! Ich bin Alina – Nagelstylistin mit 6 Jahren Erfahrung.
-                  Ich liebe es, schöne und saubere Ergebnisse zu liefern – ob
-                  klassischer French, gepflegter Naturnagel-Look oder
-                  Nagelverlängerung. Bei mir bekommst du genau das, was dir
-                  gefällt: stilvoll, haltbar und professionell.
                 </p>
               </div>
             </div>

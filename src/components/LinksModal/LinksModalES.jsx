@@ -24,7 +24,7 @@ function LinksModalES() {
       return;
     }
     const formData = new FormData(form);
-    formData.append("access_key", "7467df4d-1736-4541-850b-004e9fb97eae");
+    formData.append("access_key", "41ed0238-761d-448a-bc1f-219407011160");
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
     const res = await fetch("https://api.web3forms.com/submit", {

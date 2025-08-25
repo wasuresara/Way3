@@ -3,7 +3,6 @@ import s from "./Staff.module.css";
 import SvitlanaPhoto from "./Svitlana.jpeg";
 import JuliePhoto from "./Julie.jpeg";
 import MichelinePhoto from "./Michaline.jpeg";
-import AlinaPhoto from "./Alina.jpeg";
 import JuliannaPhoto from "./Julianna1.jpg";
 import TeamGif from "../Staff/IMG_3225.jpg";
 
@@ -23,7 +22,7 @@ function StaffFR() {
         <>
           <h2 className={s.sectionTitle}>Notre équipe</h2>
           <img src={TeamGif} alt="TeamGif" className={s.PricesGif}/>
-          <p className={s.sectionOverview}>aperçu de l'équipe</p>
+          <p className={s.sectionOverview}>Chez The Way, notre équipe qualifiée propose des services personnalisés de haute qualité pour sublimer votre style et votre individualité. Voici un aperçu de nos talentueux professionnels :</p>
           <button onClick={openModal} className={s.button}>
             Notre équipe
           </button>
@@ -33,7 +32,7 @@ function StaffFR() {
         <div>
           <h2 className={s.sectionTitle}>Notre équipe</h2>
           <img src={TeamGif} alt="TeamGif" className={s.PricesGif}/>
-          <p className={s.sectionOverview}>aperçu de l'équipe</p>
+          <p className={s.sectionOverview}>Chez The Way, notre équipe qualifiée propose des services personnalisés de haute qualité pour sublimer votre style et votre individualité. Voici un aperçu de nos talentueux professionnels :</p>
           <button onClick={closeModal} className={s.button}>
             Fermer
           </button>
@@ -110,27 +109,6 @@ function StaffFR() {
                   grandes longueurs avec des formes audacieuses et artistiques,
                   tout autant que créer des formes courtes, classiques et
                   naturelles qui reflètent l'élégance française.
-                </p>
-              </div>
-            </div>
-            <div className={s.personBox}>
-              <img src={AlinaPhoto} alt="Photo d'Alina" className={s.teamMemberImage} />
-              <div className={s.textSection}>
-                <h2 className={s.nameText}>Alina</h2>
-                <ul>
-                  <li className={s.tags}>She/Her</li>
-                  <li className={s.tags}>Manucure</li>
-                  <li className={s.tags}>Pédicure</li>
-                  <li className={s.tags}>Extension d'ongles</li>
-                  <li className={s.tags}>Ukrainien</li>
-                  <li className={s.tags}>Anglais</li>
-                </ul>
-                <p className={s.about}>
-                  Bonjour ! Je suis Alina — styliste ongulaire avec 6 ans
-                  d'expérience. J'aime offrir des résultats beaux et soignés —
-                  qu'il s'agisse d'un french classique, d'un look naturel bien
-                  entretenu ou d'extensions d'ongles. Avec moi, vous obtenez
-                  exactement ce qui vous plaît : stylé, durable et professionnel.
                 </p>
               </div>
             </div>

@@ -4,14 +4,15 @@ const Footer = () => {
     <div>
       <p className={s.text}>DEv1.01 <br />
         <br />
-      TheWAY GmbH <br />
-      Seelower Str. 2,<br />
+      theWAY Friseur- und Nagelstudio eGbR <br />
+      Seelower Str. 2<br />
       10439 Berlin <br />
       Telefon: 030 123456 <br />
       E-Mail: info@theway.berlin <br />
+        
 <br />
-      Geschäftsführer: Max Mustermann <br />
-      Handelsregister: HRB 12345, Amtsgericht Berlin <br />
+      Geschäftsführer: Svitlana Karpiuk <br />
+      Handelsregister: GsR 2830 B <br />
       Umsatzsteuer-ID: DE454849959 <br />
 
       </p>
