@@ -16,7 +16,7 @@ const Footer = () => {
       Geschäftsführer: Svitlana Karpiuk <br />
       Handelsregister: GsR 2830 B <br />
         Umsatzsteuer-ID: DE454849959
-        <span>DEv1.02</span>
+        <span className={s.version}>DEv1.02</span>
       </p>
       <a href="/dsgvo.html" className={pricesStyles.button}>Datenschutzerklärung</a>
     </div>

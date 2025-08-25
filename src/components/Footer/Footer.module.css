@@ -4,7 +4,7 @@
   color: rgb(255, 255, 255);
   font-size: 14px;
 }
-span {
+.version {
   font-size: 6px;
   color: black;
 }
@@ -12,7 +12,7 @@ span {
   .text {
     color: black;
   }
-  span {
+  .version {
     color: white;
   }
 }
