@@ -5,15 +5,15 @@ const Links = ({ language, scrollToSection }) => {
   const getBookNowText = () => {
     switch (language) {
       case "de":
-        return "Jetzt buchen";
+        return "Anfrag stellen";
       case "en":
-        return "Book now";
+        return "Make a request";
       case "fr":
-        return "Réserver maintenant";
+        return "Faire une demande";
       case "es":
-        return "Reservar ahora";
+        return "Hacer una solicitud";
       default:
-        return "Book now";
+        return "Make a request";
     }
   };
 
