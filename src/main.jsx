@@ -4,15 +4,9 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "./index.css";
 import App from "./App.jsx";
 import { Analytics } from "@vercel/analytics/react";
-import { detectUserLanguage, redirectToLanguagePath } from "./utils/languageDetection";
 
-// Language detection wrapper component
-function LanguageRouter() {
-  useEffect(() => {
-    // Check and redirect based on browser language on initial load
-    redirectToLanguagePath();
-  }, []);
 
+function LanguageRouter() { 
   return (
     <BrowserRouter>
       <Routes>
