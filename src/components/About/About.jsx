@@ -1,5 +1,5 @@
 import s from "./About.module.css";
-import Gif from "./gif1.gif";
+import Gif from "../About/IMG_3774.jpg";
 
 const About = () => {
   return (

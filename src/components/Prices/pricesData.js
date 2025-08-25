@@ -232,7 +232,7 @@ export const hairServices = [
     descriptionEN:
       "Elegant updo hairstyles for special occasions, individually styled.",
     descriptionFR:
-      "Coiffures élégantes relevées pour occasions spéciales, stylées individuellement.",
+      "Coiffures élégantes relevées pour des occasions spéciales, stylées individuellement.",
     descriptionES:
       "Peinados elegantes recogidos para ocasiones especiales, estilizados individualmente.",
   },

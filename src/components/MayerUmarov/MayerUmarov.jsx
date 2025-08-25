@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import s from "../Prices/Prices.module.css"; // Імпортуємо стилі як модулі
-import MayerUmarovGif from "../About/gif1.gif";
+import MayerUmarovGif from "../MayerUmarov/IMG_3765.jpg";
 function MayerUmarov() {
   return (
       <div id="clothing" className={s.container}>

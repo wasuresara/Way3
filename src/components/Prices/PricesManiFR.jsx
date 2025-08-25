@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import s from "./Prices.module.css";
 import { nailServices } from "./pricesData";
-import ManiGif from "../About/gif1.gif";
+import ManiGif from "../Prices/PricesImages/IMG_0210.jpeg";
 
 function PricesManiFR({ scrollToSection }) {
   const [expandedItems, setExpandedItems] = useState(new Set());
@@ -42,7 +42,7 @@ function PricesManiFR({ scrollToSection }) {
     <div id="prices" className={s.container}>
       <>
         <h2 className={s.sectionTitle}>Services d'ongles</h2>
-        <img src={ManiGif} alt="ManiGif" className={s.PricesGif} />
+        <img src={ManiGif} alt="ManiGif" className={s.PricesGifMani}/>
         <div className={s.priceList}>
           {nailServices.map((service) => (
             <div

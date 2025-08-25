@@ -2,7 +2,7 @@ import s from "./Footer.module.css";
 const FooterFR = () => {
   return (
     <div>
-      <p className={s.text}>FRv0.3</p>
+      <p className={s.text}>FRv1.01 DE454849959</p>
     </div>
   );
 };
