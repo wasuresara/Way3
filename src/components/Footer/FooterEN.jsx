@@ -16,7 +16,7 @@ const Footer = () => {
         Umsatzsteuer-ID: DE454849959
         <span>ENv1.02</span>
       </p>
-      <a href="/privacy-policy" className={pricesStyles.button}>Privacy Policy</a>
+      <a href="/dsgvo.html" className={pricesStyles.button}>Privacy Policy</a>
     </div>
   );
 };

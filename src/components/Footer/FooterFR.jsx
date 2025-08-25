@@ -17,7 +17,7 @@ const FooterFR = () => {
         <br />
        <span>FRv1.01</span> 
       </p>
-      <a href="/privacy-policy" className={pricesStyles.button}>Politique de confidentialité</a>
+      <a href="/dsgvo.html" className={pricesStyles.button}>Politique de confidentialité</a>
     </div>
   );
 };
