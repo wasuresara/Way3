@@ -66,7 +66,7 @@ function PricesManiFR({ scrollToSection }) {
           className={s.button}
           onClick={() => scrollToSection("linksModal")}
         >
-          Réserver maintenant
+          Faire une demande
         </button>
       </>
     </div>

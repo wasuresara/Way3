@@ -66,7 +66,7 @@ function PricesManiES({ scrollToSection }) {
           className={s.button}
           onClick={() => scrollToSection("linksModal")}
         >
-          Reservar ahora
+          Hacer una solicitud
         </button>
       </>
     </div>
