@@ -1,4 +1,5 @@
 import s from "./Footer.module.css";
+import pricesStyles from "../Prices/Prices.module.css";
 const Footer = () => {
   return (
     <div>
