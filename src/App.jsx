@@ -126,10 +126,10 @@ function LanguageSpecificContent({ language, scrollToSection }) {
   );
 }
 
-function App() {
+function App({ language: routeLanguage }) {
   const [language, setLanguage] = useState(() => {
-    // Get saved language preference or default to 'de'
-    return localStorage.getItem("language") || "de";
+    // Use route language if provided, otherwise get from localStorage or default to 'de'
+    return routeLanguage || localStorage.getItem("language") || "de";
   });
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -142,6 +142,10 @@ function App() {
     setLanguage(lang);
     localStorage.setItem("language", lang);
     setIsLanguageMenuOpen(false); // Close menu after selection
+    
+    // Navigate to the appropriate language route
+    const path = lang === "de" ? "/" : `/${lang}`;
+    window.location.href = path;
   };
 
   const toggleLanguageMenu = () => {

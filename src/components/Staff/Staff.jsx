@@ -4,6 +4,7 @@ import SvitlanaPhoto from "./Svitlana.jpeg";
 import JuliePhoto from "./Julie.jpeg";
 import MichelinePhoto from "./Michaline.jpeg";
 import AlinaPhoto from "./Alina.jpeg";
+import JuliannaPhoto from "./Julianna1.jpg";
 import TeamGif from "../Staff/IMG_3225.jpg";
 
 function Staff() {
@@ -134,7 +135,7 @@ function Staff() {
               </div>
             </div>
             <div className={s.personBox}>
-              <img  alt="Juliana Photo" className={s.teamMemberImage} />
+              <img src={JuliannaPhoto} alt="Juliana Photo" className={s.teamMemberImage} />
               <div className={s.textSection}>
                 <h2 className={s.nameText}>Juliana</h2>
                 <ul>

@@ -156,7 +156,10 @@ nav {
     color: #f2f2f2;
     background: none;
   }
-
+  .LanguageSwitcher:hover {
+    color: #1c1711;
+    background: #f2f2f2;
+  }
   .language-dropdown-menu {
     background: rgba(28, 23, 17, 0.95);
     border: 1px solid #f2f2f2;
