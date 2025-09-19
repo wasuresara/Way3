@@ -7,7 +7,7 @@ const FooterES = () => {
       theWAY Friseur- und Nagelstudio eGbR <br />
       Seelower Str. 2<br />
       10439 Berlin <br />
-      Telefon: 030 123456 <br />
+      Telefon: <a href="tel:01705503697">01705503697</a> <br />
       E-Mail: info@theway.berlin <br />
         
 <br />

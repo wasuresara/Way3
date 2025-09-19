@@ -70,7 +70,7 @@ function PricesHaar({ scrollToSection }) {
               </div>
             ))}
           </div>
-          <button className={s.button} onClick={() => scrollToSection('linksModal')}>Anfrag stellen</button>
+          <button className={s.button} onClick={() => scrollToSection('linksModal')}>Anfrage stellen</button>
         </>
     </div>
   );

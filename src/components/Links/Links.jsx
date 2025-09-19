@@ -5,7 +5,7 @@ const Links = ({ language, scrollToSection }) => {
   const getBookNowText = () => {
     switch (language) {
       case "de":
-        return "Anfrag stellen";
+        return "Anfrage stellen";
       case "en":
         return "Make a request";
       case "fr":
