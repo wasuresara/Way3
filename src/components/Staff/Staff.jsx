@@ -63,7 +63,7 @@ function Staff() {
               </div>
             </div>
             <div className={s.personBox}>
-              <img src={JuliePhoto} alt="Julie Photo" className={s.teamMemberImage} />
+              <img  alt="Julie Photo" className={s.teamMemberImage} />
               <div className={s.textSection}>
                 <h2 className={s.nameText}>Julie</h2>
                 <ul>

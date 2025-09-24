@@ -63,7 +63,7 @@ function StaffES() {
               </div>
             </div>
             <div className={s.personBox}>
-              <img src={JuliePhoto} alt="Foto de Julie" className={s.teamMemberImage} />
+              <img  alt="Foto de Julie" className={s.teamMemberImage} />
               <div className={s.textSection}>
                 <h2 className={s.nameText}>Julie</h2>
                 <ul>
