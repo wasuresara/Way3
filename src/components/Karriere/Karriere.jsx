@@ -18,7 +18,7 @@ function Karriere({ language = "de" }) {
       case "en": return "Apply Now";
       case "fr": return "Postuler";
       case "es": return "Aplicar";
-      default: return "Bewerben";
+      default: return "per Email bewerben";
     }
   };
 
@@ -63,13 +63,13 @@ function Karriere({ language = "de" }) {
               <h3 className={s.jobTitle}>{getJobTitle(job)}</h3>
               <div className={s.jobMeta}>
                 <span className={s.jobLocation}>{job.location}</span>
-                <span className={s.jobSalary}>{getJobSalary(job)}</span>
+                {/* <span className={s.jobSalary}>{getJobSalary(job)}</span> */}
               </div>
             </div>
             
             <div className={s.jobDescription}>
               <p>{getJobDescription(job)}</p>
-              <a href="#" className={s.button}>{getApplyButtonText()}</a>
+              <a href="mailto:info@theway.berlin" className={s.button}>{getApplyButtonText()}</a>
             </div>
           </div>
         ))}

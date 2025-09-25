@@ -116,7 +116,7 @@ function LanguageSpecificContent({ language, scrollToSection }) {
       )}
       <Toaster position="bottom-center" reverseOrder={false} />
       <section className="SpaceSection"></section>
-      {/* <Karriere language={language} /> */}
+      <Karriere language={language} />
       {isGerman ? (
         <Footer />
       ) : isFrench ? (

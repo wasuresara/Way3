@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import s from "./Staff.module.css";
 import SvitlanaPhoto from "./Svitlana.jpeg";
-import JuliePhoto from "./Julie.jpeg";
 import MichelinePhoto from "./Michaline.jpeg";
 import JuliannaPhoto from "./Julianna1.jpg";
 import TeamGif from "../Staff/IMG_3225.jpg";
@@ -63,33 +62,6 @@ function Staff() {
               </div>
             </div>
             <div className={s.personBox}>
-              <img  alt="Julie Photo" className={s.teamMemberImage} />
-              <div className={s.textSection}>
-                <h2 className={s.nameText}>Julie</h2>
-                <ul>
-                  <li className={s.tags}>She/Her</li>
-                  <li className={s.tags}>Friseurmitleidenschaft</li>
-                  <li className={s.tags}>Haarschnitt</li>
-                  <li className={s.tags}>Hochsteckfrisuren</li>
-                  <li className={s.tags}>Haarpflege</li>
-                  <li className={s.tags}>Haarfarbe</li>
-                  <li className={s.tags}>Lange haare</li>
-                  <li className={s.tags}>Salonqualität</li>
-                  <li className={s.tags}>Deutsch</li>
-                </ul>
-                <p className={s.about}>
-                  Ich bin Julie und Liebe meine Arbeit als Friseurmeisterin seit
-                  über zwanzig Jahren. Bei The Way dreht sich alles um Ihr
-                  perfektes Haar! Als erfahrene Friseurmeisterin biete ich Ihnen
-                  individuelle Beratung, präzise Schnitte und trendbewusste
-                  Stylings – ganz nach Ihren Wünschen. Ob klassische Eleganz,
-                  moderne Farbtechniken oder ein neuer Look für besondere
-                  Anlässe – ich nehme mir Zeit für Sie und Ihr Haar. Ich freue
-                  mich auf ihren Besuch!
-                </p>
-              </div>
-            </div>
-            <div className={s.personBox}>
               <img src={MichelinePhoto} alt="Micheline Photo" className={s.teamMemberImage} />
               <div className={s.textSection}>
                 <h2 className={s.nameText}>Micheline</h2>
@@ -132,6 +104,33 @@ function Staff() {
                   jedes Menschen zu betonen. Außerdem setze ich meine Kreativität
                   gerne in Nail Art und Make-up ein und biete so einen umfassenden
                   Service, der Technik, Stil und eine persönliche Note vereint.
+                </p>
+              </div>
+            </div>
+            <div className={s.personBox}>
+              <img  alt="Julie Photo" className={s.teamMemberImage} />
+              <div className={s.textSection}>
+                <h2 className={s.nameText}>Julie</h2>
+                <ul>
+                  <li className={s.tags}>She/Her</li>
+                  <li className={s.tags}>Friseurmitleidenschaft</li>
+                  <li className={s.tags}>Haarschnitt</li>
+                  <li className={s.tags}>Hochsteckfrisuren</li>
+                  <li className={s.tags}>Haarpflege</li>
+                  <li className={s.tags}>Haarfarbe</li>
+                  <li className={s.tags}>Lange haare</li>
+                  <li className={s.tags}>Salonqualität</li>
+                  <li className={s.tags}>Deutsch</li>
+                </ul>
+                <p className={s.about}>
+                  Ich bin Julie und Liebe meine Arbeit als Friseurmeisterin seit
+                  über zwanzig Jahren. Bei The Way dreht sich alles um Ihr
+                  perfektes Haar! Als erfahrene Friseurmeisterin biete ich Ihnen
+                  individuelle Beratung, präzise Schnitte und trendbewusste
+                  Stylings – ganz nach Ihren Wünschen. Ob klassische Eleganz,
+                  moderne Farbtechniken oder ein neuer Look für besondere
+                  Anlässe – ich nehme mir Zeit für Sie und Ihr Haar. Ich freue
+                  mich auf ihren Besuch!
                 </p>
               </div>
             </div>
