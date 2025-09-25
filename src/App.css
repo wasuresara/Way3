@@ -50,9 +50,30 @@ nav {
   position: relative;
 }
 
+@media (max-width: 768px) {
+  .buttonBox {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 2px 2px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .LanguageSwitcher {
+    font-size: 14px;
+    padding: 4px 6px;
+  }
+}
+
 .language-dropdown {
   position: relative;
   display: inline-block;
+
+  border-radius: 16px;
 }
 
 .language-toggle {
@@ -60,31 +81,48 @@ nav {
   align-items: center;
   gap: 8px;
   padding: 8px 12px;
-  border-radius: 4px;
-}
 
-.dropdown-arrow {
-  font-size: 12px;
-  transition: transform 0.3s ease;
+  border: 2px solid #1c1711;
+  border-radius: 16px;
+  width: 45.5px;
+
+  background-color: #ffffff0a;
+  backdrop-filter: blur(8px) saturate(200%);
+  -webkit-backdrop-filter: blur(8px) saturate(200%);
+}
+.language-toggle:hover {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
   color: #1c1711;
-}
 
-.dropdown-arrow.open {
-  transform: rotate(180deg);
+  border: 2px solid #1c1711;
+  border-radius: 16px;
+  background: #7d7d7db0;
 }
 
 .language-dropdown-menu {
   position: absolute;
   top: 100%;
   right: 0;
-  background: rgba(242, 242, 242, 0.95);
+  background-color: #ffffff0a;
   backdrop-filter: blur(8px) saturate(200%);
   -webkit-backdrop-filter: blur(8px) saturate(200%);
-  border: 1px solid #1c1711;
-  border-radius: 4px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
+  align-items: flex-end;
+  align-self: flex-end;
+  border: 2px solid #1c1711;
+}
+
+.mobile-language-container {
+  position: sticky;
+  left: 900px;
+  top: 35px;
+  background: none;
+  border-radius: none;
   z-index: 1000;
-  min-width: 120px;
+  width: 50px;
   animation: slideDown 0.3s ease;
 }
 
@@ -94,17 +132,12 @@ nav {
   text-align: left;
   padding: 8px 12px;
   border: none;
+  border-radius: 12px;
   background: none;
-  border-radius: 0;
   transition: all 0.3s ease;
-}
-
-.language-dropdown-menu .LanguageSwitcher:first-child {
-  border-radius: 4px 4px 0 0;
-}
-
-.language-dropdown-menu .LanguageSwitcher:last-child {
-  border-radius: 0 0 4px 4px;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .language-dropdown-menu .LanguageSwitcher:hover {
@@ -112,22 +145,6 @@ nav {
   color: #f2f2f2;
 }
 
-.language-dropdown-menu .LanguageSwitcher.active {
-  background: #1c1711;
-  color: #f2f2f2;
-  font-weight: bold;
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 .mText {
   margin-left: auto;
   margin-bottom: 0;
@@ -145,9 +162,7 @@ nav {
   .mText {
     color: #f2f2f2;
   }
-  .dropdown-arrow {
-    color: #f2f2f2;
-  }
+
   .buttonBox {
     background-color: transparent;
     border-bottom: 2px solid #f2f2f2;
@@ -157,23 +172,84 @@ nav {
 
   .LanguageSwitcher {
     color: #f2f2f2;
-    background: none;
   }
   .LanguageSwitcher:hover {
     color: #1c1711;
     background: #f2f2f2;
   }
+
+  .language-dropdown {
+    position: relative;
+    display: inline-block;
+
+    border-radius: 16px;
+  }
+
+  .language-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+
+    border: 2px solid #f2f2f2;
+    border-radius: 16px;
+
+    background-color: #ffffff0a;
+    backdrop-filter: blur(8px) saturate(200%);
+    -webkit-backdrop-filter: blur(8px) saturate(200%);
+  }
+  .language-toggle:hover {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    color: #1c1711;
+
+    border: 2px solid #f2f2f2;
+    border-radius: 16px;
+    background: #7d7d7db0;
+  }
+
   .language-dropdown-menu {
-    background: rgba(28, 23, 17, 0.95);
-    border: 1px solid #f2f2f2;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #ffffff0a;
+    backdrop-filter: blur(8px) saturate(200%);
+    -webkit-backdrop-filter: blur(8px) saturate(200%);
+    border-radius: 16px;
+    align-items: flex-end;
+    align-self: flex-end;
+    border: 16px;
+    border: 2px solid #f2f2f2;
+  }
+
+  .mobile-language-container {
+    position: sticky;
+    left: 900px;
+    top: 35px;
+    background: none;
+    border-radius: none;
+    z-index: 1000;
+    width: 50px;
+    animation: slideDown 0.3s ease;
+  }
+
+  .language-dropdown-menu .LanguageSwitcher {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 12px;
+    background: none;
+    transition: all 0.3s ease;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
   }
 
   .language-dropdown-menu .LanguageSwitcher:hover {
-    background: #f2f2f2;
-    color: #1c1711;
-  }
-
-  .language-dropdown-menu .LanguageSwitcher.active {
     background: #f2f2f2;
     color: #1c1711;
   }

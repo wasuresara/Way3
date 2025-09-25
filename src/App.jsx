@@ -30,6 +30,7 @@ import PricesHaar from "./components/Prices/PricesHaar";
 import PricesHaarEN from "./components/Prices/PricesHaarEN";
 import PricesHaarFR from "./components/Prices/PricesHaarFR";
 import PricesHaarES from "./components/Prices/PricesHaarES";
+import Karriere from "./components/Karriere/Karriere";
 import { Toaster } from "react-hot-toast";
 import { useState, useEffect, useRef } from "react";
 import MayerUmarov from "./components/MayerUmarov/MayerUmarov";
@@ -93,6 +94,7 @@ function LanguageSpecificContent({ language, scrollToSection }) {
       ) : (
         <StaffEN />
       )}
+      <section className="SpaceSection"></section>
       {isGerman ? (
         <About2 />
       ) : isFrench ? (
@@ -113,6 +115,8 @@ function LanguageSpecificContent({ language, scrollToSection }) {
         <LinksModalEN />
       )}
       <Toaster position="bottom-center" reverseOrder={false} />
+      <section className="SpaceSection"></section>
+      {/* <Karriere language={language} /> */}
       {isGerman ? (
         <Footer />
       ) : isFrench ? (
@@ -132,11 +136,16 @@ function App({ language: routeLanguage }) {
     return routeLanguage || localStorage.getItem("language") || "de";
   });
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const dropdownRef = useRef(null);
 
   const isGerman = language === "de";
   const isFrench = language === "fr";
   const isSpanish = language === "es";
+  
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   const handleLanguageChange = (lang) => {
     setLanguage(lang);
@@ -202,131 +211,139 @@ useEffect(() => {
       <div>
         <div className="buttonBox">
           <nav>
-            <button
-              className="LanguageSwitcher"
-              onClick={() => scrollToSection("home")}
-            >
-              {isGerman
-                ? "Hauptseite"
-                : isFrench
-                  ? "Accueil"
-                  : isSpanish
-                    ? "Inicio"
-                    : "Home"}
-            </button>
-            <button
-              className="LanguageSwitcher"
-              onClick={() => scrollToSection("prices")}
-            >
-              {isGerman
-                ? "Preise"
-                : isFrench
-                  ? "Tarifs"
-                  : isSpanish
-                    ? "Precios"
-                    : "Prices"}
-            </button>
-            <button
-              className="LanguageSwitcher"
-              onClick={() => scrollToSection("clothing")}
-            >
-              {isGerman
-                ? "Bekleidung"
-                : isFrench
-                  ? "Vêtements"
-                  : isSpanish
-                    ? "Ropa"
-                    : "Clothing"}
-            </button>
-            <button
-              className="LanguageSwitcher"
-              onClick={() => scrollToSection("team")}
-            >
-              {isGerman
-                ? "Team"
-                : isFrench
-                  ? "Équipe"
-                  : isSpanish
-                    ? "Equipo"
-                    : "Team"}
-            </button>
-          </nav>
-        <nav className="language-nav">
-  <div className="language-dropdown" ref={dropdownRef}>
-    {isMobile ? (
-      <>
-        <button
-          className="LanguageSwitcher language-toggle"
-          onClick={toggleLanguageMenu}
-        >
-          {language.toUpperCase()}
-          <span
-            className={`dropdown-arrow ${isLanguageMenuOpen ? "open" : ""}`}
-          >
-            ▼
-          </span>
-        </button>
-        {isLanguageMenuOpen && (
-          <div className="language-dropdown-menu">
-            <button
-              onClick={() => handleLanguageChange("de")}
-              className={`LanguageSwitcher ${language === "de" ? "active" : ""}`}
-            >
-              DE
-            </button>
-            <button
-              onClick={() => handleLanguageChange("en")}
-              className={`LanguageSwitcher ${language === "en" ? "active" : ""}`}
-            >
-              EN
-            </button>
-            <button
-              onClick={() => handleLanguageChange("fr")}
-              className={`LanguageSwitcher ${language === "fr" ? "active" : ""}`}
-            >
-              FR
-            </button>
-            <button
-              onClick={() => handleLanguageChange("es")}
-              className={`LanguageSwitcher ${language === "es" ? "active" : ""}`}
-            >
-              ES
-            </button>
+             <button
+               className="LanguageSwitcher"
+               onClick={() => scrollToSection("home")}
+             >
+               {isGerman
+                 ? "Hauptseite"
+                 : isFrench
+                   ? "Accueil"
+                   : isSpanish
+                     ? "Inicio"
+                     : "Home"}
+             </button>
+             <button
+               className="LanguageSwitcher"
+               onClick={() => scrollToSection("prices")}
+             >
+               {isGerman
+                 ? "Preise"
+                 : isFrench
+                   ? "Tarifs"
+                   : isSpanish
+                     ? "Precios"
+                     : "Prices"}
+             </button>
+             <button
+               className="LanguageSwitcher"
+               onClick={() => scrollToSection("clothing")}
+             >
+               {isGerman
+                 ? "Bekleidung"
+                 : isFrench
+                   ? "Vêtements"
+                   : isSpanish
+                     ? "Ropa"
+                     : "Clothing"}
+             </button>
+             <button
+               className="LanguageSwitcher"
+               onClick={() => scrollToSection("team")}
+             >
+               {isGerman
+                 ? "Team"
+                 : isFrench
+                   ? "Équipe"
+                   : isSpanish
+                     ? "Equipo"
+                     : "Team"}
+             </button>
+             <button
+               className="LanguageSwitcher"
+               onClick={() => scrollToSection("karriere")}
+             >
+               {isGerman
+                 ? "Karriere"
+                 : isFrench
+                   ? "Carrière"
+                   : isSpanish
+                     ? "Carrera"
+                     : "Career"}
+             </button>
+           </nav>
+          {!isMobile && (
+            <nav className="language-nav">
+              <div className="language-dropdown" ref={dropdownRef}>
+                <button
+                  onClick={() => handleLanguageChange("de")}
+                  className={`LanguageSwitcher ${language === "de" ? "active" : ""}`}
+                >
+                  DE
+                </button>
+                <button
+                  onClick={() => handleLanguageChange("en")}
+                  className={`LanguageSwitcher ${language === "en" ? "active" : ""}`}
+                >
+                  EN
+                </button>
+                <button
+                  onClick={() => handleLanguageChange("fr")}
+                  className={`LanguageSwitcher ${language === "fr" ? "active" : ""}`}
+                >
+                  FR
+                </button>
+                <button
+                  onClick={() => handleLanguageChange("es")}
+                  className={`LanguageSwitcher ${language === "es" ? "active" : ""}`}
+                >
+                  ES
+                </button>
+              </div>
+            </nav>
+          )}
+        </div>
+        
+        {isMobile && (
+          <div className="mobile-language-container">
+            <div className="language-dropdown" ref={dropdownRef}>
+              <button
+                className="LanguageSwitcher language-toggle"
+                onClick={toggleLanguageMenu}
+              >
+                {language.toUpperCase()}
+              </button>
+              {isLanguageMenuOpen && (
+                <div className="language-dropdown-menu">
+                  <button
+                    onClick={() => handleLanguageChange("de")}
+                    className={`LanguageSwitcher ${language === "de" ? "active" : ""}`}
+                  >
+                    DE
+                  </button>
+                  <button
+                    onClick={() => handleLanguageChange("en")}
+                    className={`LanguageSwitcher ${language === "en" ? "active" : ""}`}
+                  >
+                    EN
+                  </button>
+                  <button
+                    onClick={() => handleLanguageChange("fr")}
+                    className={`LanguageSwitcher ${language === "fr" ? "active" : ""}`}
+                  >
+                    FR
+                  </button>
+                  <button
+                    onClick={() => handleLanguageChange("es")}
+                    className={`LanguageSwitcher ${language === "es" ? "active" : ""}`}
+                  >
+                    ES
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         )}
-      </>
-    ) : (
-      <>
-        <button
-          onClick={() => handleLanguageChange("de")}
-          className={`LanguageSwitcher ${language === "de" ? "active" : ""}`}
-        >
-          DE
-        </button>
-        <button
-          onClick={() => handleLanguageChange("en")}
-          className={`LanguageSwitcher ${language === "en" ? "active" : ""}`}
-        >
-          EN
-        </button>
-        <button
-          onClick={() => handleLanguageChange("fr")}
-          className={`LanguageSwitcher ${language === "fr" ? "active" : ""}`}
-        >
-          FR
-        </button>
-        <button
-          onClick={() => handleLanguageChange("es")}
-          className={`LanguageSwitcher ${language === "es" ? "active" : ""}`}
-        >
-          ES
-        </button>
-      </>
-    )}
-  </div>
-</nav>
-
-        </div>
 
         <LanguageSpecificContent
           language={language}
