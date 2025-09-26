@@ -2,9 +2,6 @@ import { Analytics } from "@vercel/analytics/react";
 import "./App.css";
 import React from "react";
 import About from "./components/About/About";
-import AboutEN from "./components/About/AboutEN";
-import AboutFR from "./components/About/AboutFR";
-import AboutES from "./components/About/AboutES";
 import About2 from "./components/About2/About2";
 import About2EN from "./components/About2/About2EN";
 import About2FR from "./components/About2/About2FR";
@@ -19,9 +16,6 @@ import LinksModalEN from "./components/LinksModal/LinksModalEN";
 import LinksModalFR from "./components/LinksModal/LinksModalFR";
 import LinksModalES from "./components/LinksModal/LinksModalES";
 import Staff from "./components/Staff/Staff";
-import StaffEN from "./components/Staff/StaffEN";
-import StaffFR from "./components/Staff/StaffFR";
-import StaffES from "./components/Staff/StaffES";
 import PricesMani from "./components/Prices/PricesMani";
 import PricesManiEN from "./components/Prices/PricesManiEN";
 import PricesManiFR from "./components/Prices/PricesManiFR";
@@ -45,15 +39,7 @@ function LanguageSpecificContent({ language, scrollToSection }) {
 
   return (
     <div className="Wrapper">
-      {isGerman ? (
-        <About />
-      ) : isFrench ? (
-        <AboutFR />
-      ) : isSpanish ? (
-        <AboutES />
-      ) : (
-        <AboutEN />
-      )}
+      <About language={language} />
       <Links language={language} scrollToSection={scrollToSection} />
       {isGerman ? (
         <PricesHaar scrollToSection={scrollToSection} />
@@ -85,15 +71,7 @@ function LanguageSpecificContent({ language, scrollToSection }) {
         <MayerUmarovEN />
       )}
       <section className="SpaceSection"></section>
-      {isGerman ? (
-        <Staff />
-      ) : isFrench ? (
-        <StaffFR />
-      ) : isSpanish ? (
-        <StaffES />
-      ) : (
-        <StaffEN />
-      )}
+      <Staff language={language} />
       <section className="SpaceSection"></section>
       {isGerman ? (
         <About2 />
@@ -184,6 +162,60 @@ useEffect(() => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isLanguageMenuOpen]);
+
+  // SEO: update title/description/canonical per language
+  useEffect(() => {
+    const titles = {
+      de: "Friseur Prenzlauer Berg | theWAY Berlin",
+      en: "Hair Salon Prenzlauer Berg | theWAY Berlin",
+      fr: "Coiffeur Prenzlauer Berg | theWAY Berlin",
+      es: "Peluquería Prenzlauer Berg | theWAY Berlin",
+    };
+    const descriptions = {
+      de: "Friseur in Berlin Prenzlauer Berg: Haarschnitt, Farbe, Balayage, Maniküre & mehr. Jetzt Termin buchen.",
+      en: "Hair salon in Berlin Prenzlauer Berg: haircut, color, balayage, manicure & more. Book now.",
+      fr: "Coiffeur à Berlin Prenzlauer Berg : coupe, couleur, balayage, manucure & plus. Réservez maintenant.",
+      es: "Peluquería en Berlín Prenzlauer Berg: corte, color, balayage, manicura y más. Reserva ahora.",
+    };
+
+    document.title = titles[language] || titles.de;
+
+    const ensureMeta = (name) => {
+      let el = document.querySelector(`meta[name="${name}"]`);
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute("name", name);
+        document.head.appendChild(el);
+      }
+      return el;
+    };
+
+    ensureMeta("description").setAttribute("content", descriptions[language] || descriptions.de);
+
+    const ensureOg = (prop) => {
+      let el = document.querySelector(`meta[property="${prop}"]`);
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute("property", prop);
+        document.head.appendChild(el);
+      }
+      return el;
+    };
+
+    ensureOg("og:title").setAttribute("content", titles[language] || titles.de);
+    ensureOg("og:description").setAttribute("content", descriptions[language] || descriptions.de);
+    ensureOg("og:url").setAttribute("content", window.location.href);
+
+    // Canonical
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.setAttribute("rel", "canonical");
+      document.head.appendChild(canonical);
+    }
+    const path = language === "de" ? "/" : `/${language}`;
+    canonical.setAttribute("href", `${window.location.origin}${path}`);
+  }, [language]);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
