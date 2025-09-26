@@ -16,14 +16,7 @@ import LinksModalEN from "./components/LinksModal/LinksModalEN";
 import LinksModalFR from "./components/LinksModal/LinksModalFR";
 import LinksModalES from "./components/LinksModal/LinksModalES";
 import Staff from "./components/Staff/Staff";
-import PricesMani from "./components/Prices/PricesMani";
-import PricesManiEN from "./components/Prices/PricesManiEN";
-import PricesManiFR from "./components/Prices/PricesManiFR";
-import PricesManiES from "./components/Prices/PricesManiES";
-import PricesHaar from "./components/Prices/PricesHaar";
-import PricesHaarEN from "./components/Prices/PricesHaarEN";
-import PricesHaarFR from "./components/Prices/PricesHaarFR";
-import PricesHaarES from "./components/Prices/PricesHaarES";
+import Prices from "./components/Prices/Prices";
 import Karriere from "./components/Karriere/Karriere";
 import { Toaster } from "react-hot-toast";
 import { useState, useEffect, useRef } from "react";
@@ -41,25 +34,7 @@ function LanguageSpecificContent({ language, scrollToSection }) {
     <div className="Wrapper">
       <About language={language} />
       <Links language={language} scrollToSection={scrollToSection} />
-      {isGerman ? (
-        <PricesHaar scrollToSection={scrollToSection} />
-      ) : isFrench ? (
-        <PricesHaarFR scrollToSection={scrollToSection} />
-      ) : isSpanish ? (
-        <PricesHaarES scrollToSection={scrollToSection} />
-      ) : (
-        <PricesHaarEN scrollToSection={scrollToSection} />
-      )}
-      <section className="SpaceSection"></section>
-      {isGerman ? (
-        <PricesMani scrollToSection={scrollToSection} />
-      ) : isFrench ? (
-        <PricesManiFR scrollToSection={scrollToSection} />
-      ) : isSpanish ? (
-        <PricesManiES scrollToSection={scrollToSection} />
-      ) : (
-        <PricesManiEN scrollToSection={scrollToSection} />
-      )}
+      <Prices language={language} scrollToSection={scrollToSection} />
       <section className="SpaceSection"></section>
       {isGerman ? (
         <MayerUmarov />
