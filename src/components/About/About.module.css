@@ -21,6 +21,8 @@
 .text1 {
   font-family: "SansBold";
   margin-bottom: 4px;
+  text-align: center;
+  margin: 4px;
 }
 
 .text2 {
