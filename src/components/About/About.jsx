@@ -5,13 +5,13 @@ function About({ language = "de" }) {
   const getText1 = () => {
     switch (language) {
       case "en":
-        return "Hair Salon | Nail Studio | Clothing | Berlin";
+        return "Hair Salon | Nail Studio | Clothing | Berlin | Prenzlauerberg";
       case "fr":
-        return "Salon de coiffure | Studio d'ongles | Vêtements | Berlin";
+        return "Salon de coiffure | Studio d'ongles | Vêtements | Berlin | Prenzlauerberg";
       case "es":
-        return "Salón de peluquería | Estudio de uñas | Ropa | Berlín";
+        return "Salón de peluquería | Estudio de uñas | Ropa | Berlín | Prenzlauerberg";
       default:
-        return "Friseursalon | Nagelstudio | Bekleidung | Berlin";
+        return "Friseursalon | Nagelstudio | Bekleidung | Berlin | Prenzlauerberg";
     }
   };
 
