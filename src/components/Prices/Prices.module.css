@@ -27,25 +27,11 @@
 }
 
 .PricesGif2 {
-  width: 370px;
-  height: 175px;
-  object-fit: cover;
-  object-position: center -90px;
-  border: none;
-  border-radius: 0px;
-  display: block;
-  margin: 0 auto;
+  width: 100%;
   margin-bottom: 6px;
 }
 .PricesGifMani {
-  width: 370px;
-  height: 175px;
-  object-fit: cover;
-  object-position: center -170px;
-  border: none;
-  border-radius: 0px;
-  display: block;
-  margin: 0 auto;
+  width: 100%;
   margin-bottom: 6px;
 }
 .priceItem {
@@ -244,19 +230,11 @@
     margin: 0 auto;
   }
   .PricesGif2 {
-    width: 700px;
-    height: 200px;
-    object-fit: cover;
-    object-position: center -250px;
-    display: block;
     margin: 0 auto;
   }
   .PricesGifMani {
-    width: 700px;
-    height: 200px;
+    max-height: 250px;
     object-fit: cover;
-    object-position: center -390px;
-    display: block;
     margin: 0 auto;
   }
   .priceItem {

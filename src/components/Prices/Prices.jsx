@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import s from "./Prices.module.css";
-import { hairServices, nailServices } from "./pricesData";
+import { hairServices, nailServices, bundleServices, browServices } from "./pricesData";
 import HaarGif from "../Prices/PricesImages/IMG_0439.jpg";
-import ManiGif from "../Prices/PricesImages/IMG_0210.jpeg";
+import ManiGif from "../Prices/PricesImages/mani.jpeg";
+// import BundleGif from "../Prices/PricesImages/IMG_0440.jpg";
 
 function Prices({ language = "de", scrollToSection }) {
   const [expandedItems, setExpandedItems] = useState(new Set());
@@ -19,7 +20,12 @@ function Prices({ language = "de", scrollToSection }) {
   useEffect(() => {
     if (isDesktop) {
       // On desktop, expand all items
-      const allServiceIds = [...hairServices.map(s => s.id), ...nailServices.map(s => s.id)];
+      const allServiceIds = [
+        ...hairServices.map(s => s.id), 
+        ...nailServices.map(s => s.id),
+        ...bundleServices.map(s => s.id),
+        ...browServices.map(s => s.id)
+      ];
       setExpandedItems(new Set(allServiceIds));
     } else {
       // On mobile, collapse all by default
@@ -56,6 +62,24 @@ function Prices({ language = "de", scrollToSection }) {
       case "fr": return "Services d'ongles";
       case "es": return "Servicios de uñas";
       default: return "Nageldienst";
+    }
+  };
+  
+  const getBundleTitle = () => {
+    switch (language) {
+      case "en": return "Bundle Services";
+      case "fr": return "Services combinés";
+      case "es": return "Servicios combinados";
+      default: return "Bundle Services";
+    }
+  };
+  
+  const getBrowsTitle = () => {
+    switch (language) {
+      case "en": return "Brow Services";
+      case "fr": return "Services de sourcils";
+      case "es": return "Servicios de cejas";
+      default: return "Augenbrauen Services";
     }
   };
 
@@ -101,7 +125,7 @@ function Prices({ language = "de", scrollToSection }) {
       <img 
         src={services === hairServices ? HaarGif : ManiGif} 
         alt={`${title} Gif`} 
-        className={services === hairServices ? s.PricesGif : s.PricesGifMani}
+        className={services === hairServices ? s.PricesGif : s.PricesGifMani + " " + s.PricesGifBundle}
       />
       <div className={s.priceList}>
         {services.map((service) => (
@@ -130,6 +154,10 @@ function Prices({ language = "de", scrollToSection }) {
       {renderServiceList(hairServices, getHairTitle())}
       <section className="SpaceSection"></section>
       {renderServiceList(nailServices, getNailTitle())}
+      <section className="SpaceSection"></section>
+      {renderServiceList(browServices, getBrowsTitle())}
+      <section className="SpaceSection"></section>
+      {renderServiceList(bundleServices, getBundleTitle())}
       <button className={s.button} onClick={() => scrollToSection('linksModal')}>
         {getButtonText()}
       </button>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import s from "../Prices/Prices.module.css";
-import MayerUmarovGif from "../MayerUmarov/IMG_3765.jpg";
+import MayerUmarovGif from "../MayerUmarov/mu.jpeg";
 
 function MayerUmarovEN() {
   return (
