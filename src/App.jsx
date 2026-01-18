@@ -8,9 +8,6 @@ import About2FR from "./components/About2/About2FR";
 import About2ES from "./components/About2/About2ES";
 import Links from "./components/Links/Links";
 import Footer from "./components/Footer/Footer";
-import FooterEN from "./components/Footer/FooterEN";
-import FooterFR from "./components/Footer/FooterFR";
-import FooterES from "./components/Footer/FooterES";
 import LinksModal from "./components/LinksModal/LinksModal";
 import LinksModalEN from "./components/LinksModal/LinksModalEN";
 import LinksModalFR from "./components/LinksModal/LinksModalFR";
@@ -70,15 +67,7 @@ function LanguageSpecificContent({ language, scrollToSection }) {
       <Toaster position="bottom-center" reverseOrder={false} />
       <section className="SpaceSection"></section>
       <Karriere language={language} />
-      {isGerman ? (
-        <Footer />
-      ) : isFrench ? (
-        <FooterFR />
-      ) : isSpanish ? (
-        <FooterES />
-      ) : (
-        <FooterEN />
-      )}
+      <Footer />
     </div>
   );
 }

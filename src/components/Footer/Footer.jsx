@@ -4,21 +4,11 @@ import pricesStyles from "../Prices/Prices.module.css";
 const Footer = () => {
 
   return (
-    <div>
-      <p className={s.text}>
-      theWAY Friseur- und Nagelstudio eGbR <br />
-      Seelower Str. 2<br />
-      10439 Berlin <br />
-      Telefon: <a href="tel:01705503697">01705503697</a> <br />
-      E-Mail: info@theway.berlin <br />
-        
-<br />
-      Geschäftsführer: Svitlana Karpiuk <br />
-      Handelsregister: GsR 2830 B <br />
-        Umsatzsteuer-ID: DE454849959
-        <span className={s.version}>DEv1.02</span>
+    <div><p>
+        <span className={s.version}>v1.5</span>
       </p>
       <a href="/dsgvo.html" className={pricesStyles.button}>Datenschutzerklärung</a>
+      <a href="/impressum.html" className={pricesStyles.button}>Impressum</a>
     </div>
   );
 };

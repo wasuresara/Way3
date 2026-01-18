@@ -5,8 +5,8 @@
   font-size: 14px;
 }
 .version {
-  font-size: 6px;
-  color: black;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
 }
 @media (prefers-color-scheme: light) {
   .text {
