@@ -3,7 +3,7 @@ import s from "./Staff.module.css";
 import SvitlanaPhoto from "./Svitlana.jpeg";
 import MichelinePhoto from "./Michaline.jpeg";
 import JuliannaPhoto from "./Julianna1.jpg";
-
+import MaratPhoto from "./Marat.jpeg"
 import TeamGif from "../Staff/IMG_3225.jpg";
 import { staffMembers } from "./StaffData";
 
@@ -69,6 +69,7 @@ function Staff({ language = "de" }) {
       case "Michaline.jpeg": return MichelinePhoto;
       case "Julianna1.jpg": return JuliannaPhoto;
       // case "Julie.jpeg": return JuliePhoto;
+      case "Marat.jpeg": return MaratPhoto; // Placeholder
       default: return "";
     }
   };
@@ -78,7 +79,7 @@ function Staff({ language = "de" }) {
       {!isModalOpen && (
         <>
           <h2 className={s.sectionTitle}>{getTitle()}</h2>
-          <img src={TeamGif} alt="TeamGif" className={s.PricesGif}/>
+          {/* <img src={TeamGif} alt="TeamGif" className={s.PricesGif}/> */}
           <p className={s.sectionOverview}>{getOverview()}</p>
           <button onClick={openModal} className={s.button}>
             {getButtonText()}
@@ -88,7 +89,7 @@ function Staff({ language = "de" }) {
       {isModalOpen && (
         <div>
           <h2 className={s.sectionTitle}>{getTitle()}</h2>
-          <img src={TeamGif} alt="TeamGif" className={s.PricesGif}/>
+          {/* <img src={TeamGif} alt="TeamGif" className={s.PricesGif}/> */}
           <p className={s.sectionOverview}>{getOverview()}</p>
           <button onClick={closeModal} className={s.button}>
             {getCloseButtonText()}
