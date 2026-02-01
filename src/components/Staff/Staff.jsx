@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import s from "./Staff.module.css";
 import SvitlanaPhoto from "./Svitlana.jpeg";
 import MichelinePhoto from "./Michaline.jpeg";
-import JuliannaPhoto from "./Julianna1.jpg";
 import MaratPhoto from "./Marat.jpeg"
 import TeamGif from "../Staff/IMG_3225.jpg";
 import { staffMembers } from "./StaffData";
@@ -67,7 +66,6 @@ function Staff({ language = "de" }) {
     switch (imageName) {
       case "Svitlana.jpeg": return SvitlanaPhoto;
       case "Michaline.jpeg": return MichelinePhoto;
-      case "Julianna1.jpg": return JuliannaPhoto;
       // case "Julie.jpeg": return JuliePhoto;
       case "Marat.jpeg": return MaratPhoto; // Placeholder
       default: return "";

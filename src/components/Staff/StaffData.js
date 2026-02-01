@@ -37,24 +37,6 @@ export const staffMembers = [
   },
   {
     id: 3,
-    name: "Juliana",
-    image: "Julianna1.jpg",
-    pronouns: "She/Her",
-    tags: {
-      de: ["Maniküre", "Kreative Designs", "Hair Styling", "Haarschnitt", "Spanisch", "Englisch"],
-      en: ["Manicure", "Creative Designs", "Hair Styling", "Haircut", "Spanish", "English"],
-      fr: ["Manucure", "Designs créatifs", "Coiffure", "Coupe de cheveux", "Espagnol", "Anglais"],
-      es: ["Manicura", "Diseños creativos", "Peinado", "Corte de pelo", "Español", "Inglés"]
-    },
-    description: {
-      de: "Ich habe 6 Jahre Erfahrung im Nageldesign und 4 Jahre im Bereich Haarstyling. Meine Spezialisierung liegt auf alternativen Haarschnitten und Styles, mit dem Ziel, die Individualität jedes Menschen zu betonen. Außerdem setze ich meine Kreativität gerne in Nail Art und Make-up ein und biete so einen umfassenden Service, der Technik, Stil und eine persönliche Note vereint.",
-      en: "I have 6 years of experience in nail design and 4 years in hair styling. My specialization focuses on alternative haircuts and styles, with the goal of emphasizing each person's individuality. Additionally, I love to apply my creativity in nail art and makeup, offering a comprehensive service that combines technique, style, and a personal touch.",
-      fr: "J'ai 6 ans d'expérience en design d'ongles et 4 ans dans le domaine du coiffage. Ma spécialisation se concentre sur les coupes et styles alternatifs, dans le but de mettre en valeur l'individualité de chaque personne. De plus, j'aime appliquer ma créativité dans l'art des ongles et le maquillage, offrant ainsi un service complet qui combine technique, style et une touche personnelle.",
-      es: "Tengo 6 años de experiencia en diseño de uñas y 4 años en el área de peinado. Mi especialización se centra en cortes y estilos alternativos, con el objetivo de resaltar la individualidad de cada persona. Además, me encanta aplicar mi creatividad en nail art y maquillaje, ofreciendo un servicio integral que combina técnica, estilo y un toque personal."
-    }
-  },
-  {
-    id: 4,
     name: "Julie",
     image: "Julie.jpeg",
     pronouns: "She/Her",
@@ -72,7 +54,7 @@ export const staffMembers = [
     }
   },
   {
-    id: 5,
+    id: 4,
     name: "Marat",
     image: "Marat.jpeg",
     pronouns: "He/Him",
