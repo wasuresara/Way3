@@ -43,6 +43,7 @@ function About({ language = "de" }) {
 
   return (
     <div id="home" className={s.container}>
+      <h1 className="visually-hidden">theWAY Berlin - Friseur & Nagelstudio Prenzlauer Berg</h1>
       <svg
         className={s.logo}
         width="602"

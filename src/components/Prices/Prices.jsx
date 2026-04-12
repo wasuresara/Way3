@@ -49,19 +49,19 @@ function Prices({ language = "de", scrollToSection }) {
   // Language-specific content
   const getHairTitle = () => {
     switch (language) {
-      case "en": return "Hair Services";
-      case "fr": return "Services capillaires";
-      case "es": return "Servicios de cabello";
-      default: return "Friseurdienstleistungen";
+      case "en": return "Hair Services | Haircut & Balayage";
+      case "fr": return "Services capillaires | Coupe & Balayage";
+      case "es": return "Servicios de cabello | Corte & Balayage";
+      default: return "Friseurdienstleistungen | Haarschnitt & Balayage";
     }
   };
 
   const getNailTitle = () => {
     switch (language) {
-      case "en": return "Nail Services";
-      case "fr": return "Services d'ongles";
-      case "es": return "Servicios de uñas";
-      default: return "Nageldienst";
+      case "en": return "Nail Services | Manicure & Nail Art";
+      case "fr": return "Services d'ongles | Manucure & Nail Art";
+      case "es": return "Servicios de uñas | Manicura & Nail Art";
+      default: return "Nagelstudio Services | Maniküre & Nail Art";
     }
   };
   
