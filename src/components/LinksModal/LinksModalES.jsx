@@ -39,37 +39,7 @@ function LinksModalES() {
       if (window.navigator && window.navigator.vibrate) {
         window.navigator.vibrate(100);
       }
-      const isDark =
-        window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches;
-      toast.success(
-        <span
-          style={{ fontSize: "1em", display: "flex", alignItems: "center" }}
-        >
-          <span
-            role="img"
-            aria-label="check"
-            style={{ fontSize: "1.2em", marginRight: 6, color: "#00c853" }}
-          >
-            ✔️
-          </span>
-          <span>¡Enviado con éxito!</span>
-        </span>,
-        {
-          icon: false,
-          style: {
-            borderRadius: "12px",
-            background: isDark ? "#2a2a2a" : "#fff",
-            color: isDark ? "#fff" : "#00c853",
-            fontWeight: "bold",
-            fontSize: "0.98em",
-            boxShadow: "0 2px 8px rgba(0,0,0,0.12)",
-            padding: "10px 16px",
-          },
-          duration: 3500,
-        },
-      );
-      form.reset();
+      window.location.assign("/thankyou");
     } else {
       toast.error("Error al enviar.", {
         style: {

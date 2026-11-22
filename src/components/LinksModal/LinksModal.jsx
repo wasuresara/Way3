@@ -36,33 +36,10 @@ function LinksModal() {
       body: json,
     }).then((res) => res.json());
     if (res.success) {
-      // Haptic feedback if supported
       if (window.navigator && window.navigator.vibrate) {
         window.navigator.vibrate(100);
       }
-      // Detect theme
-      const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      toast.success(
-        <span style={{ fontSize: '1em', display: 'flex', alignItems: 'center' }}>
-          <span role="img" aria-label="check" style={{ fontSize: '1.2em', marginRight: 6, color: '#00c853' }}>✔️</span>
-          <span>Erfolgreich gesendet!</span>
-        </span>,
-        {
-          icon: false,
-          style: {
-            borderRadius: "12px",
-            background: isDark ? "#2a2a2a" : "#fff",
-            color: isDark ? "#fff" : "#d32f2f",
-            fontWeight: "bold",
-            fontSize: "0.98em",
-            boxShadow: "0 2px 8px rgba(0,0,0,0.12)",
-            padding: "10px 16px",
-            color: "#00c853"
-          },
-          duration: 3500
-        }
-      );
-      form.reset();
+      window.location.assign("/thankyou");
     } else {
       toast.error("Fehler beim Senden.", {
         style: {
