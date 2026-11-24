@@ -1,5 +1,6 @@
 import s from "./Links.module.css";
 import { t } from "../../i18n";
+import { SALON } from "../../salonFacts";
 
 const links = [
   {
@@ -11,7 +12,7 @@ const links = [
     label: "Google Maps",
   },
   {
-    href: "https://buchung.treatwell.de/ort/476314/menue/",
+    href: SALON.treatwell,
     label: "Treatwell",
   },
 ];

@@ -1,6 +1,7 @@
 import s from "./About.module.css";
 import photo from "./IMG_3774.jpg";
 import { t } from "../../i18n";
+import { SALON } from "../../salonFacts";
 
 function About({ language = "de" }) {
   return (
@@ -44,15 +45,7 @@ function About({ language = "de" }) {
         fetchPriority="high"
         decoding="async"
       />
-      <p className={s.text2}>
-        {t(language, {
-          de: "Mo-Sa 10:00-19:00 Uhr",
-          en: "Mon-Sat 10:00-19:00",
-          uk: "Пн–Сб 10:00–19:00",
-          ru: "Пн–Сб 10:00–19:00",
-          pl: "Pn–Sb 10:00–19:00",
-        })}
-      </p>
+      <p className={s.text2}>{t(language, SALON.hours)}</p>
     </div>
   );
 }

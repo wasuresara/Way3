@@ -10,5 +10,27 @@
     { "source": "/pl/:path*", "destination": "/" },
     { "source": "/thankyou", "destination": "/thankyou.html" },
     { "source": "/:path*", "destination": "/" }
+  ],
+  "headers": [
+    {
+      "source": "/beta",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    },
+    {
+      "source": "/en/beta",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    },
+    {
+      "source": "/uk/beta",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    },
+    {
+      "source": "/ru/beta",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    },
+    {
+      "source": "/pl/beta",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    }
   ]
 }

@@ -35,4 +35,10 @@ export default [
     },
   },
   eslintConfigPrettier,
+  {
+    files: ["api/**/*.js", "vite.config.js"],
+    languageOptions: {
+      globals: globals.node,
+    },
+  },
 ];
