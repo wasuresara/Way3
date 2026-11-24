@@ -1,16 +1,12 @@
 import { useState } from "react";
 import s from "./Staff.module.css";
 import SvitlanaPhoto from "./Svitlana.jpeg";
-import MichelinePhoto from "./Michaline.jpeg";
-import JuliePhoto from "./Julie.jpeg";
 import MaratPhoto from "./Marat.jpeg";
 import { staffMembers } from "./StaffData";
 import { t } from "../../i18n";
 
 const photos = {
   "Svitlana.jpeg": SvitlanaPhoto,
-  "Michaline.jpeg": MichelinePhoto,
-  "Julie.jpeg": JuliePhoto,
   "Marat.jpeg": MaratPhoto,
 };
 
