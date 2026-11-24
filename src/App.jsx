@@ -150,7 +150,7 @@ function App({ language: routeLanguage = "de" }) {
     const element = document.getElementById(sectionId);
     if (!element) return;
 
-    const headerHeight = 60;
+    const headerHeight = 76;
     const elementRect = element.getBoundingClientRect();
     const elementTop = elementRect.top + window.pageYOffset;
     const scrollPosition =
@@ -187,29 +187,29 @@ function App({ language: routeLanguage = "de" }) {
             </div>
           </nav>
         )}
-      </div>
-
-      {isMobile && (
-        <div className="mobile-language-container">
-          <div className="language-dropdown" ref={dropdownRef}>
-            <button
-              type="button"
-              className="LanguageSwitcher language-toggle"
-              onClick={() => setIsLanguageMenuOpen((open) => !open)}
-            >
-              {language.toUpperCase()}
-            </button>
-            {isLanguageMenuOpen && (
-              <div className="language-dropdown-menu">
-                <LanguageOptions
-                  language={language}
-                  onChange={handleLanguageChange}
-                />
-              </div>
-            )}
+        {isMobile && (
+          <div className="mobile-language-container">
+            <div className="language-dropdown" ref={dropdownRef}>
+              <button
+                type="button"
+                className="LanguageSwitcher language-toggle"
+                onClick={() => setIsLanguageMenuOpen((open) => !open)}
+                aria-expanded={isLanguageMenuOpen}
+              >
+                {language.toUpperCase()}
+              </button>
+              {isLanguageMenuOpen && (
+                <div className="language-dropdown-menu">
+                  <LanguageOptions
+                    language={language}
+                    onChange={handleLanguageChange}
+                  />
+                </div>
+              )}
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
 
       <div className="Wrapper">
         <About language={language} />

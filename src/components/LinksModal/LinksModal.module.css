@@ -1,7 +1,3 @@
-div {
-  margin-bottom: 8px;
-}
-
 .buttonMain {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(15px) saturate(180%);
@@ -28,6 +24,8 @@ div {
     background 0.3s ease,
     box-shadow 0.3s ease,
     transform 0.2s ease;
+  margin-top: 8px;
+  align-self: center;
 }
 
 .buttonMain::before {
@@ -45,6 +43,20 @@ div {
   );
   transform: skewX(-20deg);
   transition: left 0.6s ease;
+}
+
+.buttonMain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    rgba(206, 176, 232, 0.2),
+    rgba(255, 255, 255, 0) 46%,
+    rgba(160, 210, 202, 0.16)
+  );
 }
 
 .buttonMain:hover {
@@ -69,60 +81,67 @@ div {
   transform: translateY(0);
 }
 
+.buttonMain:disabled {
+  cursor: progress;
+  opacity: 0.7;
+}
+
 .buttonMain span {
   position: relative;
   z-index: 2;
 }
 
+.modalOverlayy {
+  width: 100%;
+}
+
 .formm {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 14px;
   list-style: none;
-  padding: 0;
-  align-items: center;
+  padding: 22px 18px 18px;
+  margin: 8px auto 0;
+  align-items: stretch;
+  width: min(100%, 440px);
+  background-color: var(--panel);
+  background-image: linear-gradient(
+    165deg,
+    rgba(206, 176, 232, 0.1),
+    transparent 50%,
+    rgba(160, 210, 202, 0.08)
+  );
+  border: 1px solid var(--line);
 }
 
 .Forms {
   display: flex;
   flex-direction: column;
-  max-width: 250px;
-  min-width: 150px;
+  width: 100%;
 }
-
-.text {
-  margin-bottom: 8px;
-  font-size: 20px;
-  margin-top: 0px;
-}
-
-/* --- Liquid Glass Input Styles --- */
 
 .label1 {
-  color: rgba(0, 0, 0, 0.8);
-  font-size: 18px;
-  margin-bottom: 8px;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  font-family: "SansNormal", sans-serif;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
 }
 
 input {
-  max-height: 18px;
-  padding: 8px 14px;
+  min-height: 44px;
+  padding: 10px 14px;
   font-size: 16px;
-  width: 200px;
-  font-family: "SansNormal", sans-serif;
-  color: #212121;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px) saturate(180%);
-  -webkit-backdrop-filter: blur(10px) saturate(180%);
-  border: 1px solid rgba(55, 55, 55, 0.119);
-  border-radius: 18px;
+  width: 100%;
+  font-family: var(--font-body);
+  color: var(--fg);
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid var(--line);
+  border-radius: 12px;
   outline: none;
-  box-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.1),
-    inset 0 1px 2px rgba(0, 0, 0, 0.05),
-    inset 0 0 0 0px rgba(255, 255, 255, 0);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
   transition:
     background 0.3s ease,
     border-color 0.3s ease,
@@ -130,50 +149,98 @@ input {
 }
 
 input:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.62);
   box-shadow:
-    0 6px 10px rgba(0, 0, 0, 0.15),
-    0 2px 5px rgba(0, 0, 0, 0.1),
+    0 6px 10px rgba(0, 0, 0, 0.06),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
-/* Placeholder styling */
 input::placeholder {
-  color: rgb(0, 0, 0);
+  color: var(--muted);
 }
 
-/* Focus state */
 input:focus {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(150, 120, 180, 0.45);
   box-shadow:
-    0 4px 8px rgba(0, 0, 0, 0.15),
-    inset 0 1px 2px rgba(0, 0, 0, 0.1),
-    inset 0 0 0 2px rgba(255, 255, 255, 0.5);
+    0 4px 8px rgba(0, 0, 0, 0.06),
+    inset 0 0 0 1px rgba(186, 150, 214, 0.35);
 }
 
 @media screen and (min-width: 768px) {
   .buttonMain {
     font-size: 20px;
+    align-self: center;
+  }
+
+  .formm {
+    padding: 28px 28px 24px;
   }
 
   .label1 {
-    font-size: 22px;
-    margin-bottom: 2px;
-  }
-
-  input {
-    font-size: 18px;
+    font-size: 12px;
   }
 }
 
+.input-select {
+  padding: 10px 38px 10px 14px;
+  font-size: 16px;
+  width: 100%;
+  min-height: 44px;
+  font-family: var(--font-body);
+  color: var(--fg);
+  background-color: rgba(255, 255, 255, 0.45);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  outline: none;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23212121" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 18px 18px;
+}
+
+.input-select:hover {
+  background-color: rgba(255, 255, 255, 0.62);
+  box-shadow:
+    0 6px 10px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+.input-select:focus {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-color: rgba(150, 120, 180, 0.45);
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.06),
+    inset 0 0 0 1px rgba(186, 150, 214, 0.35);
+}
+
 @media (prefers-color-scheme: dark) {
-  .label1 {
-    color: #f2f2f2;
+  input {
+    color: var(--fg);
+    background: rgba(255, 255, 255, 0.06);
   }
 
-  input {
-    color: #f2f2f2;
+  input:hover,
+  input:focus {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .input-select {
+    color: var(--fg);
+    background-color: rgba(255, 255, 255, 0.06);
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23f2f2f2" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  }
+
+  .input-select:hover,
+  .input-select:focus {
+    background-color: rgba(255, 255, 255, 0.1);
   }
 
   .buttonMain {
@@ -188,61 +255,5 @@ input:focus {
     box-shadow:
       inset 1px 1px 4px 0 rgba(255, 255, 255, 0.25),
       0 4px 4px 0 rgba(255, 255, 255, 0.25);
-  }
-}
-
-.input-select {
-  padding: 8px 38px 8px 14px;
-  font-size: 16px;
-  width: 225px;
-
-  font-family: "SansNormal", sans-serif;
-  color: #212121;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px) saturate(180%);
-  -webkit-backdrop-filter: blur(10px) saturate(180%);
-  border: 1px solid rgba(55, 55, 55, 0.119);
-  border-radius: 18px;
-  outline: none;
-  box-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.1),
-    inset 0 1px 2px rgba(0, 0, 0, 0.05),
-    inset 0 0 0 0px rgba(255, 255, 255, 0);
-  transition:
-    background 0.3s ease,
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
-  appearance: none;
-  -webkit-appearance: none;
-  background-image: url('data:image/svg+xml;utf8,<svg fill="%23212121" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  background-size: 18px 18px;
-}
-
-.input-select:hover {
-  background: rgba(255, 255, 255, 0.28);
-  box-shadow:
-    0 6px 10px rgba(0, 0, 0, 0.13),
-    0 2px 5px rgba(0, 0, 0, 0.09),
-    inset 0 1px 0 rgba(255, 255, 255, 0.22);
-}
-
-.input-select:focus {
-  background: rgba(255, 255, 255, 0.22);
-  border-color: rgba(255, 255, 255, 0.4);
-  box-shadow:
-    0 4px 8px rgba(0, 0, 0, 0.13),
-    inset 0 1px 2px rgba(0, 0, 0, 0.09),
-    inset 0 0 0 2px rgba(255, 255, 255, 0.4);
-}
-
-@media (prefers-color-scheme: dark) {
-  .input-select {
-    color: #f2f2f2;
-  }
-
-  .input-select:focus {
-    border-color: #f2f2f2;
   }
 }
