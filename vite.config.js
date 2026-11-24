@@ -2,7 +2,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { resolve } from "path";
-import { GET, POST } from "./api/chat.js";
+import { GET, OPTIONS, POST } from "./api/chat.js";
 
 function chatApi() {
   const handle = async (req, res, next) => {
@@ -24,7 +24,12 @@ function chatApi() {
         body: req.method === "GET" || req.method === "HEAD" ? undefined : body,
       },
     );
-    const response = req.method === "GET" ? GET() : await POST(request);
+    const response =
+      req.method === "GET"
+        ? GET(request)
+        : req.method === "OPTIONS"
+          ? OPTIONS(request)
+          : await POST(request);
     res.statusCode = response.status;
     response.headers.forEach((value, key) => res.setHeader(key, value));
     if (!response.body) {
