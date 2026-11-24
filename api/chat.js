@@ -189,18 +189,23 @@ export async function POST(request) {
   const reader = upstream.body.getReader();
   let pending = "";
   let first = "";
+  let sawEnd = false;
 
   const deadline = Date.now() + LIMITS.firstTokenMs;
   try {
-    while (!first) {
+    while (!first && !sawEnd) {
       const remaining = deadline - Date.now();
       if (remaining <= 0) throw new Error("timeout");
       const { done, value } = await readWithDeadline(reader, remaining);
-      if (done) break;
+      if (done) {
+        sawEnd = true;
+        break;
+      }
       pending += decoder.decode(value, { stream: true });
       const taken = takeSseText(pending);
       pending = taken.rest;
       first += taken.text;
+      if (taken.finished) sawEnd = true;
     }
   } catch {
     clearTimeout(abortTimer);
@@ -214,14 +219,39 @@ export async function POST(request) {
     return json(timeoutBody, 504, request);
   }
 
+  if (sawEnd) {
+    clearTimeout(abortTimer);
+    reader.cancel();
+    return textResponse(`${first}\0`, request);
+  }
+
+  let upstreamFinished = false;
   const stream = new ReadableStream({
     start(controller) {
       controller.enqueue(encoder.encode(first));
     },
     async pull(controller) {
-      const { done, value } = await reader.read();
-      if (done) {
+      if (upstreamFinished) {
         clearTimeout(abortTimer);
+        controller.close();
+        return;
+      }
+      let done;
+      let value;
+      try {
+        ({ done, value } = await readWithDeadline(reader, 300));
+      } catch {
+        upstreamFinished = true;
+        clearTimeout(abortTimer);
+        controller.enqueue(encoder.encode("\0"));
+        reader.cancel();
+        controller.close();
+        return;
+      }
+      if (done) {
+        upstreamFinished = true;
+        clearTimeout(abortTimer);
+        reader.cancel();
         controller.close();
         return;
       }
@@ -229,6 +259,13 @@ export async function POST(request) {
       const taken = takeSseText(pending);
       pending = taken.rest;
       if (taken.text) controller.enqueue(encoder.encode(taken.text));
+      if (taken.finished) {
+        upstreamFinished = true;
+        clearTimeout(abortTimer);
+        controller.enqueue(encoder.encode("\0"));
+        reader.cancel();
+        controller.close();
+      }
     },
     cancel() {
       clearTimeout(abortTimer);
@@ -238,6 +275,18 @@ export async function POST(request) {
 
   return withCors(
     new Response(stream, {
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+        "Cache-Control": "no-store",
+      },
+    }),
+    request,
+  );
+}
+
+function textResponse(body, request) {
+  return withCors(
+    new Response(body, {
       headers: {
         "Content-Type": "text/plain; charset=utf-8",
         "Cache-Control": "no-store",

@@ -2,6 +2,117 @@ import { useEffect, useRef, useState } from "react";
 import { t } from "../../i18n";
 import s from "./Chat.module.css";
 
+const LINK_LABELS = {
+  treatwell: {
+    de: "Bei Treatwell buchen",
+    en: "Book on Treatwell",
+    uk: "Записатися на Treatwell",
+    ru: "Записаться на Treatwell",
+    pl: "Umów się w Treatwell",
+  },
+  maps: {
+    de: "Karte öffnen",
+    en: "Open the map",
+    uk: "Відкрити карту",
+    ru: "Открыть карту",
+    pl: "Otwórz mapę",
+  },
+  email: {
+    de: "E-Mail schreiben",
+    en: "Email us",
+    uk: "Написати листа",
+    ru: "Написать письмо",
+    pl: "Napisz e-mail",
+  },
+};
+
+function safeHref(raw) {
+  const value = String(raw || "")
+    .trim()
+    .replace(/[),.;]+$/, "");
+  if (/^mailto:/i.test(value)) {
+    const address = value.slice(7).split("?")[0];
+    if (/^[^\s<>]+@[^\s<>]+\.[^\s<>]+$/.test(address))
+      return `mailto:${address}`;
+    return null;
+  }
+  try {
+    const url = new URL(value);
+    if (url.protocol === "http:" || url.protocol === "https:") return url.href;
+  } catch {
+    return null;
+  }
+  return null;
+}
+
+function fallbackLabel(href, language) {
+  if (href.includes("treatwell")) return t(language, LINK_LABELS.treatwell);
+  if (href.includes("instagram.com")) return "Instagram";
+  if (href.includes("maps") || href.includes("goo.gl")) {
+    return t(language, LINK_LABELS.maps);
+  }
+  if (href.startsWith("mailto:")) return t(language, LINK_LABELS.email);
+  try {
+    return new URL(href).hostname.replace(/^www\./, "");
+  } catch {
+    return href;
+  }
+}
+
+function linkNode(href, label, key) {
+  return (
+    <a
+      key={key}
+      className={s.link}
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {label}
+    </a>
+  );
+}
+
+function linkBare(plain, language, nextKey) {
+  const pattern =
+    /(?:https?:\/\/[^\s<]+)|(?:[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,})/gi;
+  const parts = [];
+  let last = 0;
+  for (const match of plain.matchAll(pattern)) {
+    if (match.index > last) parts.push(plain.slice(last, match.index));
+    const raw = match[0];
+    const href =
+      raw.includes("@") && !raw.startsWith("http")
+        ? safeHref(`mailto:${raw}`)
+        : safeHref(raw);
+    if (href)
+      parts.push(linkNode(href, fallbackLabel(href, language), nextKey()));
+    else parts.push(raw);
+    last = match.index + raw.length;
+  }
+  if (last < plain.length) parts.push(plain.slice(last));
+  return parts;
+}
+
+function renderRichText(text, language) {
+  const nodes = [];
+  const markdown = /\[([^\]\n]+)\]\(([^)\s]+)\)/g;
+  let last = 0;
+  let key = 0;
+  const nextKey = () => key++;
+  for (const match of text.matchAll(markdown)) {
+    if (match.index > last) {
+      nodes.push(...linkBare(text.slice(last, match.index), language, nextKey));
+    }
+    const href = safeHref(match[2]);
+    if (href) nodes.push(linkNode(href, match[1], nextKey()));
+    else nodes.push(match[0]);
+    last = match.index + match[0].length;
+  }
+  nodes.push(...linkBare(text.slice(last), language, nextKey));
+  return nodes;
+}
+
 const copy = {
   de: {
     open: "Chat öffnen",
@@ -206,9 +317,14 @@ function Chat({ language = "de" }) {
     setBusy(true);
     const controller = new AbortController();
     let gotToken = false;
+    let answerDone = false;
     const timer = setTimeout(() => {
       if (!gotToken) controller.abort();
     }, 26000);
+    const unlock = () => {
+      answerDone = true;
+      setBusy(false);
+    };
     try {
       const res = await fetch(chatUrl(), {
         method: "POST",
@@ -236,6 +352,23 @@ function Chat({ language = "de" }) {
           const { done, value } = await reader.read();
           if (done) break;
           full += decoder.decode(value, { stream: true });
+          if (full.includes("\0")) {
+            full = full.replaceAll("\0", "");
+            gotToken = true;
+            answerDone = true;
+            const snapshot = full;
+            setMessages((current) => {
+              const copyMessages = [...current];
+              copyMessages[copyMessages.length - 1] = {
+                role: "assistant",
+                content: snapshot,
+              };
+              return copyMessages;
+            });
+            unlock();
+            controller.abort();
+            break;
+          }
           if (full) gotToken = true;
           const snapshot = full;
           setMessages((current) => {
@@ -248,9 +381,12 @@ function Chat({ language = "de" }) {
           });
         }
       }
-      if (!full) failLast(text.timeout);
+      if (full) unlock();
+      else if (!answerDone) failLast(text.timeout);
     } catch {
-      failLast(gotToken ? text.error : text.timeout);
+      if (!answerDone) {
+        failLast(gotToken ? text.error : text.timeout);
+      }
     } finally {
       clearTimeout(timer);
       setBusy(false);
@@ -292,7 +428,7 @@ function Chat({ language = "de" }) {
                 key={`${message.role}-${index}`}
                 className={`${s.bubble} ${message.role === "user" ? s.user : s.assistant}`}
               >
-                {message.content}
+                {renderRichText(message.content, language)}
               </p>
             ))}
             {siteKey && <div id="way-turnstile" />}
