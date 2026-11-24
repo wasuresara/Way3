@@ -34,16 +34,23 @@ export function takeSseText(buffer) {
   const lines = buffer.split(/\r?\n/);
   const rest = lines.pop() ?? "";
   let text = "";
+  let finished = false;
   for (const line of lines) {
     const trimmed = line.trim();
     if (!trimmed.startsWith("data:")) continue;
     const data = trimmed.slice(5).trim();
-    if (!data || data === "[DONE]") continue;
+    if (!data || data === "[DONE]") {
+      if (data === "[DONE]") finished = true;
+      continue;
+    }
     try {
-      text += textFromChunk(JSON.parse(data));
+      const chunk = JSON.parse(data);
+      text += textFromChunk(chunk);
+      const reason = chunk.choices?.[0]?.finish_reason;
+      if (reason) finished = true;
     } catch {
       // A split JSON line is kept in `rest` on the next read.
     }
   }
-  return { text, rest };
+  return { text, rest, finished };
 }

@@ -206,9 +206,24 @@ function Chat({ language = "de" }) {
     setBusy(true);
     const controller = new AbortController();
     let gotToken = false;
+    let answerDone = false;
+    let idleTimer;
     const timer = setTimeout(() => {
       if (!gotToken) controller.abort();
     }, 26000);
+    const unlock = () => {
+      answerDone = true;
+      setBusy(false);
+    };
+    const armIdle = () => {
+      clearTimeout(idleTimer);
+      idleTimer = setTimeout(() => {
+        if (gotToken) {
+          unlock();
+          controller.abort();
+        }
+      }, 700);
+    };
     try {
       const res = await fetch(chatUrl(), {
         method: "POST",
@@ -236,7 +251,10 @@ function Chat({ language = "de" }) {
           const { done, value } = await reader.read();
           if (done) break;
           full += decoder.decode(value, { stream: true });
-          if (full) gotToken = true;
+          if (full) {
+            gotToken = true;
+            armIdle();
+          }
           const snapshot = full;
           setMessages((current) => {
             const copyMessages = [...current];
@@ -248,11 +266,15 @@ function Chat({ language = "de" }) {
           });
         }
       }
-      if (!full) failLast(text.timeout);
+      if (full) unlock();
+      else if (!answerDone) failLast(text.timeout);
     } catch {
-      failLast(gotToken ? text.error : text.timeout);
+      if (!answerDone) {
+        failLast(gotToken ? text.error : text.timeout);
+      }
     } finally {
       clearTimeout(timer);
+      clearTimeout(idleTimer);
       setBusy(false);
     }
   };

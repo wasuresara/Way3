@@ -189,18 +189,23 @@ export async function POST(request) {
   const reader = upstream.body.getReader();
   let pending = "";
   let first = "";
+  let sawEnd = false;
 
   const deadline = Date.now() + LIMITS.firstTokenMs;
   try {
-    while (!first) {
+    while (!first && !sawEnd) {
       const remaining = deadline - Date.now();
       if (remaining <= 0) throw new Error("timeout");
       const { done, value } = await readWithDeadline(reader, remaining);
-      if (done) break;
+      if (done) {
+        sawEnd = true;
+        break;
+      }
       pending += decoder.decode(value, { stream: true });
       const taken = takeSseText(pending);
       pending = taken.rest;
       first += taken.text;
+      if (taken.finished) sawEnd = true;
     }
   } catch {
     clearTimeout(abortTimer);
@@ -214,14 +219,36 @@ export async function POST(request) {
     return json(timeoutBody, 504, request);
   }
 
+  if (sawEnd) {
+    clearTimeout(abortTimer);
+    reader.cancel();
+    return withCors(
+      new Response(first, {
+        headers: {
+          "Content-Type": "text/plain; charset=utf-8",
+          "Cache-Control": "no-store",
+        },
+      }),
+      request,
+    );
+  }
+
+  let upstreamFinished = false;
   const stream = new ReadableStream({
     start(controller) {
       controller.enqueue(encoder.encode(first));
     },
     async pull(controller) {
+      if (upstreamFinished) {
+        clearTimeout(abortTimer);
+        controller.close();
+        return;
+      }
       const { done, value } = await reader.read();
       if (done) {
+        upstreamFinished = true;
         clearTimeout(abortTimer);
+        reader.cancel();
         controller.close();
         return;
       }
@@ -229,6 +256,12 @@ export async function POST(request) {
       const taken = takeSseText(pending);
       pending = taken.rest;
       if (taken.text) controller.enqueue(encoder.encode(taken.text));
+      if (taken.finished) {
+        upstreamFinished = true;
+        clearTimeout(abortTimer);
+        reader.cancel();
+        controller.close();
+      }
     },
     cancel() {
       clearTimeout(abortTimer);

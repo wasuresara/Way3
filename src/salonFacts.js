@@ -76,35 +76,67 @@ const REPLY_NAMES = {
   pl: "Polish",
 };
 
+function hasAny(value, words) {
+  return words.some((word) => value.includes(word));
+}
+
 export function detectMessageLanguage(text, fallback = "de") {
-  const value = String(text || "");
+  const value = String(text || "").toLowerCase();
   if (
-    /[іїєґІЇЄҐ]/.test(value) ||
-    /\b(як|що|це|або|будь ласка)\b/i.test(value)
+    /[іїєґ]/.test(value) ||
+    hasAny(value, ["як ", "що ", " це ", "або ", "будь ласка", "скільки"])
   ) {
     return "uk";
   }
   if (
-    /[ыэёъЫЭЁЪ]/.test(value) ||
-    /\b(что|это|когда|сколько|пожалуйста|можно)\b/i.test(value)
+    /[ыэёъ]/.test(value) ||
+    hasAny(value, [
+      "что",
+      "это",
+      "когда",
+      "сколько",
+      "пожалуйста",
+      "можно",
+      "стоит",
+      "окраш",
+    ])
   ) {
     return "ru";
   }
   if (
-    /[ąćęłńóśźżĄĆĘŁŃÓŚŹŻ]/.test(value) ||
-    /\b(kiedy|jesteście|proszę|dzień|fryzjer|cena)\b/i.test(value)
+    /[ąćęłńóśźż]/.test(value) ||
+    hasAny(value, ["kiedy", "jesteście", "proszę", "dzień", "fryzjer", "cena"])
   ) {
     return "pl";
   }
   if (
-    /[äöüßÄÖÜ]/.test(value) ||
-    /\b(und|ich|sie|haben|habt|uhr|wann|bitte|der|die|das|nicht|geöffnet)\b/i.test(
-      value,
-    )
+    /[äöüß]/.test(value) ||
+    hasAny(value, [
+      " und ",
+      " ich ",
+      " haben ",
+      " habt ",
+      " uhr",
+      "wann ",
+      " bitte",
+      " nicht",
+      "geöffnet",
+    ])
   ) {
     return "de";
   }
-  if (/\b(the|what|when|how|please|open|hours|book|can|i)\b/i.test(value)) {
+  if (
+    hasAny(value, [
+      " the ",
+      " what ",
+      " when ",
+      " how ",
+      " please",
+      " open",
+      " hours",
+      " book",
+    ])
+  ) {
     return "en";
   }
   return normalizeLanguage(fallback);
@@ -124,7 +156,10 @@ export function buildSystemPrompt(replyLanguage) {
     stableFactsPrefix(),
     "",
     "You are the assistant of theWAY, a hair salon and nail studio in Berlin Prenzlauer Berg.",
-    `The visitor's latest message is in ${REPLY_NAMES[lang]}. Reply only in ${REPLY_NAMES[lang]}.`,
+    "The facts above are in German only so they can be cached. They are not a language rule.",
+    "You speak German, English, Ukrainian, Russian, and Polish equally well.",
+    "Never say that you speak only German, or only one language.",
+    `The visitor's latest message is in ${REPLY_NAMES[lang]}. Write the entire reply in ${REPLY_NAMES[lang]} and no other language.`,
     "Keep replies short and friendly. You may translate service names. Never change a price.",
     "Only discuss the salon: services, prices, opening hours, address, contact, bookings, and chair rental.",
     "Never invent prices, services, hours, staff, or policies. If a fact is not in the salon facts, say you do not know and offer the email or phone.",
