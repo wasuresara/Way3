@@ -239,8 +239,8 @@ function App({ language: routeLanguage = "de" }) {
 
       <div className="Wrapper">
         <About language={language} />
-        <Highlights language={language} />
         <Links language={language} scrollToSection={scrollToSection} />
+        <Highlights language={language} />
         <Prices language={language} scrollToSection={scrollToSection} />
         <section className="SpaceSection"></section>
         <MayerUmarov language={language} />
