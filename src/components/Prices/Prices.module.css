@@ -29,12 +29,6 @@
   margin: 0 auto 18px;
 }
 
-.PricesGif2 {
-  width: 100%;
-  display: block;
-  margin: 0 auto 18px;
-}
-
 .PricesGifMani {
   width: 100%;
   max-height: 280px;
@@ -236,13 +230,6 @@
   border-bottom: 1px solid var(--line);
   width: 100%;
   text-align: left;
-}
-
-.sectionOverview {
-  margin: 0 0 4px;
-  color: var(--fg);
-  text-align: left;
-  max-width: 68ch;
 }
 
 @media (min-width: 768px) {

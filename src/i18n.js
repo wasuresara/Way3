@@ -1,4 +1,4 @@
-const SUFFIX = { en: "EN", uk: "UK", ru: "RU" };
+const SUFFIX = { en: "EN", uk: "UK", ru: "RU", pl: "PL" };
 
 export function t(language, messages) {
   return messages[language] ?? messages.de;

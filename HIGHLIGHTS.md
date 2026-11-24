@@ -21,6 +21,7 @@ The first row is the header. Names matter. Order does not.
 | `title_de` / `text_de` | German. Leave empty to use English. |
 | `title_uk` / `text_uk` | Ukrainian. Leave empty to use English. |
 | `title_ru` / `text_ru` | Russian. Leave empty to use English. |
+| `title_pl` / `text_pl` | Polish. Leave empty to use English. |
 
 The heading **Highlights** and the link **Read more** stay in English on every language.
 

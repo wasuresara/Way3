@@ -89,6 +89,8 @@ export function selectHighlights(csv) {
       textUk: cell(row, index, "text_uk"),
       titleRu: cell(row, index, "title_ru"),
       textRu: cell(row, index, "text_ru"),
+      titlePl: cell(row, index, "title_pl"),
+      textPl: cell(row, index, "text_pl"),
       imageUrl: cell(row, index, "image_url"),
       link: cell(row, index, "link"),
       show: cell(row, index, "show").toUpperCase() === "TRUE",
@@ -104,6 +106,7 @@ const LOCALIZED = {
   de: ["titleDe", "textDe"],
   uk: ["titleUk", "textUk"],
   ru: ["titleRu", "textRu"],
+  pl: ["titlePl", "textPl"],
 };
 
 export function highlightCopy(item, language) {

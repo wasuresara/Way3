@@ -11,7 +11,6 @@ import LinksModal from "./components/LinksModal/LinksModal";
 import Staff from "./components/Staff/Staff";
 import Prices from "./components/Prices/Prices";
 import Karriere from "./components/Karriere/Karriere";
-import MayerUmarov from "./components/MayerUmarov/MayerUmarov";
 import { t } from "./i18n";
 import { useMediaQuery } from "./hooks/useMediaQuery";
 
@@ -20,28 +19,43 @@ const LANGUAGES = [
   { code: "en", label: "EN" },
   { code: "uk", label: "УКР", fullName: "Українська" },
   { code: "ru", label: "РУ", fullName: "Русский" },
+  { code: "pl", label: "PL", fullName: "Polski" },
 ];
 
 const NAV_ITEMS = [
   {
     id: "home",
-    label: { de: "Hauptseite", en: "Home", uk: "Головна", ru: "Главная" },
+    label: {
+      de: "Hauptseite",
+      en: "Home",
+      uk: "Головна",
+      ru: "Главная",
+      pl: "Strona główna",
+    },
   },
   {
     id: "prices",
-    label: { de: "Preise", en: "Prices", uk: "Ціни", ru: "Цены" },
-  },
-  {
-    id: "clothing",
-    label: { de: "Bekleidung", en: "Clothing", uk: "Одяг", ru: "Одежда" },
+    label: { de: "Preise", en: "Prices", uk: "Ціни", ru: "Цены", pl: "Cennik" },
   },
   {
     id: "team",
-    label: { de: "Team", en: "Team", uk: "Команда", ru: "Команда" },
+    label: {
+      de: "Team",
+      en: "Team",
+      uk: "Команда",
+      ru: "Команда",
+      pl: "Zespół",
+    },
   },
   {
     id: "karriere",
-    label: { de: "Karriere", en: "Career", uk: "Кар'єра", ru: "Карьера" },
+    label: {
+      de: "Stuhl mieten",
+      en: "Rent a chair",
+      uk: "Оренда крісла",
+      ru: "Аренда кресла",
+      pl: "Wynajem fotela",
+    },
   },
 ];
 
@@ -51,12 +65,14 @@ const SEO = {
     en: "Hair Salon Prenzlauer Berg | theWAY Berlin",
     uk: "Перукарня Prenzlauer Berg | theWAY Berlin",
     ru: "Парикмахерская Prenzlauer Berg | theWAY Berlin",
+    pl: "Fryzjer Prenzlauer Berg | theWAY Berlin",
   },
   description: {
     de: "Friseur in Berlin Prenzlauer Berg: Haarschnitt, Farbe, Balayage, Maniküre & mehr. Jetzt Termin buchen.",
     en: "Hair salon in Berlin Prenzlauer Berg: haircut, color, balayage, manicure & more. Book now.",
     uk: "Перукарня в Берліні, Prenzlauer Berg: стрижка, фарбування, балаяж, манікюр і не тільки. Запишіться зараз.",
     ru: "Парикмахерская в Берлине, Prenzlauer Berg: стрижка, окрашивание, балаяж, маникюр и не только. Запишитесь сейчас.",
+    pl: "Fryzjer w Berlinie, Prenzlauer Berg: strzyżenie, kolor, balayage, manicure i nie tylko. Umów się teraz.",
   },
 };
 
@@ -65,6 +81,7 @@ const OG_LOCALE = {
   en: "en_GB",
   uk: "uk_UA",
   ru: "ru_RU",
+  pl: "pl_PL",
 };
 
 function ensureMeta(selector, attribute, value) {
@@ -290,8 +307,6 @@ function App({ language: routeLanguage = "de" }) {
         <Links language={language} scrollToSection={scrollToSection} />
         <Highlights language={language} />
         <Prices language={language} scrollToSection={scrollToSection} />
-        <section className="SpaceSection"></section>
-        <MayerUmarov language={language} />
         <section className="SpaceSection"></section>
         <Staff language={language} />
         <section className="SpaceSection"></section>

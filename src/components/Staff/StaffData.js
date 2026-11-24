@@ -41,12 +41,22 @@ export const staffMembers = [
         "Английский",
         "Украинский",
       ],
+      pl: [
+        "Strzyżenie",
+        "Koloryzacja",
+        "Usługi all-inclusive",
+        "Barbering",
+        "Niemiecki",
+        "Angielski",
+        "Ukraiński",
+      ],
     },
     description: {
       de: "Ich bin Svitlana, eine Friseurmeisterin mit über 20 Jahren Erfahrung. Für mich ist das nicht nur ein Beruf – es ist mein Weg. Im Salon The Way kreiere ich Stil und Komfort für jeden Kunden. Herrenhaarschnitte, Bartpflege, Gesichtsenthaarung, Damenhaarschnitte und verschiedene Färbetechniken – alles, um Ihre Einzigartigkeit zu betonen. Vertrauen Sie mir, und gemeinsam finden wir Ihren perfekten Look!",
       en: "I am Svitlana, a master hairdresser with over 20 years of experience. For me, this is not just a profession — it's my path. At The Way salon, I create style and comfort for every client. Men's haircuts, beard care, facial depilation, women's haircuts, and various coloring techniques — all to emphasize your uniqueness. Trust me, and together we'll find your perfect look!",
       uk: "Я Світлана, майстриня-перукарка з понад 20-річним досвідом. Для мене це не просто професія — це мій шлях. У салоні The Way я створюю стиль і комфорт для кожного клієнта. Чоловічі стрижки, догляд за бородою, депіляція обличчя, жіночі стрижки та різні техніки фарбування — усе для того, щоб підкреслити вашу унікальність. Довіртеся мені, і разом ми знайдемо ваш ідеальний образ!",
       ru: "Я Светлана, мастер-парикмахер с более чем 20-летним опытом. Для меня это не просто профессия — это мой путь. В салоне The Way я создаю стиль и комфорт для каждого клиента. Мужские стрижки, уход за бородой, депиляция лица, женские стрижки и разные техники окрашивания — всё, чтобы подчеркнуть вашу уникальность. Доверьтесь мне, и вместе мы найдём ваш идеальный образ!",
+      pl: "Jestem Svitlana, mistrzyni fryzjerstwa z ponad 20-letnim doświadczeniem. Dla mnie to nie tylko zawód — to moja droga. W salonie The Way tworzę styl i komfort dla każdej osoby. Męskie strzyżenia, pielęgnacja brody, depilacja twarzy, damskie strzyżenia i różne techniki koloryzacji — wszystko po to, żeby podkreślić Twoją wyjątkowość. Zaufaj mi, a razem znajdziemy Twój idealny wygląd!",
     },
   },
   {
@@ -59,12 +69,14 @@ export const staffMembers = [
       en: ["Hairdresser", "Stylist", "Haircut", "Hair Color", "Ukrainian"],
       uk: ["Перукар", "Стиліст", "Стрижка", "Фарбування", "Українська"],
       ru: ["Парикмахер", "Стилист", "Стрижка", "Окрашивание", "Украинский"],
+      pl: ["Fryzjer", "Stylista", "Strzyżenie", "Koloryzacja", "Ukraiński"],
     },
     description: {
       de: "Mein Name ist Marat, Friseur und Stylist aus der Ukraine mit über 15 Jahren Erfahrung. Zehn Jahre lang habe ich mein eigenes Friseurgeschäft erfolgreich geführt. Meine Arbeit ist achtsam, präzise und geprägt von Natürlichkeit. Haarschnitt und Farbe verstehe ich als feinen Dialog mit dem Haar – mit Respekt für Struktur, Bewegung und individuelle Schönheit. Ich kreiere harmonische Looks, in denen sich Menschen leicht, authentisch und wohlfühlen.",
       en: "My name is Marat, I am a hairdresser and stylist from Ukraine with over 15 years of experience. For ten years I successfully ran my own hairdressing business. My work is mindful, precise and characterized by naturalness. I understand haircuts and color as a subtle dialogue with the hair – with respect for structure, movement and individual beauty. I create harmonious looks in which people feel light, authentic and comfortable.",
       uk: "Мене звати Марат, я перукар і стиліст з України з понад 15-річним досвідом. Десять років я успішно вів власну перукарню. Моя робота уважна, точна й природна. Стрижку й колір я розумію як тонкий діалог із волоссям — з повагою до структури, руху та індивідуальної краси. Я створюю гармонійні образи, в яких люди почуваються легко, справжньо й комфортно.",
       ru: "Меня зовут Марат, я парикмахер и стилист из Украины с более чем 15-летним опытом. Десять лет я успешно вёл собственную парикмахерскую. Моя работа внимательная, точная и естественная. Стрижку и цвет я понимаю как тонкий диалог с волосами — с уважением к структуре, движению и индивидуальной красоте. Я создаю гармоничные образы, в которых люди чувствуют себя легко, подлинно и комфортно.",
+      pl: "Nazywam się Marat, jestem fryzjerem i stylistą z Ukrainy z ponad 15-letnim doświadczeniem. Przez dziesięć lat prowadziłem własny salon. Moja praca jest uważna, precyzyjna i naturalna. Strzyżenie i kolor rozumiem jako cichy dialog z włosami — z szacunkiem dla struktury, ruchu i indywidualnego piękna. Tworzę harmonijne wyglądy, w których ludzie czują się lekko, autentycznie i swobodnie.",
     },
   },
 ];

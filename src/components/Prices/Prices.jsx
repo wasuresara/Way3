@@ -83,6 +83,7 @@ function Prices({ language = "de", scrollToSection }) {
           en: "Make Inquiry",
           uk: "Залишити запит",
           ru: "Оставить заявку",
+          pl: "Zostaw zapytanie",
         })}
       </button>
     </div>

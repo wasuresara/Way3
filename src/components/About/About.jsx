@@ -21,10 +21,11 @@ function About({ language = "de" }) {
       <h2 className={s.subtitle}>what about you</h2>
       <p className={s.text1}>
         {t(language, {
-          de: "Friseursalon | Nagelstudio | Bekleidung | Berlin | Prenzlauerberg",
-          en: "Hair Salon | Nail Studio | Clothing | Berlin | Prenzlauerberg",
-          uk: "Перукарня | Нігтьова студія | Одяг | Берлін | Prenzlauerberg",
-          ru: "Парикмахерская | Ногтевая студия | Одежда | Берлин | Prenzlauerberg",
+          de: "Friseursalon | Nagelstudio | Berlin | Prenzlauerberg",
+          en: "Hair Salon | Nail Studio | Berlin | Prenzlauerberg",
+          uk: "Перукарня | Нігтьова студія | Берлін | Prenzlauerberg",
+          ru: "Парикмахерская | Ногтевая студия | Берлин | Prenzlauerberg",
+          pl: "Salon fryzjerski | Studio paznokci | Berlin | Prenzlauerberg",
         })}
       </p>
       <p className={s.text}>
@@ -33,6 +34,7 @@ function About({ language = "de" }) {
           en: "Each of us walks our own unique path – our personal Way. We, the team at theWAY salon, have decided not only to walk this path for ourselves, but also to give others a piece of happiness on their life's journey.",
           uk: "Кожен із нас іде своїм шляхом — своїм особистим Way. Ми, команда салону theWAY, вирішили не лише пройти цей шлях для себе, а й подарувати іншим часточку щастя на їхній життєвій дорозі.",
           ru: "Каждый из нас идёт своей дорогой — своим личным Way. Мы, команда салона theWAY, решили не только пройти этот путь для себя, но и подарить другим частицу счастья на их жизненном пути.",
+          pl: "Każdy z nas idzie własną drogą — swoim osobistym Way. My, zespół salonu theWAY, postanowiliśmy iść nią nie tylko dla siebie, ale też dać innym odrobinę szczęścia na ich drodze.",
         })}
       </p>
       <img
@@ -48,6 +50,7 @@ function About({ language = "de" }) {
           en: "Mon-Sat 10:00-19:00",
           uk: "Пн–Сб 10:00–19:00",
           ru: "Пн–Сб 10:00–19:00",
+          pl: "Pn–Sb 10:00–19:00",
         })}
       </p>
     </div>
