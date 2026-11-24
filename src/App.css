@@ -207,9 +207,9 @@ nav {
   }
 
   nav .LanguageSwitcher {
-    font-size: 10px;
-    letter-spacing: 0.02em;
-    padding: 12px 3px;
+    font-size: 12px;
+    letter-spacing: 0;
+    padding: 11px 3px;
   }
 }
 
