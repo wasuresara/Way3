@@ -1,42 +1,40 @@
-export const jobListings = [
+export const chairRentals = [
   {
     id: 1,
-    title: "Friseur (m/w/d) (Vollzeit)",
-    titleEN: "Hairdresser (Full-time)",
-    titleUK: "Перукар (повна зайнятість)",
-    titleRU: "Парикмахер (полная занятость)",
+    title: "Friseurplatz",
+    titleEN: "Hairdressing chair",
+    titleUK: "Місце для перукаря",
+    titleRU: "Место для парикмахера",
+    titlePL: "Stanowisko fryzjerskie",
     location: "Berlin, Prenzlauerberg",
-    salary: "ab 2.500 € / Monat",
-    salaryEN: "from €2,500 / month",
-    salaryUK: "від 2 500 € / місяць",
-    salaryRU: "от 2 500 € / месяц",
     description:
-      "Wir suchen einen erfahrenen Friseur (m/w/d) für unser Team in Berlin Prenzlauerberg. Sie sollten mindestens 3 Jahre Berufserfahrung haben und Freude am Umgang mit Kunden mitbringen. Kenntnisse in modernen Schnitt- und Färbetechniken sind erforderlich.",
+      "Für selbstständige Friseurinnen und Friseure: mieten Sie einen Stuhl im Salon theWAY in Prenzlauer Berg. Sie arbeiten auf eigene Rechnung, mit eigenem Kundenstamm, in einem eingerichteten Salon. Schreiben Sie uns kurz, ab wann Sie einsteigen möchten.",
     descriptionEN:
-      "We are looking for an experienced hairdresser to join our team in Berlin. You should have at least 3 years of professional experience and enjoy working with customers. Knowledge of modern cutting and coloring techniques is required.",
+      "For self-employed hairdressers: rent a chair at theWAY in Prenzlauer Berg. You work on your own account, with your own clients, in a fully set-up salon. Tell us briefly when you would like to start.",
     descriptionUK:
-      "Шукаємо досвідченого перукаря до нашої команди в Берліні. Потрібен щонайменше трирічний професійний досвід і радість від роботи з клієнтами. Необхідне знання сучасних технік стрижки та фарбування.",
+      "Для самозайнятих перукарів: орендуйте крісло в theWAY у Пренцлауер-Бергу. Ви працюєте на себе, зі своїми клієнтами, у готовому салоні. Напишіть коротко, відколи хочете почати.",
     descriptionRU:
-      "Ищем опытного парикмахера в нашу команду в Берлине. Нужен как минимум трёхлетний профессиональный опыт и удовольствие от работы с клиентами. Необходимо знание современных техник стрижки и окрашивания.",
+      "Для самозанятых парикмахеров: арендуйте кресло в theWAY в Пренцлауэр-Берге. Вы работаете на себя, со своими клиентами, в готовом салоне. Напишите коротко, с какого момента хотите начать.",
+    descriptionPL:
+      "Dla fryzjerów na własnej działalności: wynajmij fotel w theWAY na Prenzlauer Bergu. Pracujesz na własny rachunek, ze swoimi klientami, w urządzonym salonie. Napisz krótko, od kiedy chcesz zacząć.",
   },
   {
     id: 2,
-    title: "Nageldesigner (m/w/d) (Teilzeit)",
-    titleEN: "Nail Designer (Part-time)",
-    titleUK: "Нейл-дизайнер (часткова зайнятість)",
-    titleRU: "Нейл-дизайнер (частичная занятость)",
+    title: "Nagelplatz",
+    titleEN: "Nail station",
+    titleUK: "Місце для нігтьового майстра",
+    titleRU: "Место для нейл-мастера",
+    titlePL: "Stanowisko paznokciowe",
     location: "Berlin, Prenzlauerberg",
-    salary: "ab 1.800 € / Monat",
-    salaryEN: "from €1,800 / month",
-    salaryUK: "від 1 800 € / місяць",
-    salaryRU: "от 1 800 € / месяц",
     description:
-      "Für unseren Salon in Berlin suchen wir einen talentierten Nageldesigner/in in Teilzeit (20-30 Stunden/Woche). Erfahrung in Gel- und Acrylnageltechniken sowie kreatives Nageldesign sind Voraussetzung. Flexible Arbeitszeiten möglich.",
+      "Für selbstständige Nageldesignerinnen und Nageldesigner: mieten Sie einen Arbeitsplatz im Salon theWAY. Sie bringen Ihre eigenen Kundinnen und Kunden mit und arbeiten unabhängig in unserem Nagelstudio. Schreiben Sie uns, wir melden uns mit den Konditionen.",
     descriptionEN:
-      "For our salon in Munich, we are looking for a talented nail designer part-time (20-30 hours/week). Experience in gel and acrylic nail techniques as well as creative nail design is required. Flexible working hours possible.",
+      "For self-employed nail artists: rent a workplace at theWAY. You bring your own clients and work independently in our nail studio. Write to us and we will reply with the terms.",
     descriptionUK:
-      "Для нашого салону в Берліні шукаємо талановитого нейл-дизайнера на неповний день (20–30 годин на тиждень). Потрібен досвід у гелевих і акрилових техніках, а також у креативному дизайні нігтів. Можливий гнучкий графік.",
+      "Для самозайнятих майстрів манікюру: орендуйте робоче місце в theWAY. Ви приходите зі своїми клієнтами і працюєте самостійно в нашій нігтьовій студії. Напишіть нам, і ми відповімо з умовами.",
     descriptionRU:
-      "Для нашего салона в Берлине ищем талантливого нейл-дизайнера на неполный день (20–30 часов в неделю). Нужен опыт в гелевых и акриловых техниках, а также в креативном дизайне ногтей. Возможен гибкий график.",
+      "Для самозанятых нейл-мастеров: арендуйте рабочее место в theWAY. Вы приходите со своими клиентами и работаете самостоятельно в нашей ногтевой студии. Напишите нам, и мы ответим с условиями.",
+    descriptionPL:
+      "Dla stylistek i stylistów paznokci na własnej działalności: wynajmij stanowisko w theWAY. Przychodzisz ze swoimi klientami i pracujesz samodzielnie w naszym studio paznokci. Napisz do nas, odezwiemy się z warunkami.",
   },
 ];

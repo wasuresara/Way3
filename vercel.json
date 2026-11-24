@@ -6,6 +6,8 @@
     { "source": "/uk/:path*", "destination": "/" },
     { "source": "/ru", "destination": "/" },
     { "source": "/ru/:path*", "destination": "/" },
+    { "source": "/pl", "destination": "/" },
+    { "source": "/pl/:path*", "destination": "/" },
     { "source": "/thankyou", "destination": "/thankyou.html" },
     { "source": "/:path*", "destination": "/" }
   ]

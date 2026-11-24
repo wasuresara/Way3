@@ -56,6 +56,18 @@ const copy = {
     contactError: "Пожалуйста, укажите электронную почту или номер телефона.",
     sendError: "Не удалось отправить.",
   },
+  pl: {
+    name: "Imię",
+    email: "Email",
+    phone: "Numer telefonu",
+    date: "Preferowany termin",
+    service: "Wybierz usługę",
+    select: "Proszę wybrać...",
+    submit: "Wyślij!",
+    nameError: "Proszę podać imię.",
+    contactError: "Proszę podać e-mail albo numer telefonu.",
+    sendError: "Nie udało się wysłać.",
+  },
 };
 
 function errorToast(message) {

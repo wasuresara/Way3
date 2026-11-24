@@ -17,6 +17,7 @@ function Staff({ language = "de" }) {
     en: "Our Team",
     uk: "Наша команда",
     ru: "Наша команда",
+    pl: "Nasz zespół",
   });
 
   return (
@@ -28,6 +29,7 @@ function Staff({ language = "de" }) {
           en: "At The Way, our skilled team delivers personalized, high-quality services to enhance your style and individuality. Here's a snapshot of our talented professionals:",
           uk: "У The Way наша досвідчена команда створює індивідуальні послуги високої якості, щоб підкреслити ваш стиль і характер. Ось короткий портрет наших майстрів:",
           ru: "В The Way наша опытная команда создаёт индивидуальные услуги высокого качества, чтобы подчеркнуть ваш стиль и характер. Вот короткий портрет наших мастеров:",
+          pl: "W The Way nasz doświadczony zespół tworzy indywidualne usługi wysokiej jakości, żeby podkreślić Twój styl i charakter. Oto krótki portret naszych specjalistów:",
         })}
       </p>
       <button
@@ -41,6 +43,7 @@ function Staff({ language = "de" }) {
               en: "Close",
               uk: "Закрити",
               ru: "Закрыть",
+              pl: "Zamknij",
             })
           : title}
       </button>

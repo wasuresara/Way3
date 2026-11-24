@@ -32,6 +32,7 @@ function Links({ language, scrollToSection }) {
           en: "Make a request",
           uk: "Залишити запит",
           ru: "Оставить заявку",
+          pl: "Zostaw zapytanie",
         })}
       </a>
       {links.map((link) => (
