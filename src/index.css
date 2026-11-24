@@ -9,9 +9,9 @@
   --muted: #5c5c5c;
   --line: rgba(22, 22, 22, 0.12);
   --panel: rgba(255, 255, 255, 0.7);
-  --glow-a: rgba(206, 176, 230, 0.18);
-  --glow-b: rgba(168, 214, 206, 0.12);
-  --glow-c: rgba(236, 186, 206, 0.1);
+  --glow-a: rgba(190, 140, 220, 0.34);
+  --glow-b: rgba(130, 200, 198, 0.24);
+  --glow-c: rgba(244, 160, 186, 0.26);
   --row-highlight: linear-gradient(
     90deg,
     rgba(244, 176, 204, 0.2) 0%,
@@ -22,10 +22,10 @@
   );
   --pastel-card: linear-gradient(
     160deg,
-    rgba(244, 176, 204, 0.16),
-    rgba(255, 204, 176, 0.08) 36%,
-    transparent 52%,
-    rgba(156, 210, 214, 0.12)
+    rgba(244, 176, 204, 0.34),
+    rgba(255, 204, 176, 0.2) 34%,
+    rgba(196, 168, 228, 0.16) 58%,
+    rgba(156, 210, 214, 0.22)
   );
   --pastel-wash: linear-gradient(
     115deg,
@@ -112,9 +112,9 @@ img {
 }
 
 a:focus-visible,
-button:focus-visible,
 input:focus-visible,
-select:focus-visible {
+select:focus-visible,
+.LanguageSwitcher:focus-visible {
   outline: 2px solid rgba(214, 150, 190, 0.9);
   outline-offset: 3px;
 }
@@ -165,6 +165,13 @@ select:focus-visible {
     --muted: #c8c8ce;
     --line: rgba(255, 255, 255, 0.16);
     --panel: #2e2e34;
+    --pastel-card: linear-gradient(
+      160deg,
+      rgba(244, 176, 204, 0.16),
+      rgba(255, 204, 176, 0.08) 36%,
+      transparent 52%,
+      rgba(156, 210, 214, 0.12)
+    );
     --glow-a: rgba(186, 150, 214, 0.22);
     --glow-b: rgba(120, 196, 204, 0.14);
     --glow-c: rgba(236, 170, 190, 0.12);
