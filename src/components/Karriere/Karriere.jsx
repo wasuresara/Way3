@@ -9,8 +9,8 @@ function Karriere({ language = "de" }) {
         {t(language, {
           de: "Stellenangebote",
           en: "Job Opportunities",
-          fr: "Offres d'Emploi",
-          es: "Ofertas de Trabajo",
+          uk: "Вакансії",
+          ru: "Вакансии",
         })}
       </h2>
 
@@ -30,8 +30,8 @@ function Karriere({ language = "de" }) {
                 {t(language, {
                   de: "per Email bewerben",
                   en: "Apply Now",
-                  fr: "Postuler",
-                  es: "Aplicar",
+                  uk: "Подати заявку",
+                  ru: "Откликнуться",
                 })}
               </a>
             </div>

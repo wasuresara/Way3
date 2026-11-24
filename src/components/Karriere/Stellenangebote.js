@@ -3,32 +3,40 @@ export const jobListings = [
     id: 1,
     title: "Friseur (m/w/d) (Vollzeit)",
     titleEN: "Hairdresser (Full-time)",
-    titleFR: "Coiffeur/se (Temps plein)",
-    titleES: "Peluquero/a (Tiempo completo)",
+    titleUK: "Перукар (повна зайнятість)",
+    titleRU: "Парикмахер (полная занятость)",
     location: "Berlin, Prenzlauerberg",
     salary: "ab 2.500 € / Monat",
     salaryEN: "from €2,500 / month",
-    salaryFR: "à partir de 2.500 € / mois",
-    salaryES: "desde 2.500 € / mes",
-    description: "Wir suchen einen erfahrenen Friseur (m/w/d) für unser Team in Berlin Prenzlauerberg. Sie sollten mindestens 3 Jahre Berufserfahrung haben und Freude am Umgang mit Kunden mitbringen. Kenntnisse in modernen Schnitt- und Färbetechniken sind erforderlich.",
-    descriptionEN: "We are looking for an experienced hairdresser to join our team in Berlin. You should have at least 3 years of professional experience and enjoy working with customers. Knowledge of modern cutting and coloring techniques is required.",
-    descriptionFR: "Nous recherchons un coiffeur/se expérimenté(e) pour rejoindre notre équipe à Berlin. Vous devez avoir au moins 3 ans d'expérience professionnelle et aimer travailler avec les clients. La connaissance des techniques modernes de coupe et de coloration est requise.",
-    descriptionES: "Buscamos un peluquero/a con experiencia para unirse a nuestro equipo en Berlín. Debe tener al menos 3 años de experiencia profesional y disfrutar trabajando con clientes. Se requiere conocimiento de técnicas modernas de corte y coloración."
+    salaryUK: "від 2 500 € / місяць",
+    salaryRU: "от 2 500 € / месяц",
+    description:
+      "Wir suchen einen erfahrenen Friseur (m/w/d) für unser Team in Berlin Prenzlauerberg. Sie sollten mindestens 3 Jahre Berufserfahrung haben und Freude am Umgang mit Kunden mitbringen. Kenntnisse in modernen Schnitt- und Färbetechniken sind erforderlich.",
+    descriptionEN:
+      "We are looking for an experienced hairdresser to join our team in Berlin. You should have at least 3 years of professional experience and enjoy working with customers. Knowledge of modern cutting and coloring techniques is required.",
+    descriptionUK:
+      "Шукаємо досвідченого перукаря до нашої команди в Берліні. Потрібен щонайменше трирічний професійний досвід і радість від роботи з клієнтами. Необхідне знання сучасних технік стрижки та фарбування.",
+    descriptionRU:
+      "Ищем опытного парикмахера в нашу команду в Берлине. Нужен как минимум трёхлетний профессиональный опыт и удовольствие от работы с клиентами. Необходимо знание современных техник стрижки и окрашивания.",
   },
   {
     id: 2,
     title: "Nageldesigner (m/w/d) (Teilzeit)",
     titleEN: "Nail Designer (Part-time)",
-    titleFR: "Designer d'ongles (Temps partiel)",
-    titleES: "Diseñador/a de uñas (Tiempo parcial)",
+    titleUK: "Нейл-дизайнер (часткова зайнятість)",
+    titleRU: "Нейл-дизайнер (частичная занятость)",
     location: "Berlin, Prenzlauerberg",
     salary: "ab 1.800 € / Monat",
     salaryEN: "from €1,800 / month",
-    salaryFR: "à partir de 1.800 € / mois",
-    salaryES: "desde 1.800 € / mes",
-    description: "Für unseren Salon in Berlin suchen wir einen talentierten Nageldesigner/in in Teilzeit (20-30 Stunden/Woche). Erfahrung in Gel- und Acrylnageltechniken sowie kreatives Nageldesign sind Voraussetzung. Flexible Arbeitszeiten möglich.",
-    descriptionEN: "For our salon in Munich, we are looking for a talented nail designer part-time (20-30 hours/week). Experience in gel and acrylic nail techniques as well as creative nail design is required. Flexible working hours possible.",
-    descriptionFR: "Pour notre salon à Munich, nous recherchons un designer d'ongles talentueux à temps partiel (20-30 heures/semaine). Une expérience en techniques d'ongles en gel et acrylique ainsi qu'en design créatif est requise. Horaires de travail flexibles possibles.",
-    descriptionES: "Para nuestro salón en Munich, buscamos un diseñador/a de uñas con talento a tiempo parcial (20-30 horas/semana). Se requiere experiencia en técnicas de uñas de gel y acrílico, así como diseño creativo de uñas. Posibilidad de horario flexible."
-  }
+    salaryUK: "від 1 800 € / місяць",
+    salaryRU: "от 1 800 € / месяц",
+    description:
+      "Für unseren Salon in Berlin suchen wir einen talentierten Nageldesigner/in in Teilzeit (20-30 Stunden/Woche). Erfahrung in Gel- und Acrylnageltechniken sowie kreatives Nageldesign sind Voraussetzung. Flexible Arbeitszeiten möglich.",
+    descriptionEN:
+      "For our salon in Munich, we are looking for a talented nail designer part-time (20-30 hours/week). Experience in gel and acrylic nail techniques as well as creative nail design is required. Flexible working hours possible.",
+    descriptionUK:
+      "Для нашого салону в Берліні шукаємо талановитого нейл-дизайнера на неповний день (20–30 годин на тиждень). Потрібен досвід у гелевих і акрилових техніках, а також у креативному дизайні нігтів. Можливий гнучкий графік.",
+    descriptionRU:
+      "Для нашего салона в Берлине ищем талантливого нейл-дизайнера на неполный день (20–30 часов в неделю). Нужен опыт в гелевых и акриловых техниках, а также в креативном дизайне ногтей. Возможен гибкий график.",
+  },
 ];

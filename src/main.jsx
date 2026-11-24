@@ -11,8 +11,8 @@ export function LanguageRouter() {
       <Routes>
         <Route path="/" element={<App language="de" />} />
         <Route path="/en" element={<App language="en" />} />
-        <Route path="/fr" element={<App language="fr" />} />
-        <Route path="/es" element={<App language="es" />} />
+        <Route path="/uk" element={<App language="uk" />} />
+        <Route path="/ru" element={<App language="ru" />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>

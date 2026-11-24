@@ -23,16 +23,16 @@ function About({ language = "de" }) {
         {t(language, {
           de: "Friseursalon | Nagelstudio | Bekleidung | Berlin | Prenzlauerberg",
           en: "Hair Salon | Nail Studio | Clothing | Berlin | Prenzlauerberg",
-          fr: "Salon de coiffure | Studio d'ongles | Vêtements | Berlin | Prenzlauerberg",
-          es: "Salón de peluquería | Estudio de uñas | Ropa | Berlín | Prenzlauerberg",
+          uk: "Перукарня | Нігтьова студія | Одяг | Берлін | Prenzlauerberg",
+          ru: "Парикмахерская | Ногтевая студия | Одежда | Берлин | Prenzlauerberg",
         })}
       </p>
       <p className={s.text}>
         {t(language, {
           de: "Jeder von uns geht seinen ganz eigenen Weg – seinen persönlichen Way. Wir, das Team des Salons theWAY, haben uns dazu entschlossen, diesen Weg nicht nur für uns zu gehen, sondern auch für andere ein Stück Glück auf ihrem Lebensweg zu schenken.",
           en: "Each of us walks our own unique path – our personal Way. We, the team at theWAY salon, have decided not only to walk this path for ourselves, but also to give others a piece of happiness on their life's journey.",
-          fr: "Chacun d'entre nous suit son propre chemin unique — son Way personnel. Nous, l'équipe du salon theWAY, avons décidé de ne pas seulement emprunter ce chemin pour nous-mêmes, mais aussi d'offrir aux autres un morceau de bonheur sur leur parcours de vie.",
-          es: "Cada uno de nosotros sigue su propio camino único — su Way personal. Nosotros, el equipo del salón theWAY, hemos decidido no solo recorrer este camino para nosotros mismos, sino también regalar a otros un pedazo de felicidad en su camino de vida.",
+          uk: "Кожен із нас іде своїм шляхом — своїм особистим Way. Ми, команда салону theWAY, вирішили не лише пройти цей шлях для себе, а й подарувати іншим часточку щастя на їхній життєвій дорозі.",
+          ru: "Каждый из нас идёт своей дорогой — своим личным Way. Мы, команда салона theWAY, решили не только пройти этот путь для себя, но и подарить другим частицу счастья на их жизненном пути.",
         })}
       </p>
       <img
@@ -46,8 +46,8 @@ function About({ language = "de" }) {
         {t(language, {
           de: "Mo-Sa 10:00-19:00 Uhr",
           en: "Mon-Sat 10:00-19:00",
-          fr: "Lun-Sam 10h00-19h00",
-          es: "Lun-Sáb 10:00-19:00",
+          uk: "Пн–Сб 10:00–19:00",
+          ru: "Пн–Сб 10:00–19:00",
         })}
       </p>
     </div>
