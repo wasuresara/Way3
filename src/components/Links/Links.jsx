@@ -1,63 +1,52 @@
-import React from "react";
 import s from "./Links.module.css";
+import { t } from "../../i18n";
 
-const Links = ({ language, scrollToSection }) => {
-  const getBookNowText = () => {
-    switch (language) {
-      case "de":
-        return "Anfrage stellen";
-      case "en":
-        return "Make a request";
-      case "fr":
-        return "Faire une demande";
-      case "es":
-        return "Hacer una solicitud";
-      default:
-        return "Make a request";
-    }
-  };
+const links = [
+  {
+    href: "https://www.instagram.com/theway.berlin/",
+    label: "Instagram",
+  },
+  {
+    href: "https://maps.app.goo.gl/rhiztmrSESHvT2rU6",
+    label: "Google Maps",
+  },
+  {
+    href: "https://buchung.treatwell.de/ort/476314/menue/",
+    label: "Treatwell",
+  },
+];
 
+function Links({ language, scrollToSection }) {
   return (
     <div className={s.linksWrapper}>
-      <a className={s.lgb} onClick={() => scrollToSection("linksModal")}>
-        {getBookNowText()}
-      </a>
       <a
-        href="https://www.instagram.com/theway.berlin/"
-        target="_blank"
-        rel="noopener noreferrer"
+        href="#linksModal"
         className={s.lgb}
+        onClick={(event) => {
+          event.preventDefault();
+          scrollToSection("linksModal");
+        }}
       >
-        Instagram
+        {t(language, {
+          de: "Anfrage stellen",
+          en: "Make a request",
+          fr: "Faire une demande",
+          es: "Hacer una solicitud",
+        })}
       </a>
-
-      {/* <a href="" target="_blank" className={s.lgb}>
-        Telegram
-      </a>  */}
-
-      <a
-        href="https://maps.app.goo.gl/rhiztmrSESHvT2rU6"
-        className={s.lgb}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Google Maps
-      </a>
-      {/* 
-      <a href="" className={s.lgb} target="_blank">
-        Whatsapp
-      </a> */}
-
-      <a
-        href="https://buchung.treatwell.de/ort/476314/menue/"
-        className={s.lgb}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Treatwell
-      </a>
+      {links.map((link) => (
+        <a
+          key={link.label}
+          href={link.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={s.lgb}
+        >
+          {link.label}
+        </a>
+      ))}
     </div>
   );
-};
+}
 
 export default Links;

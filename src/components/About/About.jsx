@@ -1,49 +1,13 @@
 import s from "./About.module.css";
-import Gif from "../About/IMG_3774.jpg";
+import photo from "./IMG_3774.jpg";
+import { t } from "../../i18n";
 
 function About({ language = "de" }) {
-  const getText1 = () => {
-    switch (language) {
-      case "en":
-        return "Hair Salon | Nail Studio | Clothing | Berlin | Prenzlauerberg";
-      case "fr":
-        return "Salon de coiffure | Studio d'ongles | Vêtements | Berlin | Prenzlauerberg";
-      case "es":
-        return "Salón de peluquería | Estudio de uñas | Ropa | Berlín | Prenzlauerberg";
-      default:
-        return "Friseursalon | Nagelstudio | Bekleidung | Berlin | Prenzlauerberg";
-    }
-  };
-
-  const getParagraph = () => {
-    switch (language) {
-      case "en":
-        return "Each of us walks our own unique path – our personal Way. We, the team at theWAY salon, have decided not only to walk this path for ourselves, but also to give others a piece of happiness on their life's journey.";
-      case "fr":
-        return "Chacun d'entre nous suit son propre chemin unique — son Way personnel. Nous, l'équipe du salon theWAY, avons décidé de ne pas seulement emprunter ce chemin pour nous-mêmes, mais aussi d'offrir aux autres un morceau de bonheur sur leur parcours de vie.";
-      case "es":
-        return "Cada uno de nosotros sigue su propio camino único — su Way personal. Nosotros, el equipo del salón theWAY, hemos decidido no solo recorrer este camino para nosotros mismos, sino también regalar a otros un pedazo de felicidad en su camino de vida.";
-      default:
-        return "Jeder von uns geht seinen ganz eigenen Weg – seinen persönlichen Way. Wir, das Team des Salons theWAY, haben uns dazu entschlossen, diesen Weg nicht nur für uns zu gehen, sondern auch für andere ein Stück Glück auf ihrem Lebensweg zu schenken.";
-    }
-  };
-
-  const getHours = () => {
-    switch (language) {
-      case "en":
-        return "Mon-Sat 10:00-19:00";
-      case "fr":
-        return "Lun-Sam 10h00-19h00";
-      case "es":
-        return "Lun-Sáb 10:00-19:00";
-      default:
-        return "Mo-Sa 10:00-19:00 Uhr";
-    }
-  };
-
   return (
     <div id="home" className={s.container}>
-      <h1 className="visually-hidden">theWAY Berlin - Friseur & Nagelstudio Prenzlauer Berg</h1>
+      <h1 className="visually-hidden">
+        theWAY Berlin - Friseur & Nagelstudio Prenzlauer Berg
+      </h1>
       <svg
         className={s.logo}
         width="602"
@@ -55,10 +19,37 @@ function About({ language = "de" }) {
       </svg>
 
       <h2 className={s.subtitle}>what about you</h2>
-      <p className={s.text1}>{getText1()}</p>
-      <p className={s.text}>{getParagraph()}</p>
-      <img src={Gif} alt="Gif" className={s.WelcomeGif} />
-      <p className={s.text2}>{getHours()}</p>
+      <p className={s.text1}>
+        {t(language, {
+          de: "Friseursalon | Nagelstudio | Bekleidung | Berlin | Prenzlauerberg",
+          en: "Hair Salon | Nail Studio | Clothing | Berlin | Prenzlauerberg",
+          fr: "Salon de coiffure | Studio d'ongles | Vêtements | Berlin | Prenzlauerberg",
+          es: "Salón de peluquería | Estudio de uñas | Ropa | Berlín | Prenzlauerberg",
+        })}
+      </p>
+      <p className={s.text}>
+        {t(language, {
+          de: "Jeder von uns geht seinen ganz eigenen Weg – seinen persönlichen Way. Wir, das Team des Salons theWAY, haben uns dazu entschlossen, diesen Weg nicht nur für uns zu gehen, sondern auch für andere ein Stück Glück auf ihrem Lebensweg zu schenken.",
+          en: "Each of us walks our own unique path – our personal Way. We, the team at theWAY salon, have decided not only to walk this path for ourselves, but also to give others a piece of happiness on their life's journey.",
+          fr: "Chacun d'entre nous suit son propre chemin unique — son Way personnel. Nous, l'équipe du salon theWAY, avons décidé de ne pas seulement emprunter ce chemin pour nous-mêmes, mais aussi d'offrir aux autres un morceau de bonheur sur leur parcours de vie.",
+          es: "Cada uno de nosotros sigue su propio camino único — su Way personal. Nosotros, el equipo del salón theWAY, hemos decidido no solo recorrer este camino para nosotros mismos, sino también regalar a otros un pedazo de felicidad en su camino de vida.",
+        })}
+      </p>
+      <img
+        src={photo}
+        alt="theWAY Berlin"
+        className={s.WelcomeGif}
+        fetchPriority="high"
+        decoding="async"
+      />
+      <p className={s.text2}>
+        {t(language, {
+          de: "Mo-Sa 10:00-19:00 Uhr",
+          en: "Mon-Sat 10:00-19:00",
+          fr: "Lun-Sam 10h00-19h00",
+          es: "Lun-Sáb 10:00-19:00",
+        })}
+      </p>
     </div>
   );
 }

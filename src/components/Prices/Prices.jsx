@@ -1,165 +1,148 @@
-import React, { useState, useEffect } from "react";
+import { Fragment, useEffect, useState } from "react";
 import s from "./Prices.module.css";
-import { hairServices, nailServices, bundleServices, browServices } from "./pricesData";
-import HaarGif from "../Prices/PricesImages/IMG_0439.jpg";
-import ManiGif from "../Prices/PricesImages/mani.jpeg";
-// import BundleGif from "../Prices/PricesImages/IMG_0440.jpg";
+import {
+  hairServices,
+  nailServices,
+  bundleServices,
+  browServices,
+} from "./pricesData";
+import HaarGif from "./PricesImages/IMG_0439.jpg";
+import ManiGif from "./PricesImages/mani.jpeg";
+import { pick, t } from "../../i18n";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
+
+const sections = [
+  {
+    key: "hair",
+    services: hairServices,
+    image: HaarGif,
+    imageClass: s.PricesGif,
+  },
+  {
+    key: "nail",
+    services: nailServices,
+    image: ManiGif,
+    imageClass: s.PricesGifMani,
+  },
+  {
+    key: "brow",
+    services: browServices,
+    image: ManiGif,
+    imageClass: s.PricesGifMani,
+  },
+  {
+    key: "bundle",
+    services: bundleServices,
+    image: ManiGif,
+    imageClass: s.PricesGifMani,
+  },
+];
+
+const allKeys = sections.flatMap((section) =>
+  section.services.map((service) => `${section.key}-${service.id}`),
+);
 
 function Prices({ language = "de", scrollToSection }) {
-  const [expandedItems, setExpandedItems] = useState(new Set());
-  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
+  const isDesktop = useMediaQuery("(min-width: 768px)");
+  const [expandedItems, setExpandedItems] = useState(() => new Set());
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsDesktop(window.innerWidth >= 768);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
-    if (isDesktop) {
-      // On desktop, expand all items
-      const allServiceIds = [
-        ...hairServices.map(s => s.id), 
-        ...nailServices.map(s => s.id),
-        ...bundleServices.map(s => s.id),
-        ...browServices.map(s => s.id)
-      ];
-      setExpandedItems(new Set(allServiceIds));
-    } else {
-      // On mobile, collapse all by default
-      setExpandedItems(new Set());
-    }
+    setExpandedItems(new Set(isDesktop ? allKeys : []));
   }, [isDesktop]);
 
-  const toggleDescription = (serviceId) => {
-    if (isDesktop) return; // No toggle on desktop
-    setExpandedItems(prev => {
-      const newSet = new Set(prev);
-      if (newSet.has(serviceId)) {
-        newSet.delete(serviceId);
-      } else {
-        newSet.add(serviceId);
-      }
-      return newSet;
+  const toggleDescription = (serviceKey) => {
+    if (isDesktop) return;
+    setExpandedItems((prev) => {
+      const next = new Set(prev);
+      if (next.has(serviceKey)) next.delete(serviceKey);
+      else next.add(serviceKey);
+      return next;
     });
   };
 
-  // Language-specific content
-  const getHairTitle = () => {
-    switch (language) {
-      case "en": return "Hair Services | Haircut & Balayage";
-      case "fr": return "Services capillaires | Coupe & Balayage";
-      case "es": return "Servicios de cabello | Corte & Balayage";
-      default: return "Friseurdienstleistungen | Haarschnitt & Balayage";
-    }
+  const titles = {
+    hair: t(language, {
+      de: "Friseurdienstleistungen | Haarschnitt & Balayage",
+      en: "Hair Services | Haircut & Balayage",
+      fr: "Services capillaires | Coupe & Balayage",
+      es: "Servicios de cabello | Corte & Balayage",
+    }),
+    nail: t(language, {
+      de: "Nagelstudio Services | Maniküre & Nail Art",
+      en: "Nail Services | Manicure & Nail Art",
+      fr: "Services d'ongles | Manucure & Nail Art",
+      es: "Servicios de uñas | Manicura & Nail Art",
+    }),
+    brow: t(language, {
+      de: "Augenbrauen Services",
+      en: "Brow Services",
+      fr: "Services de sourcils",
+      es: "Servicios de cejas",
+    }),
+    bundle: t(language, {
+      de: "Bundle Services",
+      en: "Bundle Services",
+      fr: "Services combinés",
+      es: "Servicios combinados",
+    }),
   };
-
-  const getNailTitle = () => {
-    switch (language) {
-      case "en": return "Nail Services | Manicure & Nail Art";
-      case "fr": return "Services d'ongles | Manucure & Nail Art";
-      case "es": return "Servicios de uñas | Manicura & Nail Art";
-      default: return "Nagelstudio Services | Maniküre & Nail Art";
-    }
-  };
-  
-  const getBundleTitle = () => {
-    switch (language) {
-      case "en": return "Bundle Services";
-      case "fr": return "Services combinés";
-      case "es": return "Servicios combinados";
-      default: return "Bundle Services";
-    }
-  };
-  
-  const getBrowsTitle = () => {
-    switch (language) {
-      case "en": return "Brow Services";
-      case "fr": return "Services de sourcils";
-      case "es": return "Servicios de cejas";
-      default: return "Augenbrauen Services";
-    }
-  };
-
-  const getButtonText = () => {
-    switch (language) {
-      case "en": return "Make Inquiry";
-      case "fr": return "Faire une demande";
-      case "es": return "Hacer consulta";
-      default: return "Anfrage stellen";
-    }
-  };
-
-  const getServiceName = (service) => {
-    switch (language) {
-      case "en": return service.serviceEN;
-      case "fr": return service.serviceFR;
-      case "es": return service.serviceES;
-      default: return service.service;
-    }
-  };
-
-  const getServicePrice = (service) => {
-    switch (language) {
-      case "en": return service.priceEN;
-      case "fr": return service.priceFR;
-      case "es": return service.priceES;
-      default: return service.price;
-    }
-  };
-
-  const getServiceDescription = (service) => {
-    switch (language) {
-      case "en": return service.descriptionEN;
-      case "fr": return service.descriptionFR;
-      case "es": return service.descriptionES;
-      default: return service.description;
-    }
-  };
-
-  const renderServiceList = (services, title) => (
-    <div className={s.serviceSection}>
-      <h2 className={s.sectionTitle}>{title}</h2>
-      <img 
-        src={services === hairServices ? HaarGif : ManiGif} 
-        alt={`${title} Gif`} 
-        className={services === hairServices ? s.PricesGif : s.PricesGifMani + " " + s.PricesGifBundle}
-      />
-      <div className={s.priceList}>
-        {services.map((service) => (
-          <div 
-            key={service.id} 
-            className={`${s.priceItem} ${expandedItems.has(service.id) ? s.expanded : ''}`}
-            onClick={() => toggleDescription(service.id)}
-          >
-            <div className={s.priceItemContent}>
-              <div className={s.serviceInfo}>
-                <h3 className={s.serviceName}>{getServiceName(service)}</h3>
-                <p className={s.servicePrice}>{getServicePrice(service)}</p>
-              </div>
-            </div>
-            <div className={s.serviceDescription}>
-              <p>{getServiceDescription(service)}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
 
   return (
     <div id="prices" className={s.container}>
-      {renderServiceList(hairServices, getHairTitle())}
-      <section className="SpaceSection"></section>
-      {renderServiceList(nailServices, getNailTitle())}
-      <section className="SpaceSection"></section>
-      {renderServiceList(browServices, getBrowsTitle())}
-      <section className="SpaceSection"></section>
-      {renderServiceList(bundleServices, getBundleTitle())}
-      <button className={s.button} onClick={() => scrollToSection('linksModal')}>
-        {getButtonText()}
+      {sections.map((section, index) => (
+        <Fragment key={section.key}>
+          <div className={s.serviceSection}>
+            <h2 className={s.sectionTitle}>{titles[section.key]}</h2>
+            <img
+              src={section.image}
+              alt={`${titles[section.key]} Gif`}
+              className={section.imageClass}
+              loading="lazy"
+              decoding="async"
+            />
+            <div className={s.priceList}>
+              {section.services.map((service) => {
+                const serviceKey = `${section.key}-${service.id}`;
+                return (
+                  <div
+                    key={serviceKey}
+                    className={`${s.priceItem} ${expandedItems.has(serviceKey) ? s.expanded : ""}`}
+                    onClick={() => toggleDescription(serviceKey)}
+                  >
+                    <div className={s.priceItemContent}>
+                      <div className={s.serviceInfo}>
+                        <h3 className={s.serviceName}>
+                          {pick(service, "service", language)}
+                        </h3>
+                        <p className={s.servicePrice}>
+                          {pick(service, "price", language)}
+                        </p>
+                      </div>
+                    </div>
+                    <div className={s.serviceDescription}>
+                      <p>{pick(service, "description", language)}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          {index < sections.length - 1 && (
+            <section className="SpaceSection"></section>
+          )}
+        </Fragment>
+      ))}
+      <button
+        type="button"
+        className={s.button}
+        onClick={() => scrollToSection("linksModal")}
+      >
+        {t(language, {
+          de: "Anfrage stellen",
+          en: "Make Inquiry",
+          fr: "Faire une demande",
+          es: "Hacer consulta",
+        })}
       </button>
     </div>
   );
