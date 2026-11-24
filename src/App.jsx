@@ -17,8 +17,8 @@ import { useMediaQuery } from "./hooks/useMediaQuery";
 const LANGUAGES = [
   { code: "de", label: "DE" },
   { code: "en", label: "EN" },
-  { code: "uk", label: "Українська" },
-  { code: "ru", label: "Русский" },
+  { code: "uk", label: "УКР", fullName: "Українська" },
+  { code: "ru", label: "РУ", fullName: "Русский" },
 ];
 
 const NAV_ITEMS = [
@@ -85,6 +85,8 @@ function LanguageOptions({ language, onChange }) {
       type="button"
       onClick={() => onChange(item.code)}
       className={`LanguageSwitcher language-option${language === item.code ? " active" : ""}`}
+      aria-label={item.fullName}
+      title={item.fullName}
     >
       {item.label}
     </button>
@@ -205,20 +207,19 @@ function App({ language: routeLanguage = "de" }) {
           </nav>
         )}
         {isMobile && (
-          <div
-            className={`mobile-language-container${
-              (LANGUAGES.find((item) => item.code === language)?.label.length ??
-                0) > 2
-                ? " language-wide"
-                : ""
-            }`}
-          >
+          <div className="mobile-language-container">
             <div className="language-dropdown" ref={dropdownRef}>
               <button
                 type="button"
                 className="LanguageSwitcher language-toggle"
                 onClick={() => setIsLanguageMenuOpen((open) => !open)}
                 aria-expanded={isLanguageMenuOpen}
+                aria-label={
+                  LANGUAGES.find((item) => item.code === language)?.fullName
+                }
+                title={
+                  LANGUAGES.find((item) => item.code === language)?.fullName
+                }
               >
                 {LANGUAGES.find((item) => item.code === language)?.label}
               </button>

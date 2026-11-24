@@ -209,18 +209,6 @@ nav {
     padding: 0 4px;
   }
 
-  .buttonBox:has(.language-wide) {
-    flex-wrap: wrap;
-    row-gap: 2px;
-  }
-
-  .language-wide {
-    flex: 1 0 100%;
-    display: flex;
-    justify-content: flex-end;
-    margin-left: 0;
-  }
-
   nav {
     flex: 1;
     flex-wrap: nowrap;
