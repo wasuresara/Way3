@@ -99,6 +99,7 @@ function App({ language: routeLanguage = "de" }) {
   const [language, setLanguage] = useState(routeLanguage);
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const scrollRequest = useRef(0);
   const isMobile = useMediaQuery("(max-width: 767px)");
 
   useEffect(() => {
@@ -109,6 +110,22 @@ function App({ language: routeLanguage = "de" }) {
   useEffect(() => {
     if (!isMobile) setIsLanguageMenuOpen(false);
   }, [isMobile]);
+
+  useEffect(() => {
+    const header = document.querySelector(".buttonBox");
+    if (!header) return undefined;
+    const apply = () => {
+      const height = Math.ceil(header.getBoundingClientRect().height);
+      document.documentElement.style.setProperty(
+        "--sticky-header",
+        `${height}px`,
+      );
+    };
+    apply();
+    const observer = new ResizeObserver(apply);
+    observer.observe(header);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (!isLanguageMenuOpen) return;
@@ -170,16 +187,47 @@ function App({ language: routeLanguage = "de" }) {
     const element = document.getElementById(sectionId);
     if (!element) return;
 
-    const headerHeight = 76;
-    const elementRect = element.getBoundingClientRect();
-    const elementTop = elementRect.top + window.pageYOffset;
-    const scrollPosition =
-      elementTop - headerHeight - (window.innerHeight - elementRect.height) / 5;
+    const requestId = ++scrollRequest.current;
 
-    window.scrollTo({
-      top: Math.max(0, scrollPosition),
-      behavior: "smooth",
+    const destination = () => {
+      const header = document.querySelector(".buttonBox");
+      const headerBottom = header ? header.getBoundingClientRect().bottom : 0;
+      return Math.max(
+        0,
+        element.getBoundingClientRect().top + window.scrollY - headerBottom,
+      );
+    };
+
+    let lastTop = destination();
+    const align = (behavior) => {
+      if (scrollRequest.current !== requestId) return;
+      const top = destination();
+      lastTop = top;
+      if (Math.abs(window.scrollY - top) < 1) return;
+      window.scrollTo({ top, behavior });
+    };
+
+    align("smooth");
+
+    const observer = new ResizeObserver(() => {
+      if (scrollRequest.current !== requestId) {
+        observer.disconnect();
+        return;
+      }
+      if (Math.abs(destination() - lastTop) > 4) align("auto");
     });
+    observer.observe(document.body);
+
+    const finish = () => {
+      if (scrollRequest.current !== requestId) return;
+      align("auto");
+    };
+    window.addEventListener("scrollend", finish, { once: true });
+    window.setTimeout(() => {
+      observer.disconnect();
+      window.removeEventListener("scrollend", finish);
+      finish();
+    }, 2500);
   };
 
   return (

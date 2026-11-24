@@ -125,7 +125,7 @@ select:focus-visible,
 #team,
 #karriere,
 #linksModal {
-  scroll-margin-top: 76px;
+  scroll-margin-top: var(--sticky-header, 76px);
 }
 
 @media (max-width: 767px) {
