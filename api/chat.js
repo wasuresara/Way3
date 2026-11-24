@@ -222,15 +222,7 @@ export async function POST(request) {
   if (sawEnd) {
     clearTimeout(abortTimer);
     reader.cancel();
-    return withCors(
-      new Response(first, {
-        headers: {
-          "Content-Type": "text/plain; charset=utf-8",
-          "Cache-Control": "no-store",
-        },
-      }),
-      request,
-    );
+    return textResponse(`${first}\0`, request);
   }
 
   let upstreamFinished = false;
@@ -244,7 +236,18 @@ export async function POST(request) {
         controller.close();
         return;
       }
-      const { done, value } = await reader.read();
+      let done;
+      let value;
+      try {
+        ({ done, value } = await readWithDeadline(reader, 300));
+      } catch {
+        upstreamFinished = true;
+        clearTimeout(abortTimer);
+        controller.enqueue(encoder.encode("\0"));
+        reader.cancel();
+        controller.close();
+        return;
+      }
       if (done) {
         upstreamFinished = true;
         clearTimeout(abortTimer);
@@ -259,6 +262,7 @@ export async function POST(request) {
       if (taken.finished) {
         upstreamFinished = true;
         clearTimeout(abortTimer);
+        controller.enqueue(encoder.encode("\0"));
         reader.cancel();
         controller.close();
       }
@@ -271,6 +275,18 @@ export async function POST(request) {
 
   return withCors(
     new Response(stream, {
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+        "Cache-Control": "no-store",
+      },
+    }),
+    request,
+  );
+}
+
+function textResponse(body, request) {
+  return withCors(
+    new Response(body, {
       headers: {
         "Content-Type": "text/plain; charset=utf-8",
         "Cache-Control": "no-store",
