@@ -1,7 +1,7 @@
 import { useState } from "react";
 import s from "./LinksModal.module.css";
 import { toast } from "react-hot-toast";
-import { hairServices, nailServices } from "../Prices/pricesData";
+import { priceSections } from "../Prices/pricesData";
 import { pick, t } from "../../i18n";
 
 const WEB3FORMS_KEY = "41ed0238-761d-448a-bc1f-219407011160";
@@ -78,10 +78,12 @@ function errorToast(message) {
 function LinksModal({ language = "de" }) {
   const [sending, setSending] = useState(false);
   const text = t(language, copy);
-  const services = [...hairServices, ...nailServices].map((service, index) => ({
-    id: `${index < hairServices.length ? "hair" : "nail"}-${service.id}`,
-    label: pick(service, "service", language),
-  }));
+  const services = priceSections.flatMap((section) =>
+    section.services.map((service) => ({
+      id: `${section.key}-${service.id}`,
+      label: pick(service, "service", language),
+    })),
+  );
 
   const onSubmit = async (event) => {
     event.preventDefault();

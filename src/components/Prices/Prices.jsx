@@ -1,42 +1,18 @@
 import { Fragment, useEffect, useState } from "react";
 import s from "./Prices.module.css";
-import {
-  hairServices,
-  nailServices,
-  bundleServices,
-  browServices,
-} from "./pricesData";
+import { priceSections } from "./pricesData";
 import HaarGif from "./PricesImages/IMG_0439.jpg";
 import ManiGif from "./PricesImages/mani.jpeg";
 import { pick, t } from "../../i18n";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 
-const sections = [
-  {
-    key: "hair",
-    services: hairServices,
-    image: HaarGif,
-    imageClass: s.PricesGif,
-  },
-  {
-    key: "nail",
-    services: nailServices,
-    image: ManiGif,
-    imageClass: s.PricesGifMani,
-  },
-  {
-    key: "brow",
-    services: browServices,
-    image: ManiGif,
-    imageClass: s.PricesGifMani,
-  },
-  {
-    key: "bundle",
-    services: bundleServices,
-    image: ManiGif,
-    imageClass: s.PricesGifMani,
-  },
-];
+const sections = priceSections.map((section) => ({
+  key: section.key,
+  services: section.services,
+  title: section.title,
+  image: section.image === "hair" ? HaarGif : ManiGif,
+  imageClass: section.image === "hair" ? s.PricesGif : s.PricesGifMani,
+}));
 
 const allKeys = sections.flatMap((section) =>
   section.services.map((service) => `${section.key}-${service.id}`),
@@ -60,78 +36,54 @@ function Prices({ language = "de", scrollToSection }) {
     });
   };
 
-  const titles = {
-    hair: t(language, {
-      de: "Friseurdienstleistungen | Haarschnitt & Balayage",
-      en: "Hair Services | Haircut & Balayage",
-      uk: "Перукарські послуги | Стрижка та балаяж",
-      ru: "Парикмахерские услуги | Стрижка и балаяж",
-    }),
-    nail: t(language, {
-      de: "Nagelstudio Services | Maniküre & Nail Art",
-      en: "Nail Services | Manicure & Nail Art",
-      uk: "Послуги нігтьової студії | Манікюр і нейл-арт",
-      ru: "Услуги ногтевой студии | Маникюр и нейл-арт",
-    }),
-    brow: t(language, {
-      de: "Augenbrauen Services",
-      en: "Brow Services",
-      uk: "Послуги для брів",
-      ru: "Услуги для бровей",
-    }),
-    bundle: t(language, {
-      de: "Bundle Services",
-      en: "Bundle Services",
-      uk: "Комплексні послуги",
-      ru: "Комплексные услуги",
-    }),
-  };
-
   return (
     <div id="prices" className={s.container}>
-      {sections.map((section, index) => (
-        <Fragment key={section.key}>
-          <div className={s.serviceSection}>
-            <h2 className={s.sectionTitle}>{titles[section.key]}</h2>
-            <img
-              src={section.image}
-              alt={`${titles[section.key]} Gif`}
-              className={section.imageClass}
-              loading="lazy"
-              decoding="async"
-            />
-            <div className={s.priceList}>
-              {section.services.map((service) => {
-                const serviceKey = `${section.key}-${service.id}`;
-                return (
-                  <div
-                    key={serviceKey}
-                    className={`${s.priceItem} ${expandedItems.has(serviceKey) ? s.expanded : ""}`}
-                    onClick={() => toggleDescription(serviceKey)}
-                  >
-                    <div className={s.priceItemContent}>
-                      <div className={s.serviceInfo}>
-                        <h3 className={s.serviceName}>
-                          {pick(service, "service", language)}
-                        </h3>
-                        <p className={s.servicePrice}>
-                          {pick(service, "price", language)}
-                        </p>
+      {sections.map((section, index) => {
+        const title = t(language, section.title);
+        return (
+          <Fragment key={section.key}>
+            <div className={s.serviceSection}>
+              <h2 className={s.sectionTitle}>{title}</h2>
+              <img
+                src={section.image}
+                alt={`${title} Gif`}
+                className={section.imageClass}
+                loading="lazy"
+                decoding="async"
+              />
+              <div className={s.priceList}>
+                {section.services.map((service) => {
+                  const serviceKey = `${section.key}-${service.id}`;
+                  return (
+                    <div
+                      key={serviceKey}
+                      className={`${s.priceItem} ${expandedItems.has(serviceKey) ? s.expanded : ""}`}
+                      onClick={() => toggleDescription(serviceKey)}
+                    >
+                      <div className={s.priceItemContent}>
+                        <div className={s.serviceInfo}>
+                          <h3 className={s.serviceName}>
+                            {pick(service, "service", language)}
+                          </h3>
+                          <p className={s.servicePrice}>
+                            {pick(service, "price", language)}
+                          </p>
+                        </div>
+                      </div>
+                      <div className={s.serviceDescription}>
+                        <p>{pick(service, "description", language)}</p>
                       </div>
                     </div>
-                    <div className={s.serviceDescription}>
-                      <p>{pick(service, "description", language)}</p>
-                    </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
-          </div>
-          {index < sections.length - 1 && (
-            <section className="SpaceSection"></section>
-          )}
-        </Fragment>
-      ))}
+            {index < sections.length - 1 && (
+              <section className="SpaceSection"></section>
+            )}
+          </Fragment>
+        );
+      })}
       <button
         type="button"
         className={s.button}
