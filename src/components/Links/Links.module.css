@@ -2,10 +2,10 @@
   display: flex;
   justify-content: center;
   flex-direction: row;
-  gap: 8px;
+  gap: 10px;
   list-style: none;
-  padding: 0;
-  margin-bottom: 18px;
+  padding: 4px 0 0;
+  margin: 20px 0 8px;
   align-items: center;
   flex-wrap: wrap;
 }
@@ -86,6 +86,20 @@
 .lgb span {
   position: relative;
   z-index: 2;
+}
+
+.lgb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    rgba(206, 176, 232, 0.18),
+    rgba(255, 255, 255, 0) 46%,
+    rgba(160, 210, 202, 0.14)
+  );
 }
 
 @media (prefers-color-scheme: dark) {

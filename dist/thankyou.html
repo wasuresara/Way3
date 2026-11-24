@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap"
       rel="stylesheet"
     />
     <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-MW2S8GPR"></script>
@@ -21,41 +21,84 @@
     </script>
     <style>
       * { box-sizing: border-box; }
+      :root { color-scheme: light dark; }
       body {
         margin: 0;
         min-height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
-        background: #f2f2f2;
-        color: #1c1711;
-        font-family: "Space Grotesk", Arial, Helvetica, sans-serif;
-        padding: 32px 16px;
+        background-color: #ffffff;
+        background-image:
+          radial-gradient(ellipse 62% 46% at 86% 6%, rgba(206, 176, 230, 0.18), transparent 70%),
+          radial-gradient(ellipse 52% 40% at 4% 92%, rgba(168, 214, 206, 0.12), transparent 72%),
+          radial-gradient(ellipse 42% 32% at 68% 100%, rgba(236, 186, 206, 0.1), transparent 70%);
+        background-attachment: fixed;
+        color: #161616;
+        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        padding: 48px 20px;
       }
       main {
-        width: min(400px, 100%);
+        width: min(480px, 100%);
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 16px;
+        gap: 14px;
       }
-      p { margin: 0; font-size: 18px; line-height: 1.45; }
-      h1 { margin: 8px 0 0; font-size: 32px; font-weight: 600; line-height: 1.15; }
+      p { margin: 0; font-size: 17px; line-height: 1.6; }
+      .kicker {
+        font-family: Montserrat, Inter, system-ui, sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #5c5c5c;
+      }
+      h1 {
+        margin: 4px 0 0;
+        font-family: Montserrat, Inter, system-ui, sans-serif;
+        font-size: clamp(1.7rem, 4vw, 2.3rem);
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        line-height: 1.15;
+      }
       a {
-        margin-top: 12px;
-        display: inline-block;
-        background: #1c1711;
+        margin-top: 10px;
+        display: inline-flex;
+        align-items: center;
+        background-color: #1c1711;
+        background-image: linear-gradient(115deg, rgba(206, 176, 232, 0.28), rgba(255, 255, 255, 0) 48%, rgba(160, 210, 202, 0.2));
         color: #f2f2f2;
         text-decoration: none;
         padding: 12px 18px;
-        border-radius: 12px;
-        font-weight: 500;
+        border-radius: 18px;
+        font-family: Montserrat, Inter, system-ui, sans-serif;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: 13px;
+      }
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: #000000;
+          background-image:
+            radial-gradient(ellipse 62% 46% at 86% 6%, rgba(132, 78, 186, 0.28), transparent 70%),
+            radial-gradient(ellipse 52% 40% at 4% 92%, rgba(56, 150, 148, 0.16), transparent 72%),
+            radial-gradient(ellipse 42% 32% at 68% 100%, rgba(186, 86, 132, 0.14), transparent 70%);
+          color: #f3f3f3;
+        }
+        .kicker { color: #b0b0b0; }
+        a {
+          background-color: #f2f2f2;
+          color: #1c1711;
+        }
       }
     </style>
   </head>
   <body>
     <main>
-      <p>theWAY Berlin</p>
+      <p class="kicker">theWAY Berlin</p>
       <h1>Danke für deine Nachricht.</h1>
       <p>Wir haben deine Anfrage erhalten und melden uns in Kürze bei dir.</p>
       <a href="/">Zurück zur Startseite</a>

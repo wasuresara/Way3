@@ -1,0 +1,123 @@
+:root {
+  color-scheme: light dark;
+  --bg: #ffffff;
+  --fg: #161616;
+  --muted: #5c5c5c;
+  --line: rgba(22, 22, 22, 0.12);
+  --panel: rgba(255, 255, 255, 0.78);
+  --glow-a: rgba(206, 176, 230, 0.18);
+  --glow-b: rgba(168, 214, 206, 0.12);
+  --glow-c: rgba(236, 186, 206, 0.1);
+}
+
+body.bg-gray-100 {
+  background-color: var(--bg) !important;
+  background-image:
+    radial-gradient(ellipse 62% 46% at 86% 6%, var(--glow-a), transparent 70%),
+    radial-gradient(ellipse 52% 40% at 4% 92%, var(--glow-b), transparent 72%),
+    radial-gradient(ellipse 42% 32% at 68% 100%, var(--glow-c), transparent 70%) !important;
+  background-attachment: fixed !important;
+  color: var(--fg) !important;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif !important;
+  line-height: 1.6;
+}
+
+nav.bg-blue-600 {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.86) !important;
+  color: var(--fg) !important;
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+}
+
+nav.bg-blue-600 h1 {
+  font-family: Montserrat, Inter, system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.95rem !important;
+}
+
+nav.bg-blue-600 a,
+nav.bg-blue-600 button {
+  color: inherit !important;
+  background: transparent !important;
+  border: none;
+  border-radius: 0 !important;
+  font-family: Montserrat, Inter, system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+nav.bg-blue-600 a:hover,
+nav.bg-blue-600 button:hover {
+  background: #1c1711 !important;
+  color: #f2f2f2 !important;
+}
+
+.bg-white.shadow-md {
+  background: var(--panel) !important;
+  color: var(--fg) !important;
+  box-shadow: none !important;
+  border: 1px solid var(--line);
+  border-radius: 0 !important;
+}
+
+.bg-white.shadow-md h2,
+.bg-white.shadow-md h3 {
+  font-family: Montserrat, Inter, system-ui, sans-serif;
+  letter-spacing: 0.04em;
+  color: var(--fg);
+}
+
+.bg-white.shadow-md h2 {
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 10px;
+}
+
+a.text-blue-600 {
+  color: inherit !important;
+  text-underline-offset: 3px;
+}
+
+footer.bg-gray-800 {
+  background: transparent !important;
+  color: var(--muted) !important;
+  border-top: 1px solid var(--line);
+  margin-top: 28px !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000;
+    --fg: #f3f3f3;
+    --muted: #b0b0b0;
+    --line: rgba(255, 255, 255, 0.14);
+    --panel: rgba(12, 10, 16, 0.78);
+    --glow-a: rgba(132, 78, 186, 0.28);
+    --glow-b: rgba(56, 150, 148, 0.16);
+    --glow-c: rgba(186, 86, 132, 0.14);
+  }
+
+  nav.bg-blue-600 {
+    background: rgba(0, 0, 0, 0.72) !important;
+    border-bottom-color: rgba(242, 242, 242, 0.2);
+  }
+
+  nav.bg-blue-600 a:hover,
+  nav.bg-blue-600 button:hover {
+    background: #f2f2f2 !important;
+    color: #1c1711 !important;
+  }
+}
