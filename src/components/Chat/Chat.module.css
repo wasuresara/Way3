@@ -126,6 +126,18 @@
   opacity: 0.6;
 }
 
+.retry {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--fg);
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  padding: 0 10px;
+}
+
 @media (prefers-color-scheme: dark) {
   .assistant,
   .input {

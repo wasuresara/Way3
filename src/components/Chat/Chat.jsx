@@ -18,6 +18,8 @@ const copy = {
     limited: "Zu viele Nachrichten. Bitte kurz warten.",
     tooLong: "Die Nachricht ist zu lang.",
     turnstile: "Die Prüfung ist fehlgeschlagen. Bitte erneut versuchen.",
+    timeout: "Die Antwort dauert zu lange. Bitte erneut versuchen.",
+    retry: "Erneut versuchen",
   },
   en: {
     open: "Open chat",
@@ -34,6 +36,8 @@ const copy = {
     limited: "Too many messages. Please wait a moment.",
     tooLong: "That message is too long.",
     turnstile: "The check failed. Please try again.",
+    timeout: "The answer is taking too long. Please try again.",
+    retry: "Try again",
   },
   uk: {
     open: "Відкрити чат",
@@ -49,6 +53,8 @@ const copy = {
     limited: "Забагато повідомлень. Зачекайте трохи.",
     tooLong: "Повідомлення задовге.",
     turnstile: "Перевірка не пройшла. Спробуйте ще раз.",
+    timeout: "Відповідь надто довго готується. Спробуйте ще раз.",
+    retry: "Спробувати ще раз",
   },
   ru: {
     open: "Открыть чат",
@@ -65,6 +71,8 @@ const copy = {
     limited: "Слишком много сообщений. Подождите немного.",
     tooLong: "Сообщение слишком длинное.",
     turnstile: "Проверка не прошла. Попробуйте ещё раз.",
+    timeout: "Ответ готовится слишком долго. Попробуйте ещё раз.",
+    retry: "Попробовать ещё раз",
   },
   pl: {
     open: "Otwórz czat",
@@ -81,6 +89,8 @@ const copy = {
     limited: "Za dużo wiadomości. Poczekaj chwilę.",
     tooLong: "Wiadomość jest za długa.",
     turnstile: "Sprawdzenie nie powiodło się. Spróbuj ponownie.",
+    timeout: "Odpowiedź trwa zbyt długo. Spróbuj ponownie.",
+    retry: "Spróbuj ponownie",
   },
 };
 
@@ -92,7 +102,15 @@ const errors = {
   turnstile: "turnstile",
   upstream: "error",
   bad_request: "error",
+  timeout: "timeout",
 };
+
+function chatUrl() {
+  if (window.location.hostname === "theway.berlin") {
+    return "https://www.theway.berlin/api/chat";
+  }
+  return "/api/chat";
+}
 
 function Chat({ language = "de" }) {
   const text = t(language, copy);
@@ -101,13 +119,15 @@ function Chat({ language = "de" }) {
   const [messages, setMessages] = useState([]);
   const [draft, setDraft] = useState("");
   const [busy, setBusy] = useState(false);
+  const [canRetry, setCanRetry] = useState(false);
+  const lastQuestion = useRef("");
   const logRef = useRef(null);
   const siteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY || "";
   const tokenRef = useRef("");
 
   useEffect(() => {
     let cancelled = false;
-    fetch("/api/chat")
+    fetch(chatUrl(), { redirect: "follow" })
       .then((res) => (res.ok ? res.json() : { configured: false }))
       .then((data) => {
         if (!cancelled) setConfigured(Boolean(data.configured));
@@ -160,17 +180,40 @@ function Chat({ language = "de" }) {
     if (node) node.scrollTop = node.scrollHeight;
   }, [messages, open, configured]);
 
-  const send = async (event) => {
-    event.preventDefault();
-    const content = draft.trim();
+  const failLast = (content) => {
+    setCanRetry(true);
+    setMessages((current) => {
+      const copyMessages = [...current];
+      copyMessages[copyMessages.length - 1] = {
+        role: "assistant",
+        content,
+        error: true,
+      };
+      return copyMessages;
+    });
+  };
+
+  const sendText = async (content) => {
     if (!content || busy || configured === false) return;
-    const next = [...messages, { role: "user", content }];
-    setMessages([...next, { role: "assistant", content: "" }]);
+    const prior = messages.filter(
+      (message) => message.content && !message.pending && !message.error,
+    );
+    const next = [...prior, { role: "user", content }];
+    lastQuestion.current = content;
+    setCanRetry(false);
+    setMessages([...next, { role: "assistant", content: "…", pending: true }]);
     setDraft("");
     setBusy(true);
+    const controller = new AbortController();
+    let gotToken = false;
+    const timer = setTimeout(() => {
+      if (!gotToken) controller.abort();
+    }, 26000);
     try {
-      const res = await fetch("/api/chat", {
+      const res = await fetch(chatUrl(), {
         method: "POST",
+        redirect: "follow",
+        signal: controller.signal,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           language,
@@ -181,14 +224,7 @@ function Chat({ language = "de" }) {
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
         const key = errors[data.code] || "error";
-        setMessages((current) => {
-          const copyMessages = [...current];
-          copyMessages[copyMessages.length - 1] = {
-            role: "assistant",
-            content: text[key],
-          };
-          return copyMessages;
-        });
+        failLast(data.message || text[key]);
         if (data.code === "not_configured") setConfigured(false);
         return;
       }
@@ -200,6 +236,7 @@ function Chat({ language = "de" }) {
           const { done, value } = await reader.read();
           if (done) break;
           full += decoder.decode(value, { stream: true });
+          if (full) gotToken = true;
           const snapshot = full;
           setMessages((current) => {
             const copyMessages = [...current];
@@ -211,28 +248,22 @@ function Chat({ language = "de" }) {
           });
         }
       }
-      if (!full) {
-        setMessages((current) => {
-          const copyMessages = [...current];
-          copyMessages[copyMessages.length - 1] = {
-            role: "assistant",
-            content: text.error,
-          };
-          return copyMessages;
-        });
-      }
+      if (!full) failLast(text.timeout);
     } catch {
-      setMessages((current) => {
-        const copyMessages = [...current];
-        copyMessages[copyMessages.length - 1] = {
-          role: "assistant",
-          content: text.error,
-        };
-        return copyMessages;
-      });
+      failLast(gotToken ? text.error : text.timeout);
     } finally {
+      clearTimeout(timer);
       setBusy(false);
     }
+  };
+
+  const send = (event) => {
+    event.preventDefault();
+    sendText(draft.trim());
+  };
+
+  const retry = () => {
+    sendText(lastQuestion.current);
   };
 
   return (
@@ -283,6 +314,11 @@ function Chat({ language = "de" }) {
             >
               {text.send}
             </button>
+            {canRetry && (
+              <button type="button" className={s.retry} onClick={retry}>
+                {text.retry}
+              </button>
+            )}
           </form>
         </section>
       )}
