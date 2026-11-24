@@ -15,8 +15,8 @@
   gap: 0;
   width: 100%;
   max-width: 100%;
-  margin: 4px auto 0;
-  border-top: 1px solid var(--line);
+  margin: 0 auto;
+  border-top: none;
 }
 
 .PricesGif {
@@ -62,6 +62,10 @@
 .priceItem:hover,
 .priceItem.expanded {
   background: var(--row-highlight);
+}
+
+.priceItem:hover {
+  box-shadow: inset 3px 0 0 rgba(244, 176, 204, 0.75);
 }
 
 .priceItemContent {
@@ -243,7 +247,7 @@
 
 @media (min-width: 768px) {
   .priceList {
-    margin-top: 8px;
+    margin-top: 0;
   }
 
   .PricesGif {

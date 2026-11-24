@@ -9,15 +9,31 @@
   --muted: #5c5c5c;
   --line: rgba(22, 22, 22, 0.12);
   --panel: rgba(255, 255, 255, 0.7);
-  --glow-a: rgba(206, 176, 230, 0.18);
-  --glow-b: rgba(168, 214, 206, 0.12);
-  --glow-c: rgba(236, 186, 206, 0.1);
+  --glow-a: rgba(190, 140, 220, 0.34);
+  --glow-b: rgba(130, 200, 198, 0.24);
+  --glow-c: rgba(244, 160, 186, 0.26);
   --row-highlight: linear-gradient(
     90deg,
-    rgba(22, 18, 28, 0.05) 0%,
-    rgba(186, 150, 214, 0.16) 42%,
-    rgba(150, 196, 190, 0.08) 74%,
+    rgba(244, 176, 204, 0.2) 0%,
+    rgba(255, 206, 176, 0.16) 26%,
+    rgba(186, 150, 214, 0.2) 54%,
+    rgba(150, 206, 214, 0.14) 78%,
     transparent 100%
+  );
+  --pastel-card: linear-gradient(
+    160deg,
+    rgba(244, 176, 204, 0.34),
+    rgba(255, 204, 176, 0.2) 34%,
+    rgba(196, 168, 228, 0.16) 58%,
+    rgba(156, 210, 214, 0.22)
+  );
+  --pastel-wash: linear-gradient(
+    115deg,
+    rgba(244, 176, 204, 0.46) 0%,
+    rgba(255, 204, 176, 0.3) 30%,
+    rgba(196, 168, 228, 0.42) 58%,
+    rgba(156, 210, 226, 0.36) 82%,
+    rgba(154, 214, 204, 0.34) 100%
   );
   --font-body: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
@@ -95,6 +111,14 @@ img {
   max-width: 100%;
 }
 
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+.LanguageSwitcher:focus-visible {
+  outline: 2px solid rgba(214, 150, 190, 0.9);
+  outline-offset: 3px;
+}
+
 #home,
 #prices,
 #clothing,
@@ -136,19 +160,27 @@ img {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #000000;
-    --fg: #f3f3f3;
-    --muted: #b0b0b0;
-    --line: rgba(255, 255, 255, 0.14);
-    --panel: rgba(12, 10, 16, 0.72);
-    --glow-a: rgba(132, 78, 186, 0.28);
-    --glow-b: rgba(56, 150, 148, 0.16);
-    --glow-c: rgba(186, 86, 132, 0.14);
+    --bg: #232327;
+    --fg: #f4f4f6;
+    --muted: #c8c8ce;
+    --line: rgba(255, 255, 255, 0.16);
+    --panel: #2e2e34;
+    --pastel-card: linear-gradient(
+      160deg,
+      rgba(244, 176, 204, 0.16),
+      rgba(255, 204, 176, 0.08) 36%,
+      transparent 52%,
+      rgba(156, 210, 214, 0.12)
+    );
+    --glow-a: rgba(186, 150, 214, 0.22);
+    --glow-b: rgba(120, 196, 204, 0.14);
+    --glow-c: rgba(236, 170, 190, 0.12);
     --row-highlight: linear-gradient(
       90deg,
-      rgba(255, 255, 255, 0.16) 0%,
-      rgba(186, 140, 214, 0.18) 40%,
-      rgba(120, 196, 190, 0.07) 72%,
+      rgba(244, 176, 204, 0.18) 0%,
+      rgba(255, 196, 170, 0.1) 24%,
+      rgba(186, 140, 214, 0.22) 52%,
+      rgba(120, 196, 204, 0.14) 76%,
       transparent 100%
     );
   }
@@ -156,6 +188,6 @@ img {
 
 @media (max-width: 767px) and (prefers-color-scheme: dark) {
   :root {
-    --muted: #e4e4e4;
+    --muted: #d6d6dc;
   }
 }

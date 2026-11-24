@@ -1,8 +1,6 @@
 import { Fragment, useEffect, useState } from "react";
 import s from "./Prices.module.css";
 import { priceSections } from "./pricesData";
-import HaarGif from "./PricesImages/IMG_0439.jpg";
-import ManiGif from "./PricesImages/mani.jpeg";
 import { pick, t } from "../../i18n";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
 
@@ -10,8 +8,6 @@ const sections = priceSections.map((section) => ({
   key: section.key,
   services: section.services,
   title: section.title,
-  image: section.image === "hair" ? HaarGif : ManiGif,
-  imageClass: section.image === "hair" ? s.PricesGif : s.PricesGifMani,
 }));
 
 const allKeys = sections.flatMap((section) =>
@@ -44,13 +40,6 @@ function Prices({ language = "de", scrollToSection }) {
           <Fragment key={section.key}>
             <div className={s.serviceSection}>
               <h2 className={s.sectionTitle}>{title}</h2>
-              <img
-                src={section.image}
-                alt={`${title} Gif`}
-                className={section.imageClass}
-                loading="lazy"
-                decoding="async"
-              />
               <div className={s.priceList}>
                 {section.services.map((service) => {
                   const serviceKey = `${section.key}-${service.id}`;

@@ -105,12 +105,7 @@
   align-items: stretch;
   width: min(100%, 440px);
   background-color: var(--panel);
-  background-image: linear-gradient(
-    165deg,
-    rgba(206, 176, 232, 0.1),
-    transparent 50%,
-    rgba(160, 210, 202, 0.08)
-  );
+  background-image: var(--pastel-card);
   border: 1px solid var(--line);
 }
 
@@ -150,6 +145,7 @@ input {
 
 input:hover {
   background: rgba(255, 255, 255, 0.62);
+  border-color: rgba(156, 210, 214, 0.75);
   box-shadow:
     0 6px 10px rgba(0, 0, 0, 0.06),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
