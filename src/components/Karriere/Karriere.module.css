@@ -26,12 +26,7 @@
   display: flex;
   flex-direction: column;
   background-color: var(--panel);
-  background-image: linear-gradient(
-    165deg,
-    rgba(206, 176, 232, 0.1),
-    transparent 48%,
-    rgba(160, 210, 202, 0.08)
-  );
+  background-image: var(--pastel-card);
   border-radius: 0;
   border: 1px solid var(--line);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -43,9 +38,11 @@
 
 .jobItem:hover {
   transform: translateY(-2px);
-  border-color: var(--line);
+  border-color: rgba(214, 150, 190, 0.55);
   background-color: var(--panel);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.06),
+    inset 0 0 0 1px rgba(156, 210, 214, 0.35);
 }
 
 .jobHeader {
@@ -154,11 +151,18 @@
   inset: 0;
   z-index: -1;
   pointer-events: none;
+  background: var(--pastel-wash);
+}
+
+.button:hover::after,
+.button:focus-visible::after,
+.button:active::after {
   background: linear-gradient(
     115deg,
-    rgba(206, 176, 232, 0.2),
-    rgba(255, 255, 255, 0) 46%,
-    rgba(160, 210, 202, 0.16)
+    rgba(244, 176, 204, 0.7),
+    rgba(255, 204, 176, 0.46) 30%,
+    rgba(196, 168, 228, 0.62) 58%,
+    rgba(156, 210, 226, 0.55)
   );
 }
 
@@ -209,18 +213,21 @@
 
 @media (prefers-color-scheme: dark) {
   .jobItem:hover {
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+    border-color: rgba(244, 176, 204, 0.55);
+    box-shadow:
+      0 10px 24px rgba(0, 0, 0, 0.35),
+      inset 0 0 0 1px rgba(156, 210, 214, 0.35);
   }
 
   .button {
-    background-color: lightgray;
-    color: black;
+    background-color: rgba(236, 236, 240, 0.92);
+    color: #1c1c1f;
   }
 
   .button:hover {
-    background-color: #1c1711;
-    color: #f2f2f2;
-    outline: #f2f2f2 solid 1px;
+    background-color: #323238;
+    color: #f4f4f6;
+    outline: 1px solid rgba(244, 176, 204, 0.85);
     box-shadow:
       inset 1px 1px 4px 0 rgba(255, 255, 255, 0.25),
       0 4px 4px 0 rgba(255, 255, 255, 0.25);
