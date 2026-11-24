@@ -11,6 +11,7 @@ import LinksModal from "./components/LinksModal/LinksModal";
 import Staff from "./components/Staff/Staff";
 import Prices from "./components/Prices/Prices";
 import Karriere from "./components/Karriere/Karriere";
+import Chat from "./components/Chat/Chat";
 import { t } from "./i18n";
 import { useMediaQuery } from "./hooks/useMediaQuery";
 
@@ -111,7 +112,7 @@ function LanguageOptions({ language, onChange }) {
   ));
 }
 
-function App({ language: routeLanguage = "de" }) {
+function App({ language: routeLanguage = "de", beta = false }) {
   const navigate = useNavigate();
   const [language, setLanguage] = useState(routeLanguage);
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
@@ -190,14 +191,23 @@ function App({ language: routeLanguage = "de" }) {
       document.head.appendChild(canonical);
     }
     const path = language === "de" ? "/" : `/${language}`;
-    canonical.setAttribute("href", `${window.location.origin}${path}`);
-  }, [language]);
+    const publicPath = beta ? `${path === "/" ? "" : path}/beta` : path;
+    canonical.setAttribute("href", `${window.location.origin}${publicPath}`);
+    ensureMeta(
+      'meta[name="robots"]',
+      ["name", "robots"],
+      beta
+        ? "noindex, nofollow"
+        : "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
+    );
+  }, [language, beta]);
 
   const handleLanguageChange = (lang) => {
     setIsLanguageMenuOpen(false);
     if (lang === language) return;
     setLanguage(lang);
-    navigate(lang === "de" ? "/" : `/${lang}`);
+    const stem = lang === "de" ? "/" : `/${lang}`;
+    navigate(beta ? (lang === "de" ? "/beta" : `${stem}/beta`) : stem);
   };
 
   const scrollToSection = (sectionId) => {
@@ -317,6 +327,7 @@ function App({ language: routeLanguage = "de" }) {
         <section className="SpaceSection"></section>
         <Karriere language={language} />
         <Footer />
+        {beta && <Chat language={language} />}
       </div>
     </div>
   );
