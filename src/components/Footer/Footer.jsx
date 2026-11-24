@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className={s.footer}>
       <p>
-        <span className={s.version}>v1.5</span>
+        <span className={s.version}>v1.1.0</span>
       </p>
       <div className={s.legal}>
         <a href="/dsgvo.html" className={pricesStyles.button}>

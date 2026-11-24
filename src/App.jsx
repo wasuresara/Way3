@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import "./App.css";
 import About from "./components/About/About";
+import Highlights from "./components/Highlights/Highlights";
 import About2 from "./components/About2/About2";
 import Links from "./components/Links/Links";
 import Footer from "./components/Footer/Footer";
@@ -238,6 +239,7 @@ function App({ language: routeLanguage = "de" }) {
 
       <div className="Wrapper">
         <About language={language} />
+        <Highlights language={language} />
         <Links language={language} scrollToSection={scrollToSection} />
         <Prices language={language} scrollToSection={scrollToSection} />
         <section className="SpaceSection"></section>
