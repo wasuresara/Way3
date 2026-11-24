@@ -18,18 +18,18 @@ const copy = {
       Each thing is unique.
     </>
   ),
-  fr: (
+  uk: (
     <>
-      Vêtements upcyclés. <br /> Nous donnons une nouvelle vie aux produits -
-      nous reconstruisons des matériaux secondaires en un objet unique. <br />
-      Chaque chose est unique.
+      Одяг з апсайклінгу. <br /> Ми даємо речам нове життя — перетворюємо
+      вторинні матеріали на унікальний предмет. <br />
+      Кожна річ існує в єдиному екземплярі.
     </>
   ),
-  es: (
+  ru: (
     <>
-      Ropa reciclada. <br /> Damos nueva vida a los productos - reconstruimos
-      materiales secundarios en un objeto único. <br />
-      Cada cosa es única.
+      Одежда из апсайклинга. <br /> Мы даём вещам новую жизнь — превращаем
+      вторичные материалы в уникальный предмет. <br />
+      Каждая вещь существует в единственном экземпляре.
     </>
   ),
 };

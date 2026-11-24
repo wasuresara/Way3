@@ -2,10 +2,10 @@
   "rewrites": [
     { "source": "/en", "destination": "/" },
     { "source": "/en/:path*", "destination": "/" },
-    { "source": "/fr", "destination": "/" },
-    { "source": "/fr/:path*", "destination": "/" },
-    { "source": "/es", "destination": "/" },
-    { "source": "/es/:path*", "destination": "/" },
+    { "source": "/uk", "destination": "/" },
+    { "source": "/uk/:path*", "destination": "/" },
+    { "source": "/ru", "destination": "/" },
+    { "source": "/ru/:path*", "destination": "/" },
     { "source": "/thankyou", "destination": "/thankyou.html" },
     { "source": "/:path*", "destination": "/" }
   ]

@@ -64,26 +64,26 @@ function Prices({ language = "de", scrollToSection }) {
     hair: t(language, {
       de: "Friseurdienstleistungen | Haarschnitt & Balayage",
       en: "Hair Services | Haircut & Balayage",
-      fr: "Services capillaires | Coupe & Balayage",
-      es: "Servicios de cabello | Corte & Balayage",
+      uk: "Перукарські послуги | Стрижка та балаяж",
+      ru: "Парикмахерские услуги | Стрижка и балаяж",
     }),
     nail: t(language, {
       de: "Nagelstudio Services | Maniküre & Nail Art",
       en: "Nail Services | Manicure & Nail Art",
-      fr: "Services d'ongles | Manucure & Nail Art",
-      es: "Servicios de uñas | Manicura & Nail Art",
+      uk: "Послуги нігтьової студії | Манікюр і нейл-арт",
+      ru: "Услуги ногтевой студии | Маникюр и нейл-арт",
     }),
     brow: t(language, {
       de: "Augenbrauen Services",
       en: "Brow Services",
-      fr: "Services de sourcils",
-      es: "Servicios de cejas",
+      uk: "Послуги для брів",
+      ru: "Услуги для бровей",
     }),
     bundle: t(language, {
       de: "Bundle Services",
       en: "Bundle Services",
-      fr: "Services combinés",
-      es: "Servicios combinados",
+      uk: "Комплексні послуги",
+      ru: "Комплексные услуги",
     }),
   };
 
@@ -140,8 +140,8 @@ function Prices({ language = "de", scrollToSection }) {
         {t(language, {
           de: "Anfrage stellen",
           en: "Make Inquiry",
-          fr: "Faire une demande",
-          es: "Hacer consulta",
+          uk: "Залишити запит",
+          ru: "Оставить заявку",
         })}
       </button>
     </div>

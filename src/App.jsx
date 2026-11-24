@@ -14,28 +14,33 @@ import MayerUmarov from "./components/MayerUmarov/MayerUmarov";
 import { t } from "./i18n";
 import { useMediaQuery } from "./hooks/useMediaQuery";
 
-const LANGUAGES = ["de", "en", "fr", "es"];
+const LANGUAGES = [
+  { code: "de", label: "DE" },
+  { code: "en", label: "EN" },
+  { code: "uk", label: "Українська" },
+  { code: "ru", label: "Русский" },
+];
 
 const NAV_ITEMS = [
   {
     id: "home",
-    label: { de: "Hauptseite", en: "Home", fr: "Accueil", es: "Inicio" },
+    label: { de: "Hauptseite", en: "Home", uk: "Головна", ru: "Главная" },
   },
   {
     id: "prices",
-    label: { de: "Preise", en: "Prices", fr: "Tarifs", es: "Precios" },
+    label: { de: "Preise", en: "Prices", uk: "Ціни", ru: "Цены" },
   },
   {
     id: "clothing",
-    label: { de: "Bekleidung", en: "Clothing", fr: "Vêtements", es: "Ropa" },
+    label: { de: "Bekleidung", en: "Clothing", uk: "Одяг", ru: "Одежда" },
   },
   {
     id: "team",
-    label: { de: "Team", en: "Team", fr: "Équipe", es: "Equipo" },
+    label: { de: "Team", en: "Team", uk: "Команда", ru: "Команда" },
   },
   {
     id: "karriere",
-    label: { de: "Karriere", en: "Career", fr: "Carrière", es: "Carrera" },
+    label: { de: "Karriere", en: "Career", uk: "Кар'єра", ru: "Карьера" },
   },
 ];
 
@@ -43,15 +48,22 @@ const SEO = {
   title: {
     de: "Friseur Prenzlauer Berg | theWAY Berlin",
     en: "Hair Salon Prenzlauer Berg | theWAY Berlin",
-    fr: "Coiffeur Prenzlauer Berg | theWAY Berlin",
-    es: "Peluquería Prenzlauer Berg | theWAY Berlin",
+    uk: "Перукарня Prenzlauer Berg | theWAY Berlin",
+    ru: "Парикмахерская Prenzlauer Berg | theWAY Berlin",
   },
   description: {
     de: "Friseur in Berlin Prenzlauer Berg: Haarschnitt, Farbe, Balayage, Maniküre & mehr. Jetzt Termin buchen.",
     en: "Hair salon in Berlin Prenzlauer Berg: haircut, color, balayage, manicure & more. Book now.",
-    fr: "Coiffeur à Berlin Prenzlauer Berg : coupe, couleur, balayage, manucure & plus. Réservez maintenant.",
-    es: "Peluquería en Berlín Prenzlauer Berg: corte, color, balayage, manicura y más. Reserva ahora.",
+    uk: "Перукарня в Берліні, Prenzlauer Berg: стрижка, фарбування, балаяж, манікюр і не тільки. Запишіться зараз.",
+    ru: "Парикмахерская в Берлине, Prenzlauer Berg: стрижка, окрашивание, балаяж, маникюр и не только. Запишитесь сейчас.",
   },
+};
+
+const OG_LOCALE = {
+  de: "de_DE",
+  en: "en_GB",
+  uk: "uk_UA",
+  ru: "ru_RU",
 };
 
 function ensureMeta(selector, attribute, value) {
@@ -67,14 +79,14 @@ function ensureMeta(selector, attribute, value) {
 }
 
 function LanguageOptions({ language, onChange }) {
-  return LANGUAGES.map((code) => (
+  return LANGUAGES.map((item) => (
     <button
-      key={code}
+      key={item.code}
       type="button"
-      onClick={() => onChange(code)}
-      className={`LanguageSwitcher${language === code ? " active" : ""}`}
+      onClick={() => onChange(item.code)}
+      className={`LanguageSwitcher language-option${language === item.code ? " active" : ""}`}
     >
-      {code.toUpperCase()}
+      {item.label}
     </button>
   ));
 }
@@ -127,6 +139,11 @@ function App({ language: routeLanguage = "de" }) {
       'meta[property="og:url"]',
       ["property", "og:url"],
       window.location.href,
+    );
+    ensureMeta(
+      'meta[property="og:locale"]',
+      ["property", "og:locale"],
+      OG_LOCALE[language] ?? OG_LOCALE.de,
     );
 
     let canonical = document.querySelector('link[rel="canonical"]');
@@ -188,7 +205,14 @@ function App({ language: routeLanguage = "de" }) {
           </nav>
         )}
         {isMobile && (
-          <div className="mobile-language-container">
+          <div
+            className={`mobile-language-container${
+              (LANGUAGES.find((item) => item.code === language)?.label.length ??
+                0) > 2
+                ? " language-wide"
+                : ""
+            }`}
+          >
             <div className="language-dropdown" ref={dropdownRef}>
               <button
                 type="button"
@@ -196,7 +220,7 @@ function App({ language: routeLanguage = "de" }) {
                 onClick={() => setIsLanguageMenuOpen((open) => !open)}
                 aria-expanded={isLanguageMenuOpen}
               >
-                {language.toUpperCase()}
+                {LANGUAGES.find((item) => item.code === language)?.label}
               </button>
               {isLanguageMenuOpen && (
                 <div className="language-dropdown-menu">
